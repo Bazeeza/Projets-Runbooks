@@ -1,5 +1,6 @@
 # configuration site vert
 
+```­­
 ena
 conf t
 hostname Switch1
@@ -29,10 +30,11 @@ no shut
 end
 !
 wr
-
+```
 
 # Configurtion Routeur-1 site-vert
 
+```
 ena
 conf t
 hostname Routeur-1
@@ -85,3 +87,4 @@ no shutdown
 end
 !
 wr
+```
