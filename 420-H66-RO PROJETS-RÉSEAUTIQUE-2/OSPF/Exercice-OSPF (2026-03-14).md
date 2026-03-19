@@ -34,7 +34,7 @@ wr
 
 # Configurtion Routeur-1 site-vert
 
-```
+```­­
 ena
 conf t
 hostname Routeur-1
@@ -88,3 +88,185 @@ end
 !
 wr
 ```
+
+# configuration site jaune
+
+```­­
+ena
+conf t
+hostname Switch2
+!
+vlan 20
+!
+vlan 21
+!
+interface FastEthernet0/1
+description vlan20
+switchport access vlan 20
+switchport mode access
+no shut
+!
+interface FastEthernet0/13
+description vlan21
+switchport access vlan 21
+switchport mode access
+no shut
+!
+interface GigabitEthernet0/1
+description Trunk vers R1
+switchport mode trunk
+switchport trunk allowed vlan 20,21
+no shut
+!
+end
+!
+wr
+```­­
+
+# Configurtion Routeur-2
+
+```­
+ena
+conf t
+hostname Routeur-2
+!
+router ospf 1
+router-id 2.2.2.2
+passive-interface default
+no passive-interface fa1/0
+no passive-interface eth0/0
+no passive-interface gi2/0
+no passive-interface gig5/0
+!
+network 10.0.0.4 0.0.0.3 area 0
+network 10.0.0.12 0.0.0.3 area 0
+network 10.0.0.16 0.0.0.3 area 0
+!
+network 192.168.20.0 0.0.0.255 area 0
+network 192.168.21.0 0.0.0.255 area 0
+!
+interface gi2/0
+no ip address
+no shutdown
+!
+interface gi2/0.20
+encapsulation dot1q 20
+ip address 192.168.20.254 255.255.255.0
+no shutdown
+!
+interface gi2/0.21
+encapsulation dot1q 21
+ip address 192.168.21.254 255.255.255.0
+no shutdown
+!
+interface eth0/0
+description vers routeur-2
+ip address 10.0.0.6 255.255.255.252
+no shutdown
+!
+interface fa1/0
+description vers routeur-3
+ip address 10.0.0.17 255.255.255.252
+no shutdown
+!
+interface gi5/0
+description vers routeur-4
+ip address 10.0.0.13 255.255.255.252
+no shutdown
+!
+end
+!
+wr
+```­­
+
+# configuration site mauve
+
+```­­
+ena
+conf t
+hostname Switch3
+!
+vlan 30
+!
+vlan 31
+!
+interface FastEthernet0/1
+description vlan30
+switchport access vlan 30
+switchport mode access
+no shut
+!
+interface FastEthernet0/13
+description vlan31
+switchport access vlan 31
+switchport mode access
+no shut
+!
+interface GigabitEthernet0/1
+description Trunk vers R3
+switchport mode trunk
+switchport trunk allowed vlan 30,31
+no shut
+!
+end
+!
+wr
+
+
+# Configurtion Routeur 3
+
+```­­
+ena
+conf t
+hostname Routeur-3
+!
+router ospf 1
+router-id 3.3.3.3
+passive-interface default
+no passive-interface fa1/0
+no passive-interface eth0/0
+no passive-interface gi2/0
+no passive-interface gig5/0
+!
+network 10.0.0.0 0.0.0.3 area 0
+network 10.0.0.12 0.0.0.3 area 0
+network 10.0.0.20 0.0.0.3 area 0
+!
+network 192.168.30.0 0.0.0.255 area 0
+network 192.168.31.0 0.0.0.255 area 0
+!
+interface gi2/0
+no ip address
+no shutdown
+!
+interface gi2/0.20
+encapsulation dot1q 20
+ip address 192.168.20.254 255.255.255.0
+no shutdown
+!
+interface gi2/0.31
+encapsulation dot1q 31
+ip address 192.168.31.254 255.255.255.0
+no shutdown
+!
+interface fa1/0
+description vers routeur-1
+ip address 10.0.0.2 255.255.255.252
+no shutdown
+!
+interface gi5/0
+description vers routeur-2
+ip address 10.0.0.14 255.255.255.252
+no shutdown
+!
+interface eth0/0
+description vers routeur-4
+ip address 10.0.0.21 255.255.255.252
+no shutdown
+!
+end
+!
+wr
+```­­
+
+
