@@ -121,7 +121,7 @@ no shut
 end
 !
 wr
-```­­
+```
 
 # Configurtion Routeur-2
 
@@ -177,11 +177,11 @@ no shutdown
 end
 !
 wr
-```­­
+```
 
 # configuration site mauve
 
-```­­
+```­
 ena
 conf t
 hostname Switch3
@@ -211,7 +211,7 @@ no shut
 end
 !
 wr
-
+```
 
 # Configurtion Routeur 3
 
@@ -267,6 +267,95 @@ no shutdown
 end
 !
 wr
-```­­
+```
 
+# configuration site rouge
+
+```­­
+ena
+conf t
+hostname Switch4
+!
+vlan 40
+!
+vlan 41
+!
+interface FastEthernet0/1
+description vlan40
+switchport access vlan 40
+switchport mode access
+no shut
+!
+interface FastEthernet0/13
+description vlan41
+switchport access vlan 41
+switchport mode access
+no shut
+!
+interface GigabitEthernet0/1
+description Trunk vers R1
+switchport mode trunk
+switchport trunk allowed vlan 40,41
+no shut
+!
+end
+!
+wr
+```
+
+# Configurtion Routeur-4
+
+```­­
+ena
+conf t
+hostname Routeur-4
+!
+router ospf 1
+router-id 4.4.4.4
+passive-interface default
+no passive-interface fa1/0
+no passive-interface eth0/0
+no passive-interface gi2/0
+no passive-interface eth3/0
+!
+network 10.0.0.8 0.0.0.3 area 0
+network 10.0.0.16 0.0.0.3 area 0
+network 10.0.0.20 0.0.0.3 area 0
+!
+network 192.168.40.0 0.0.0.255 area 0
+network 192.168.41.0 0.0.0.255 area 0
+!
+interface gi2/0
+no ip address
+no shutdown
+!
+interface gi2/0.40
+encapsulation dot1q 40
+ip address 192.168.40.254 255.255.255.0
+no shutdown
+!
+interface gi2/0.41
+encapsulation dot1q 41
+ip address 192.168.41.254 255.255.255.0
+no shutdown
+!
+interface eth3/0
+description vers routeur-1
+ip address 10.0.0.10 255.255.255.252
+no shutdown
+!
+interface fa1/0
+description vers routeur-2
+ip address 10.0.0.18 255.255.255.252
+no shutdown
+!
+interface eth0/0
+description vers routeur-3
+ip address 10.0.0.22 255.255.255.252
+no shutdown
+!
+end
+!
+wr
+```
 
