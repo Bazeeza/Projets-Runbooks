@@ -225,5 +225,46 @@ wr
 
 ## Configuration Routeur 4
 
+ena
+conf t
+hostname Routeur-4
+!
+router ospf 1
+router-id 4.4.4.4
+passive-interface default
+no passive-interface gig0/0
+no passive-interface gig1/0
+no passive-interface fa3/0
+no passive-interface eth6/0
+!
+network 192.168.0.0 0.0.0.3 area 0
+network 192.168.0.4 0.0.0.3 area 0
+network 192.168.0.8 0.0.0.3 area 0
+network 192.168.0.12 0.0.0.3 area 0
+!
+interface gig0/0
+description vers R5
+ip address 192.168.0.2 255.255.255.252
+no shut
+!
+interface fa3/0
+description vers R3
+ip address 192.168.0.6 255.255.255.252
+no shut
+!
+interface gig1/0
+description vers R2
+ip address 192.168.0.10 255.255.255.252
+no shut
+!
+interface eth6/0
+description vers R1
+ip address 192.168.0.13 255.255.255.252
+no shut
+!
+end
+!
+wr
+!
 
-
+## Configuration Routeur 5
