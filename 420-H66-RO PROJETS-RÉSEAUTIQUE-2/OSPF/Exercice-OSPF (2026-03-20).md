@@ -79,9 +79,33 @@ hostname Routeur-2
 routeur ospf 1
 routeur id 2.2.2.2
 passive-interface default
-no passive-interface
+no passive-interface gig1/0
+no passive-interface fa3/0
+no passive-interface gig0/0
+no passive-interface eth6/0
 !
-network
-
-
-
+network 192.168.0.28 0.0.0.3 area 0
+network 192.168.0.24 0.0.0.3 area 0
+network 192.168.0.8 0.0.0.3 area 0
+!
+network 10.0.0.0 0.0.0.255 area 0
+network 10.0.1.0 0.0.0.255 area 0
+!
+interface gig1/0
+no ip address
+no shut
+!
+interface gig1/0.10
+encapsulation dot1q 10
+ip address 10.0.0.254 255.255.255.0
+no shut
+!
+interface gig1/0.20
+encapsulation dot1q 20
+ip address 10.0.1.254 255.255.255.0
+no shut
+!
+interface fa3/0
+description vers R1
+ip address 192.168.0.29 255.255.255.252
+no shut
