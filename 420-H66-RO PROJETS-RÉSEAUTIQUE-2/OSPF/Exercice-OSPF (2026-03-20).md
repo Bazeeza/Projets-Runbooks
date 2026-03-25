@@ -178,4 +178,23 @@ no shut
 end
 !
 wr
+!
+
+## Configuration Routeur 3
+
+ena
+conf t
+hostname R3
+!
+router ospf 1
+router-id 3.3.3.3
+passive-interface default
+no passive-interface fa3/0
+no passive-interface fa4/0
+no passive-interface fa5/0
+no passive-interface eth6/0
+!
+network 192.168.0.24 0.0.0.3 area 0
+network 
+
 
