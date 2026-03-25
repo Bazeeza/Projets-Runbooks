@@ -109,3 +109,17 @@ interface fa3/0
 description vers R1
 ip address 192.168.0.29 255.255.255.252
 no shut
+!
+interface gig0/0
+description vers R4
+ip address 192.168.0.9 255.255.255.252
+no shut
+!
+interface eth6/0
+description vers R3
+ip address 192.168.0.24 255.255.255.252
+no shut
+!
+end
+!
+wr
