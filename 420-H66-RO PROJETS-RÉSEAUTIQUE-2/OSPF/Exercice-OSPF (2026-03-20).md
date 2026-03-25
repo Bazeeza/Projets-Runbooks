@@ -117,7 +117,7 @@ no shut
 !
 interface eth6/0
 description vers R3
-ip address 192.168.0.24 255.255.255.252
+ip address 192.168.0.26 255.255.255.252
 no shut
 !
 end
@@ -195,6 +195,35 @@ no passive-interface fa5/0
 no passive-interface eth6/0
 !
 network 192.168.0.24 0.0.0.3 area 0
-network 
+network 192.168.0.20 0.0.0.3 area 0
+network 192.168.0.16 0.0.0.3 area 0 
+network 192.168.0.4 0.0.0.3 area 0
+!
+interface fa3/0
+description vers R5
+ip address 192.168.0.17 255.255.255.252
+no shut
+!
+interface fa4/0
+description vers R4
+ip address 192.168.0.5 255.255.255.252
+no shut
+!
+interface fa5/0
+description vers R1
+ip address 192.168.0.21 255.255.255.252
+no shut
+!
+interface eth6/0
+description vers R2
+ip address 192.168.0.25 255.255.255.252
+no shut
+!
+end
+!
+wr
+
+## Configuration Routeur 4
+
 
 
