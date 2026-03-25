@@ -1,5 +1,5 @@
 ## Configuration Switch-1
-
+```
 ena
 conf t
 hostname switch-1
@@ -32,10 +32,10 @@ end
 !
 wr
 !
-
+```
 
 ## Configuration Switch-2
-
+```
 ena
 conf t
 hostname switch-2
@@ -68,16 +68,16 @@ end
 !
 wr
 !
-
+```
 
 ## Configuration Routeur 2
-
+```
 ena
 conf t
 hostname Routeur-2
 !
-routeur ospf 1
-routeur id 2.2.2.2
+router ospf 1
+router-id 2.2.2.2
 passive-interface default
 no passive-interface gig1/0
 no passive-interface fa3/0
@@ -123,3 +123,59 @@ no shut
 end
 !
 wr
+```
+
+## Configuration Routeur 1
+
+ena
+conf t
+hostname Routeur-1
+!
+router ospf 1
+router-id 1.1.1
+passive-interface default
+no passive-interface gig0/0
+no passive-interface fa3/0
+no passive-interface fa4/0
+no passive-interface eth6/0
+!
+network 192.168.0.28 0.0.0.3 area 0
+network 192.168.0.20 0.0.0.3 area 0
+network 192.168.0.8 0.0.0.3 area 0
+!
+network 10.0.2.0 0.0.0.255 area 0
+network 10.0.2.3 0.0.0.255 area 0
+!
+interface gig0/0
+no ip address
+no shut
+!
+interface gig0/0.30
+encapsulation dot1q 30
+ip address 10.0.2.254 255.255.255.0
+no shut
+!
+interface gig0/0.40
+encapsulation dot1q 40
+ip address 10.0.3.254 255.255.255.0
+no shut
+!
+interface fa3/0
+description vers R2
+ip address 192.168.0.30 255.255.255.252
+no shut
+!
+interface fa4/0
+description vers R3
+ip address 192.168.0.22 255.255.255.252
+no shut
+!
+interface eth6/0
+description vers R4
+ip address 192.168.0.14 255.255.255.252
+no shut
+!
+end
+!
+wr
+
