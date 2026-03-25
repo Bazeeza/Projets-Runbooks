@@ -126,7 +126,7 @@ wr
 ```
 
 ## Configuration Routeur 1
-
+```
 ena
 conf t
 hostname Routeur-1
@@ -179,9 +179,9 @@ end
 !
 wr
 !
-
+```
 ## Configuration Routeur 3
-
+```
 ena
 conf t
 hostname R3
@@ -222,9 +222,9 @@ no shut
 end
 !
 wr
-
+```
 ## Configuration Routeur 4
-
+```
 ena
 conf t
 hostname Routeur-4
@@ -265,6 +265,18 @@ no shut
 end
 !
 wr
-!
+```
 
 ## Configuration Routeur 5
+
+ena
+conf t
+hostname Routeur-5
+!
+router ospf 1
+router-id 5.5.5.5
+passive-interface default
+no passive-interface xx
+no passive-interface xx
+!
+network
