@@ -143,6 +143,7 @@ hostname Routeur-1
 !
 router ospf 1
 router-id 1.1.1.1
+log-adjaceny-changes
 passive-interface default
 no passive-interface gig0/0
 no passive-interface fa3/0
@@ -204,6 +205,7 @@ hostname R3
 !
 router ospf 1
 router-id 3.3.3.3
+log-adjaceny-changes
 passive-interface default
 no passive-interface fa3/0
 no passive-interface fa4/0
@@ -255,6 +257,7 @@ hostname Routeur-4
 !
 router ospf 1
 router-id 4.4.4.4
+log-adjaceny-changes
 passive-interface default
 no passive-interface gig0/0
 no passive-interface gig1/0
@@ -307,6 +310,7 @@ hostname Routeur-5
 !
 router ospf 1
 router-id 5.5.5.5
+log-adjaceny-changes
 passive-interface default
 no passive-interface gig0/0
 no passive-interface gig1/0
