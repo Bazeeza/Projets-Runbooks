@@ -19,7 +19,7 @@ no shutdown
 interface fa0/13
 description vers PC-20
 switchport mode access
-switchport acces vlan 20
+switchport access vlan 20
 no shut
 !
 interface gig0/1
@@ -55,7 +55,7 @@ no shutdown
 interface fa0/13
 description vers PC-40
 switchport mode access
-switchport acces vlan 40
+switchport access vlan 40
 no shut
 !
 interface gig0/1
@@ -88,8 +88,8 @@ network 192.168.0.28 0.0.0.3 area 0
 network 192.168.0.24 0.0.0.3 area 0
 network 192.168.0.8 0.0.0.3 area 0
 !
-network 10.0.0.0 0.0.0.255 area 0
-network 10.0.1.0 0.0.0.255 area 0
+network 10.0.0.0 0.0.0.3 area 0
+network 10.0.1.0 0.0.0.3 area 0
 !
 interface gig1/0
 no ip address
@@ -98,15 +98,11 @@ no shut
 interface gig1/0.10
 encapsulation dot1q 10
 ip address 10.0.0.254 255.255.255.0
-ip ospf hello-interval 5
-ip ospf dead-interval 20
 no shut
 !
 interface gig1/0.20
 encapsulation dot1q 20
 ip address 10.0.1.254 255.255.255.0
-ip ospf hello-interval 5
-ip ospf dead-interval 20
 no shut
 !
 interface fa3/0
@@ -142,7 +138,7 @@ conf t
 hostname Routeur-1
 !
 router ospf 1
-router-id 1.1.1
+router-id 1.1.1.1
 passive-interface default
 no passive-interface gig0/0
 no passive-interface fa3/0
@@ -151,10 +147,10 @@ no passive-interface eth6/0
 !
 network 192.168.0.28 0.0.0.3 area 0
 network 192.168.0.20 0.0.0.3 area 0
-network 192.168.0.8 0.0.0.3 area 0
+network 192.168.0.12 0.0.0.3 area 0
 !
-network 10.0.2.0 0.0.0.255 area 0
-network 10.0.2.3 0.0.0.255 area 0
+network 10.0.2.0 0.0.0.3 area 0
+network 10.0.3.0 0.0.0.3 area 0
 !
 interface gig0/0
 no ip address
@@ -163,15 +159,11 @@ no shut
 interface gig0/0.30
 encapsulation dot1q 30
 ip address 10.0.2.254 255.255.255.0
-ip ospf hello-interval 5
-ip ospf dead-interval 20
 no shut
 !
 interface gig0/0.40
 encapsulation dot1q 40
 ip address 10.0.3.254 255.255.255.0
-ip ospf hello-interval 5
-ip ospf dead-interval 20
 no shut
 !
 interface fa3/0
@@ -334,18 +326,9 @@ ip ospf hello-interval 5
 ip ospf dead-interval 20
 no shut
 !
-interface fa2/0
-description vers R3
-ip address 192.168.0.18 255.255.255.252
-ip ospf hello-interval 5
-ip ospf dead-interval 20
-no shut
-!
 interface gig1/0
 description vers Serveur-Internet
 ip address 209.165.47.1 255.255.255.252
-ip ospf hello-interval 5
-ip ospf dead-interval 20
 no shut
 !
 end
