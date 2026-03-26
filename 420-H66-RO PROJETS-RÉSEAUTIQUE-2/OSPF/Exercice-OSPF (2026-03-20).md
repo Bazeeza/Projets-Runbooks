@@ -78,9 +78,8 @@ hostname Routeur-2
 !
 router ospf 1
 router-id 2.2.2.2
-log-adjaceny-changes
+log-adjacency-changes
 passive-interface default
-no passive-interface gig1/0
 no passive-interface fa3/0
 no passive-interface gig0/0
 no passive-interface eth6/0
@@ -90,7 +89,7 @@ network 192.168.0.24 0.0.0.3 area 0
 network 192.168.0.8 0.0.0.3 area 0
 !
 network 10.0.0.0 0.0.0.255 area 0
-network 10.0.1.0 0.0.0.3255area 0
+network 10.0.1.0 0.0.0.255 area 0
 !
 interface gig1/0
 no ip address
@@ -143,9 +142,7 @@ hostname Routeur-1
 !
 router ospf 1
 router-id 1.1.1.1
-log-adjaceny-changes
 passive-interface default
-no passive-interface gig0/0
 no passive-interface fa3/0
 no passive-interface fa4/0
 no passive-interface eth6/0
@@ -173,6 +170,7 @@ no shut
 !
 interface fa3/0
 description vers R2
+bandwidth 100000
 ip address 192.168.0.30 255.255.255.252
 ip ospf hello-interval 5
 ip ospf dead-interval 20
@@ -180,6 +178,7 @@ no shut
 !
 interface fa4/0
 description vers R3
+bandwidth 100000
 ip address 192.168.0.22 255.255.255.252
 ip ospf hello-interval 5
 ip ospf dead-interval 20
@@ -187,6 +186,7 @@ no shut
 !
 interface eth6/0
 description vers R4
+bandwidth 10000
 ip address 192.168.0.14 255.255.255.252
 ip ospf hello-interval 5
 ip ospf dead-interval 20
@@ -197,6 +197,7 @@ end
 wr
 !
 ```
+
 ## Configuration Routeur 3
 ```
 ena
@@ -205,7 +206,6 @@ hostname R3
 !
 router ospf 1
 router-id 3.3.3.3
-log-adjaceny-changes
 passive-interface default
 no passive-interface fa3/0
 no passive-interface fa4/0
@@ -219,6 +219,7 @@ network 192.168.0.4 0.0.0.3 area 0
 !
 interface fa3/0
 description vers R5
+bandwidth 100000
 ip address 192.168.0.17 255.255.255.252
 ip ospf hello-interval 5
 ip ospf dead-interval 20
@@ -226,6 +227,7 @@ no shut
 !
 interface fa4/0
 description vers R4
+bandwidth 100000
 ip address 192.168.0.5 255.255.255.252
 ip ospf hello-interval 5
 ip ospf dead-interval 20
@@ -233,6 +235,7 @@ no shut
 !
 interface fa5/0
 description vers R1
+bandwidth 100000
 ip address 192.168.0.21 255.255.255.252
 ip ospf hello-interval 5
 ip ospf dead-interval 20
@@ -240,6 +243,7 @@ no shut
 !
 interface eth6/0
 description vers R2
+bandwidth 10000
 ip address 192.168.0.25 255.255.255.252
 ip ospf hello-interval 5
 ip ospf dead-interval 20
@@ -257,7 +261,6 @@ hostname Routeur-4
 !
 router ospf 1
 router-id 4.4.4.4
-log-adjaceny-changes
 passive-interface default
 no passive-interface gig0/0
 no passive-interface gig1/0
@@ -271,6 +274,7 @@ network 192.168.0.12 0.0.0.3 area 0
 !
 interface gig0/0
 description vers R5
+bandwidth 1000000
 ip address 192.168.0.2 255.255.255.252
 ip ospf hello-interval 5
 ip ospf dead-interval 20
@@ -278,6 +282,7 @@ no shut
 !
 interface fa3/0
 description vers R3
+bandwidth 100000
 ip address 192.168.0.6 255.255.255.252
 ip ospf hello-interval 5
 ip ospf dead-interval 20
@@ -285,6 +290,7 @@ no shut
 !
 interface gig1/0
 description vers R2
+bandwidth 1000000
 ip address 192.168.0.10 255.255.255.252
 ip ospf hello-interval 5
 ip ospf dead-interval 20
@@ -292,6 +298,7 @@ no shut
 !
 interface eth6/0
 description vers R1
+bandwidth 10000
 ip address 192.168.0.13 255.255.255.252
 ip ospf hello-interval 5
 ip ospf dead-interval 20
@@ -303,25 +310,24 @@ wr
 ```
 
 ## Configuration Routeur 5
-
+```
 ena
 conf t
 hostname Routeur-5
 !
 router ospf 1
+default-information originate
 router-id 5.5.5.5
-log-adjaceny-changes
 passive-interface default
 no passive-interface gig0/0
-no passive-interface gig1/0
 no passive-interface fa2/0
 !
 network 192.168.0.0 0.0.0.3 area 0
 network 192.168.0.16 0.0.0.3 area 0
-network 209.165.47.1 0.0.0.3 area 0
 !
 interface gig0/0
 description vers R4
+bandwidth 1000000
 ip address 192.168.0.1 255.255.255.252
 ip ospf hello-interval 5
 ip ospf dead-interval 20
@@ -329,6 +335,7 @@ no shut
 !
 interface fa2/0
 description vers R3
+bandwidth 100000
 ip address 192.168.0.18 255.255.255.252
 ip ospf hello-interval 5
 ip ospf dead-interval 20
@@ -336,9 +343,13 @@ no shut
 !
 interface gig1/0
 description vers Serveur-Internet
+bandwidth 100000
 ip address 209.165.47.1 255.255.255.252
 no shut
+!
+ip route 0.0.0.0 0.0.0.0 209.165.47.2
 !
 end
 !
 wr
+```
