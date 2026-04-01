@@ -309,7 +309,7 @@ end
 wr
 ```
 
-## Configuration Routeur 5
+## Configuration Routeur 5 - Routeur FRONT
 ```
 ena
 conf t
