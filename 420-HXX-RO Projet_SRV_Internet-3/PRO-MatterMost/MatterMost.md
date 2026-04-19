@@ -3,7 +3,7 @@
 
 | Élément        | Contenu                                                                        |
 | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Référent**   | Présentation et documentation d’un serveur **Mattermost** hébergé sur AWS et relié à une base de données **AWS RDS PostgreSQL**.                  |
+| **Référent**   | Présentation et documentation d’un serveur **Mattermost** hébergé sur AWS et relié à une base de données **AWS RDS PostgreSQL**.              |
 | **Émetteur**   | **Abdul-Bariu. Abdul-Majid. Aran**                   |
 | **Message**    | Présenter et documenter les **résultats** du déploiement réseau et services DNS, TLS, RDS et notifications e-mail) de **Mattermost**.   |
 | **Récepteur**  | M. Jérémy Massinon      |
