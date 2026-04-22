@@ -1,4 +1,4 @@
-# Explication et configuration ACL
+# Explication et configuration OSPF
 **Auteur But et Schéma planification**
 
 | Élément        | Contenu                                                                 |
