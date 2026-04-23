@@ -265,9 +265,31 @@ ip route 10.1.60.0 255.255.255.0 172.16.0.6
 ip route srv
 !
 ip access-list extended ACL_VLAN30_in
+remark VLAN 30 ne peut pas communiquer avec le VLAN 40
+deny ip 10.1.30.0 0.0.0.255 10.1.40.0 0.0.0.255
+! 
+remark autorise VLAN 30 ne peut pas communiquer avec le VLAN 40 peut envoyer des requêtes PING à tous les autres VLAN de PCs
+permit icmp 10.1.30.0 0.0.0.255 10.1.10.0 0.0.0.255 echo
+permit icmp 10.1.30.0 0.0.0.255 10.1.20.0 0.0.0.255 echo
+permit icmp 10.1.30.0 0.0.0.255 10.1.30.0 0.0.0.255 echo
+permit icmp 10.1.30.0 0.0.0.255 10.1.50.0 0.0.0.255 echo
+permit icmp 10.1.30.0 0.0.0.255 10.1.60.0 0.0.0.255 echo
+!
+remark autorise VLAN 30 peut envoyer des requêtes PING à tous les autres VLAN de PCs.
+permit icmp 10.1.30.0 0.0.0.255 10.1.10.0 0.0.0.255 echo-reply
+permit icmp 10.1.30.0 0.0.0.255 10.1.20.0 0.0.0.255 echo-reply
+permit icmp 10.1.30.0 0.0.0.255 10.1.30.0 0.0.0.255 echo-reply
+permit icmp 10.1.30.0 0.0.0.255 10.1.50.0 0.0.0.255 echo-reply
+permit icmp 10.1.30.0 0.0.0.255 10.1.60.0 0.0.0.255 echo-reply
+deny 10.1.30.0 0.0.0.255 any
+!
+in acess-list extended ACL_VLAN40
 
 
 
+end
+!
+wr
 
 
  ==========================================================================================================================================================================================================================================================================================================================
