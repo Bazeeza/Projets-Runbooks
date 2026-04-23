@@ -307,10 +307,41 @@ ena
 conf t
 hostname routeur-2
 !
-interface fa
-
-
-
+interface gi0/1
+description trunk sw-3
+no ip address
+no shut
+!
+interface gi0/1.50
+description vers-trunk-vlan50
+encapsulation dot1q 50
+no shut
+!
+interface gi0/1.60
+description vers-trunk-vlan60
+encapsulation dot1q 60
+no shut
+!
+interface gi0/1.50
+description vers-trunk-vlan50
+encapsulation dot1q 50
+no shut
+!
+interface gi0/0
+description vers sw-4
+ip address 192.168.0.13 255.255.255.252
+no shut
+!
+interface gi0/0
+description vers sw-4
+ip address 192.168.0.13 255.255.255.252
+no shut
+!
+interface gi0/2
+description vers sw-4
+ip address 192.168.0.13 255.255.255.252
+no shut
+!
 
 remark Le VLAN 50 peut uniquement communiquer avec les serveurs.
 permit 10.1.50.0 0.0.0.255 10.0.225.0 0.0.0.255
