@@ -284,14 +284,43 @@ permit icmp 10.1.30.0 0.0.0.255 10.1.60.0 0.0.0.255 echo-reply
 deny 10.1.30.0 0.0.0.255 any
 !
 in acess-list extended ACL_VLAN40
-
-
-
+remark Le VLAN 40 est le seul à pouvoir se connecter à distance sur les équipements réseaux en SSH (pas de TELNET)
+permit tcp 10.1.40.0 0.0.0.255 any eq 22
+!
+deny tcp 10.1.10.0 0.0.0.255 any eq 22
+deny tcp 10.1.20.0 0.0.0.255 any eq 22
+deny tcp 10.1.30.0 0.0.0.255 any eq 22
+deny tcp 10.1.50.0 0.0.0.255 any eq 22
+deny tcp 10.1.60.0 0.0.0.255 any eq 22
+deny tcp 10.1.10.0 0.0.0.255 any eq 23
+deny tcp 10.1.20.0 0.0.0.255 any eq 23
+deny tcp 10.1.30.0 0.0.0.255 any eq 23
+deny tcp 10.1.40.0 0.0.0.255 any eq 23
+deny tcp 10.1.50.0 0.0.0.255 any eq 23
+deny tcp 10.1.60.0 0.0.0.255 any eq 23
+!
 end
 !
 wr
 
+ena
+conf t
+hostname routeur-2
+!
+interface fa
 
+
+
+
+remark Le VLAN 50 peut uniquement communiquer avec les serveurs.
+permit 10.1.50.0 0.0.0.255 10.0.225.0 0.0.0.255
+deny ip any any
+
+!
+remark Le VLAN 60 peut tout faire, sauf se connecter aux appareils réseaux
+deny tcp 10.1.60.0 0.0.0.255 eq 22
+deny tcp 10.1.60.0 0.0.0.255 eq 23
+permit ip any any
  ==========================================================================================================================================================================================================================================================================================================================
 Le VLAN 10 ne peut pas consulter les serveurs.
 Le VLAN 10 peut envoyer des requêtes PING à tous les autres VLAN de PCs. (Tous les VLANs doivent répondre)
