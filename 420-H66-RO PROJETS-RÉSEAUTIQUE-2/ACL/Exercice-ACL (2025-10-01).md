@@ -270,8 +270,15 @@ ip access-list extended ACL_VLAN30_in
 
 
 
-
-
-
-
- 
+ ==========================================================================================================================================================================================================================================================================================================================
+Le VLAN 10 ne peut pas consulter les serveurs.
+Le VLAN 10 peut envoyer des requêtes PING à tous les autres VLAN de PCs. (Tous les VLANs doivent répondre)
+Le VLAN 20 peut seulement envoyer des requêtes PING au VLAN 30 et VLAN 60 (Les VLANs 30 et 60 doivent répondre)
+Le VLAN 30 ne peut pas communiquer avec le VLAN 40
+Le VLAN 30 peut envoyer des requêtes PING à tous les autres VLAN de PCs. (Tous les VLANs doivent répondre)
+Le VLAN 40 est le seul à pouvoir se connecter à distance sur les équipements réseaux en SSH (pas de TELNET)
+Le VLAN 50 peut uniquement communiquer avec les serveurs.
+Le VLAN 60 peut tout faire, sauf se connecter aux appareils réseaux
+=======================================================
+=======================================================
+=======================================================
