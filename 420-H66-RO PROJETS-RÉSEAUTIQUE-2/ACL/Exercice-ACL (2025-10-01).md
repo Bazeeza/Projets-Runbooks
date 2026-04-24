@@ -7,134 +7,211 @@ Le VLAN 30 peut envoyer des requêtes PING à tous les autres VLAN de PCs. (Tous
 Le VLAN 40 est le seul à pouvoir se connecter à distance sur les équipements réseaux en SSH (pas de TELNET)
 Le VLAN 50 peut uniquement communiquer avec les serveurs.
 Le VLAN 60 peut tout faire, sauf se connecter aux appareils réseaux
-=======================================================
-=======================================================
-=======================================================
- 
+===========================================================================
+========Switch-1-Configuration ============================================
+===========================================================================
 ena
 conf t
-hostname sw-1
+hostname SW-1
 !
-vlan 10
+vlan 0
 name vlan10
 vlan 20
 name vlan20
+vlan 666
+name vlanGestion
 !
 interface fa0/1
-description vers PC-vlan10
+description vers vlan10
 switchport mode access
 switchport access vlan 10
+spanning-tree portfast
 no shut
 !
 interface fa0/13
-description vers PC-vlan20
+description vers vlan20
 switchport mode access
 switchport access vlan 20
+spanning-tree portfast
 no shut
 !
 interface gi0/1
-description vers Routeur-0
+description vers R0
 switchport mode trunk
-switchport trunk allowed vlan 10,20
+switchport trunk allowed vlan 10,20,666
 no shut
+!
+interface vlan 666
+description vlanGestion
+ip address 192.168.0.2 255.255.255.252
+no shut
+!
+ip default-gateway 192.168.0.1 255.255.255.252
+!
+ip domain-name azeez.local
+username admin privilage 15 secret crosemont
+crypto key generate rsa modulus 1024
+ip ssh version 2
+line vty 0 15
+login local
+transport input ssh
+!
 end
 !
 wr
+===========================================================================
+========Switch-2-Configuration ============================================
+===========================================================================
 
-=======================================================
-=======================================================
-=======================================================
 ena
 conf t
-hostname sw-2
+hostname SW-2
 !
 vlan 30
-name vlan30
+name vlan10
 vlan 40
-name vlan40
+name vlan20
+vlan 666
+name vlanGestion
 !
 interface fa0/1
-description vers PC-vlan30
+description vers vlan30
 switchport mode access
 switchport access vlan 30
+spanning-tree portfast
 no shut
 !
 interface fa0/13
-description vers PC-vlan40
+description vers vlan40
 switchport mode access
 switchport access vlan 40
+spanning-tree portfast
 no shut
 !
 interface gi0/1
-description vers Routeur-1
+description vers R1
 switchport mode trunk
-switchport trunk allowed vlan 30,40
+switchport trunk allowed vlan 30,40,666
 no shut
+!
+interface vlan 666
+description vlanGestion
+ip address 192.168.0.6 255.255.255.252
+no shut
+!
+ip default-gateway 192.168.0.5 255.255.255.252
+!
+ip domain-name azeez.local
+username admin privilage 15 secret crosemont
+crypto key generate rsa modulus 1024
+ip ssh version 2
+line vty 0 15
+login local
+transport input ssh
 !
 end
 !
 wr
-=======================================================
-=======================================================
-=======================================================
+===========================================================================
+========Switch-3-Configuration ============================================
+===========================================================================
+
 ena
 conf t
-hostname sw-3
+hostname SW-3
 !
 vlan 50
-name vlan30
+name vlan10
 vlan 60
-name vlan40
+name vlan20
+vlan 666
+name vlanGestion
 !
 interface fa0/1
-description vers PC-vlan50
+description vers vlan50
 switchport mode access
 switchport access vlan 50
+spanning-tree portfast
 no shut
 !
 interface fa0/13
-description vers PC-vlan60
+description vers vlan60
 switchport mode access
 switchport access vlan 60
+spanning-tree portfast
 no shut
 !
 interface gi0/1
-description vers Routeur-2
+description vers R2
 switchport mode trunk
-switchport trunk allowed vlan 50,60
+switchport trunk allowed vlan 50,60,666
 no shut
+!
+interface vlan 666
+description vlanGestion
+ip address 192.168.0.10 255.255.255.252
+no shut
+!
+ip default-gateway 192.168.0.9 255.255.255.252
+!
+ip domain-name azeez.local
+username admin privilage 15 secret crosemont
+crypto key generate rsa modulus 1024
+ip ssh version 2
+line vty 0 15
+login local
+transport input ssh
 !
 end
 !
 wr
+===========================================================================
+========Switch-4-Configuration ============================================
+===========================================================================
 
-=======================================================
-=======================================================
-=======================================================
 ena
 conf t
-hostname sw-4
+hostname SW-4
 !
 vlan 255
 name vlan255
+vlan 666
+name vlanGestion
 !
 interface fa0/1
-description vers SRV-DNS-vlan255
+description vers vlan 255
 switchport mode access
 switchport access vlan 255
+spanning-tree portfast
 no shut
 !
 interface fa0/2
-description SRV-WEB-vlan255
+description vers vlan255
 switchport mode access
 switchport access vlan 255
+spanning-tree portfast
 no shut
 !
 interface gi0/1
-description vers Routeur-2
+description vers R2
 switchport mode trunk
-switchport trunk allowed vlan 255
+switchport trunk allowed vlan 255,666
 no shut
+!
+interface vlan 666
+description vlanGestion
+ip address 192.168.0.14 255.255.255.252
+no shut
+!
+ip default-gateway 192.168.0.13 255.255.255.252
+!
+ip domain-name azeez.local
+username admin privilage 15 secret crosemont
+crypto key generate rsa modulus 1024
+ip ssh version 2
+line vty 0 15
+login local
+transport input ssh
 !
 end
 !
