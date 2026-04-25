@@ -217,7 +217,6 @@ interface fa0/2
 end
 wr
 ```
-
 ---
 
 ## Configuration Routeur R1 (site A — interVLAN + PAT + ACL + SSH)
