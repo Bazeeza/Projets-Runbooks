@@ -17,7 +17,6 @@ Le VLAN 30 peut:
 Le VLAN 40 peut:
 - Ouvrir une session SSH sur tous les appareils de réseaux du site A
 
-
 Vous devez configurer:
 L'adressage IP public de R1 et R2.
 La traduction d'adresses avec surcharge (PAT) sur R1 et R2.
