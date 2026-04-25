@@ -5,6 +5,7 @@ Le VLAN 10 peut:
 - Faire un PING et doit obtenir des réponses avec les PCs du VLAN 30.
 - Consulter avec le serveur web-exam.com en utilisant le nom de domaine.
 
+
 Le VLAN 20 peut:
 - Communiquer uniquement avec les serveurs du site A.
 
