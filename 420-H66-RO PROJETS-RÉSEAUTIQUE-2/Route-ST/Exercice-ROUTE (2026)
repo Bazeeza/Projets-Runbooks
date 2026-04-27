@@ -1,5 +1,5 @@
-## Configuration Switch-1
 ```
+## Configuration Switch-1
 ena
 conf t
 hostname switch-1
