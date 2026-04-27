@@ -1,4 +1,5 @@
 ```
+DEMANDES ACL CONF
 Le VLAN 10 ne peut pas consulter les serveurs.
 Le VLAN 10 peut envoyer des requêtes PING à tous les autres VLAN de PCs. (Tous les VLANs doivent répondre)
 Le VLAN 20 peut seulement envoyer des requêtes PING au VLAN 30 et VLAN 60 (Les VLANs 30 et 60 doivent répondre)
