@@ -25,7 +25,6 @@ Le service **Mattermost** est une plateforme de messagerie et collaboration d'eq
 * Authentification et création de **teams/canaux** fonctionnelles ; **messages** échangés entre comptes de l’équipe.
 * **Notifications e-mail** opérationnelles via **SMTP Gmail** (`smtp.gmail.com:587`, **STARTTLS**, App Password).
 * Connexion base de données : **AWS RDS PostgreSQL** (endpoint privé), **TLS** activé côté client avec **CA RDS**.
-
 ---
 * Vérification Db-RDS ainsi que détaille de la base de données connecté (le endpoint est surligner en jaune)
 ---
@@ -118,7 +117,6 @@ Nous avons lié un **nom de domaine dynamique** via **No-IP** pour accéder au s
 ---
 ![Image 8](https://i.postimg.cc/LX580Gr0/Screenshot-2025-10-24-at-4-45-15-PM.png)
 ---
-
 
 ## Reverse proxy et notifications
 
