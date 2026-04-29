@@ -55,19 +55,16 @@ Nous avons liée un **nom de domaine dynamique** via **No-IP** afin d’accéder
 ![Screenshot 1](https://i.postimg.cc/Fz0BFJmC/Screenshot-2025-10-21-at-11-45-34-PM.png)
 ---
 
-
 ### HTTPS avec Certbot
 
 - Le HTTPS est configuré via **Certbot** (Let's Encrypt).  
 - Une fois le certificat généré, le site est maintenat accessible en **https://azeezjellyfinaws** avec un **certificat SSL valide**.  
-
 ---
 ---
 ![Screenshot 3](https://i.postimg.cc/d3GxQTvb/Screenshot-2025-10-21-at-11-49-55-PM.png)
 ---
 ![Screenshot 2](https://i.postimg.cc/VstTW2M6/Screenshot-2025-10-21-at-11-46-54-PM.png)
 ---
-
 
 ### Supervision AWS CloudWatch
 
