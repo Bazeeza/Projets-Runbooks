@@ -108,7 +108,6 @@ Nous avons lié un **nom de domaine dynamique** via **No-IP** pour accéder au s
 ---
 
 ## Résultats création de comptes
-
 * Résultats attendus
 ---
 * **Compte 1** : `aranmattermost@gmail.com` - reçoit les notifications, connexion au workspace fonctionnelle.
