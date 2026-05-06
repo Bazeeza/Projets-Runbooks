@@ -39,6 +39,7 @@ wr
 
 # Configuration SW-B
 
+
 ```
 ena
 conf t
@@ -133,6 +134,7 @@ wr
 ---
 
 # Configuration RT-3
+
 
 ```
 ena
