@@ -13,6 +13,7 @@
 
 
 
+
 ```
 - Network Address Translation, ou NAT, implique une traduction d'une adresse IP vers une autre adresse IP.
 - Port Address Translation, ou PAT, implique une traduction d'une adresse IP et d'un port vers une autre adresse IP et un autre port.
