@@ -6,7 +6,7 @@
 | **Référent**   | Notes de Cours x |
 | **Émetteur**   | **Abdul-Bariu**    |
 | **Message**    | Présenter/documenter .       |
-| **Récepteur**  | M. Jérémy Massinon           |
+| **Récepteur**  | M.           |
 | **Canal**      | GitLab                                |
 | **Code**       | Français                                                                                                        |
 | **Références** | [Vaultwarden](https://github.com/dani-garcia/vaultwarden) · [Terraform](https://developer.hashicorp.com/terraform/docs) · [AWS EC2 Docs](https://docs.aws.amazon.com/fr_fr/ec2/) · [AWS VPC Docs](https://docs.aws.amazon.com/vpc/) · |
