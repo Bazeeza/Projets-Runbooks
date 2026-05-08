@@ -14,8 +14,8 @@
 
 | Connexion | Câble |
 |-----------|-------|
-| Routeur ↔ Routeur | ⚡ Auto (ou Cross-Over) |
-| Routeur ↔ Switch | ⚡ Auto (ou Straight-Through) |
+| Routeur ↔ Routeur | Auto (ou Cross-Over) |
+| Routeur ↔ Switch | Auto (ou Straight-Through) |
 ---
 
 ## NAT/PAT — Pourquoi C'EST nécessaire ?
