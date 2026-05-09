@@ -830,7 +830,7 @@ wr
 
 ---
 
-## Tableau récapitulatif des IPs
+## Tableau d'interconnexion des IPs
 
 | Équipement | Interface | IP | Réseau |
 |-----------|-----------|-----|--------|
@@ -902,3 +902,9 @@ show ip route | include 0.0.0.0
 ! 4. Vérifier NAT sur Rt-Entreprise-B :
 show ip nat translations
 ```
+
+
+# Configuration ACL
+
+
+
