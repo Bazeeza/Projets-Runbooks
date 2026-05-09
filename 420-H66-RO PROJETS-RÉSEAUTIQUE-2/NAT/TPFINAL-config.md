@@ -45,9 +45,9 @@ crypto key generate rsa
 ip ssh version 2
 !
 line vty 0 15
- login local
- transport input ssh
- exit
+login local
+transport input ssh
+exit
 !
 ! ===== INTERFACES EN PREMIER =====
 !
@@ -107,9 +107,9 @@ crypto key generate rsa
 ip ssh version 2
 !
 line vty 0 15
- login local
- transport input ssh
- exit
+login local
+transport input ssh
+exit
 !
 ! ===== INTERFACES EN PREMIER =====
 !
