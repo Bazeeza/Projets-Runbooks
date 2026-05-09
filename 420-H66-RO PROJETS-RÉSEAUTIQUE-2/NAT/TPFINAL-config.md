@@ -483,7 +483,6 @@ router ospf 1
 end
 wr
 ```
-
 ---
 
 ### Rt-Entreprise-B — Avec NAT/PAT
