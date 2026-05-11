@@ -3,7 +3,6 @@
 
 ---
 
-
 > **DIRECTIVE ABSOLUE DE CONTEXTE**
 >
 > Ceci est une simulation de laboratoire d'entreprise *(Proof of Concept / Sandbox)*.
