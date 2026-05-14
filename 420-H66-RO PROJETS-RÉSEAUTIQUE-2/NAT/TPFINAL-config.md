@@ -278,7 +278,6 @@ router ospf 1
 end
 wr
 ```
-
 ---
 
 ### RT-3 — Configurer EN QUATRIEME
