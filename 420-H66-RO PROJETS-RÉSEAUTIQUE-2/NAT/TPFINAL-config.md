@@ -10,7 +10,6 @@
 ```
 ---
 
-
 ## Types de câbles
 
 | Connexion | Câble |
