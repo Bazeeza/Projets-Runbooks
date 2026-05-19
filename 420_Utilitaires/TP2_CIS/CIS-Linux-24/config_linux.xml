@@ -1,0 +1,21 @@
+<SECURITE>
+    <REGLE Id="CIS-2.2.4-TELNET" Type="PKG_ABSENT" Nom="telnet" />
+    <REGLE Id="CIS-2.2.6-FTP" Type="PKG_ABSENT" Nom="ftp" />
+    <REGLE Id="CIS-3.3.1-IPFWD" Type="SYSCTL" Cle="net.ipv4.ip_forward" Valeur="0" />
+    <REGLE Id="CIS-4.1.1-FW-ONLYONE" Type="FIREWALL_UNIQUE" />
+    <REGLE Id="CIS-4.2.1-UFW-INSTALLED" Type="PKG_PRESENT" Nom="ufw" />
+    <REGLE Id="CIS-4.2.3-UFW-ENABLED" Type="UFW_ENABLED" />
+    <REGLE Id="CIS-5.4.1.1-PASS-MAX" Type="LOGIN_DEFS" Cle="PASS_MAX_DAYS" Valeur="90" />
+    <REGLE Id="CIS-5.4.1.3-PASS-WARN" Type="LOGIN_DEFS" Cle="PASS_WARN_AGE" Valeur="7" />
+    <REGLE Id="CIS-5.4.1.4-PASS-HASH" Type="PAM_HASH" Attendu="yescrypt" />
+    <REGLE Id="CIS-5.4.1.5-INACTIVE" Type="USERADD_DEFAULT" Cle="INACTIVE" Valeur="30" />
+    <REGLE Id="CIS-5.4.1.6-LASTCHANGE" Type="LAST_CHANGE" />
+    <REGLE Id="CIS-5.4.2.1-UID0" Type="UID0_ONLY_ROOT" />
+    <REGLE Id="CIS-5.4.2.2-GID0" Type="GID0_ONLY_ROOT" />
+    <REGLE Id="CIS-5.4.2.4-ROOT-SSH" Type="ROOT_SSH" Attendu="no" />
+    <REGLE Id="CIS-5.4.2.7-SYS-SHELL" Type="SYS_ACCOUNTS_SHELLS" />
+    <REGLE Id="CIS-5.4.3.2-TMOUT" Type="TMOUT" Valeur="900" />
+    <REGLE Id="CIS-6.1.1.1-JOURNALD" Type="JOURNALD" />
+    <REGLE Id="CIS-6.1.1.4-LOGGING" Type="LOGGING" />
+    <REGLE Id="CIS-7.1.1-PASSWD" Type="FILE_PERM" Chemin="/etc/passwd" Mode="644" Owner="root" Groupe="root" />
+</SECURITE>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+  <!-- Politiques de mot de passe -->
+  <rule id="WIN-1.1.1" category="password" field="EnforceHistory" expected="24" />
+  <rule id="WIN-1.1.2" category="password" field="MaxAge" expected="365" />
+  <rule id="WIN-1.1.3" category="password" field="MinAge" expected="1" />
+  <rule id="WIN-1.1.4" category="password" field="MinLength" expected="14" />
+  <rule id="WIN-1.1.5" category="password" field="Complexity" expected="Enabled" />
+  <rule id="WIN-1.1.6" category="password" field="RelaxMinLength" expected="Enabled" />
+  <rule id="WIN-1.1.7" category="password" field="ReversibleEncryption" expected="Disabled" />
+
+  <!-- Verrouillage de compte -->
+  <rule id="WIN-1.2.1" category="lockout" field="Duration" expected="15" />
+  <rule id="WIN-1.2.2" category="lockout" field="Threshold" expected="5" />
+  <rule id="WIN-1.2.4" category="lockout" field="ResetCounter" expected="15" />
+
+  <!-- Comptes -->
+  <rule id="WIN-2.3.1.1" category="account" field="GuestStatus" expected="Disabled" />
+  <rule id="WIN-2.3.1.2" category="account" field="LimitBlankPasswordUse" expected="Enabled" />
+
+  <!-- Service FTP -->
+  <rule id="WIN-5.11" category="service" field="FTPSVC" expected="DisabledOrNotInstalled" />
+
+  <!-- Firewall -->
+  <rule id="WIN-9.1.1" category="firewall" field="Domain" expected="On" />
+  <rule id="WIN-9.2.1" category="firewall" field="Private" expected="On" />
+  <rule id="WIN-9.3.1" category="firewall" field="Public" expected="On" />
+
+  <!-- Audit -->
+  <rule id="WIN-17.1.1" category="audit" field="Credential Validation" expected="SuccessAndFailure" />
+  <rule id="WIN-17.2.3" category="audit" field="User Account Management" expected="SuccessAndFailure" />
+  <rule id="WIN-17.5.1" category="audit" field="Account Lockout" expected="Failure" />
+  <rule id="WIN-17.5.4" category="audit" field="Logon" expected="SuccessAndFailure" />
+</config>
