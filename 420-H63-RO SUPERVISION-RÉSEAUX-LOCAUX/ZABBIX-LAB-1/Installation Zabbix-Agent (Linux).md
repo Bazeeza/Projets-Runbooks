@@ -4,7 +4,6 @@ Compatible Ubuntu **22.04** / **24.04**. Serveur Zabbix d’exemple : **192.168
 
 ---
 
-
 ## 0) (Optionnel) Nettoyage si vous avez déjà tenté une install
 ```
 # Arrêter d’éventuels services agents
