@@ -11,7 +11,6 @@
 | **Code**       | La langue française                                                     |
 | **Référence**  | Consultez la [Documentation officielle AWS EC2](https://docs.aws.amazon.com/fr_fr/ec2/) et [Jellyfin Docs](https://jellyfin.org/docs/). |
 
-
 ---
 ### Déploiement et configuration du serveur Jellyfin
 **Explication**
