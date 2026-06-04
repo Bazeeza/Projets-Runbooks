@@ -1,6 +1,7 @@
 Tous les PCs du site A peuvent consulter les serveurs du site A en utilisant le nom de domaine.
 Toutes les listes de contrôles d'accès doivent pouvoir comptabiliser toutes les communications.
 
+
 Le VLAN 10 peut:
 - Faire un PING et doit obtenir des réponses avec les PCs du VLAN 30.
 - Consulter avec le serveur web-exam.com en utilisant le nom de domaine.
