@@ -4,7 +4,6 @@ Phase 1 — Networking foundations
 Week 1: Networking basics + OSI/TCP-IP
 
 Learn:
-
 What routers, switches, firewalls, access points, controllers, endpoints, and servers do
 OSI model and TCP/IP model
 Ethernet basics
@@ -13,12 +12,10 @@ MAC addresses vs IP addresses
 Basic network topologies: two-tier, three-tier, spine-leaf, WAN, SOHO, cloud
 
 Labs:
-
 Build a tiny LAN in Packet Tracer
 Connect PCs to a switch
 Add a router
 Test with ping
 Use show ip interface brief
 Use show mac address-table
-
 
