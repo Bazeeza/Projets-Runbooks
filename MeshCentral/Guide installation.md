@@ -1,5 +1,5 @@
-# MeshCentral — Guide d'Installation Complet
-**Procédurier étape par étape — Ubuntu 24.04 LTS**
+# MeshCentral — Guide d'Installation
+**Procédurier 18 Étapes — Ubuntu 24.04 LTS**
 
 | Élément       | Contenu                                                                                         |
 |---------------|-------------------------------------------------------------------------------------------------|
