@@ -1,10 +1,10 @@
-# MeshCentral — Guide d'Installation
-**Procédurier 18 Étapes — Ubuntu 24.04 LTS**
+# MeshCentral - Guide d'Installation
+**Procédurier 18 Étapes - Ubuntu 24.04 LTS**
 
 | Élément       | Contenu                                                                                         |
 |---------------|-------------------------------------------------------------------------------------------------|
 | **Référent**  | Installation complète d'un serveur MeshCentral auto-hébergé sur VPS Ubuntu, avec MongoDB 8.0, certificat TLS via acme.sh, thème graphique Stylish UI, sauvegardes automatiques et connexion d'appareils Windows et macOS. |
-| **Émetteur**  | Communauté open source — guide contributif public                                               |
+| **Émetteur**  | Communauté open source - guide contributif public                                               |
 | **Message**   | Fournir un procédurier complet, corrigé et validé, permettant à tout utilisateur de déployer MeshCentral en production sur Ubuntu 24.04. |
 | **Récepteur** | Administrateurs systèmes, entreprises et utilisateurs privés souhaitant héberger leur propre serveur de gestion à distance. |
 | **Canal**     | Dépôt GitHub public                                                                             |
@@ -58,9 +58,9 @@
 
 ---
 
-## 1 — Avant de commencer
+## 1 - Avant de commencer
 
-### 1.1 — Prérequis serveur
+### 1.1 - Prérequis serveur
 
 | Ressource | Minimum   | Recommandé |
 |-----------|-----------|------------|
@@ -69,9 +69,9 @@
 | Disque    | 20 GB     | 40 GB      |
 | CPU       | 1 vCPU    | 2 vCPU     |
 
-### 1.2 — Passer en root pour toute la session d'installation
+### 1.2 - Passer en root pour toute la session d'installation
 
-> Note importante : Ne pas utiliser `sudo commande > fichier` — la redirection échoue
+> Note importante : Ne pas utiliser `sudo commande > fichier` - la redirection échoue
 > car le shell exécute la redirection en tant qu'utilisateur normal, pas root.
 > Passez en root une seule fois avec `sudo -i` pour toute la durée de l'installation.
 
@@ -85,7 +85,7 @@ whoami
 ```
 Attendu : `root`
 
-### 1.3 — Vérifier les ressources disponibles
+### 1.3 - Vérifier les ressources disponibles
 
 ```bash
 lsb_release -a
@@ -102,25 +102,25 @@ df -h /
 ```
 Attendu : Au moins 15 GB libres sous `Avail`
 
-### 1.4 — Trouver l'IP publique du serveur
+### 1.4 - Trouver l'IP publique du serveur
 
 ```bash
 curl -4 https://api.ipify.org && echo
 ```
 
-Notez cette IP — vous en aurez besoin pour configurer le DNS.
+Notez cette IP - vous en aurez besoin pour configurer le DNS.
 
 ---
 
-## 2 — Mise à jour du système
+## 2 - Mise à jour du système
 
-### 2.1 — Mettre à jour les paquets
+### 2.1 - Mettre à jour les paquets
 
 ```bash
 apt update && apt -y upgrade
 ```
 
-### 2.2 — Installer les outils essentiels
+### 2.2 - Installer les outils essentiels
 
 ```bash
 apt -y install curl wget gnupg ca-certificates \
@@ -136,7 +136,7 @@ done
 ```
 Attendu : Un chemin pour chaque outil, aucun `NON TROUVE`.
 
-### 2.3 — Activer les mises à jour de sécurité automatiques
+### 2.3 - Activer les mises à jour de sécurité automatiques
 
 ```bash
 echo 'APT::Periodic::Update-Package-Lists "1";
@@ -153,10 +153,10 @@ APT::Periodic::Update-Package-Lists "1";
 APT::Periodic::Unattended-Upgrade "1";
 ```
 
-### 2.4 — Ajouter 2 GB de swap
+### 2.4 - Ajouter 2 GB de swap
 
 > Recommandé si votre VPS n'a pas de swap configuré. Vérifiez d'abord :
-> `free -h | grep Swap` — si la ligne affiche `0B`, ajoutez le swap ci-dessous.
+> `free -h | grep Swap` - si la ligne affiche `0B`, ajoutez le swap ci-dessous.
 
 ```bash
 fallocate -l 2G /swapfile
@@ -174,9 +174,9 @@ Attendu : `Swap: 2.0G`
 
 ---
 
-## 3 — Sécurisation SSH
+## 3 - Sécurisation SSH
 
-### 3.1 — Vérifier si une clé SSH est configurée
+### 3.1 - Vérifier si une clé SSH est configurée
 
 ```bash
 cat ~/.ssh/authorized_keys 2>/dev/null || echo "AUCUNE CLE TROUVEE"
@@ -185,7 +185,7 @@ cat ~/.ssh/authorized_keys 2>/dev/null || echo "AUCUNE CLE TROUVEE"
 - Si une clé s'affiche (longue ligne commençant par `ssh-rsa` ou `ssh-ed25519`) : suivez les étapes 3.2 et 3.3.
 - Si `AUCUNE CLE TROUVEE` : suivez seulement l'étape 3.2 et sautez l'étape 3.3 pour éviter de vous verrouiller.
 
-### 3.2 — Désactiver la connexion root via SSH
+### 3.2 - Désactiver la connexion root via SSH
 
 ```bash
 sed -i 's/^#\?PermitRootLogin.*/PermitRootLogin no/' /etc/ssh/sshd_config
@@ -198,7 +198,7 @@ grep "PermitRootLogin" /etc/ssh/sshd_config
 ```
 Attendu : `PermitRootLogin no`
 
-### 3.3 — Désactiver le login par mot de passe (seulement si une clé SSH est présente)
+### 3.3 - Désactiver le login par mot de passe (seulement si une clé SSH est présente)
 
 ```bash
 sed -i 's/^#\?PasswordAuthentication.*/PasswordAuthentication no/' /etc/ssh/sshd_config
@@ -211,7 +211,7 @@ grep "PasswordAuthentication" /etc/ssh/sshd_config
 ```
 Attendu : `PasswordAuthentication no`
 
-### 3.4 — Redémarrer SSH
+### 3.4 - Redémarrer SSH
 
 ```bash
 systemctl restart ssh
@@ -227,12 +227,12 @@ Attendu : `Active: active (running)`
 
 ---
 
-## 4 — Pare-feu UFW
+## 4 - Pare-feu UFW
 
 > UFW ajoute des règles de manière additive. Vos règles existantes pour d'autres services
 > ne seront pas supprimées.
 
-### 4.1 — Configurer les politiques et les ports
+### 4.1 - Configurer les politiques et les ports
 
 ```bash
 ufw default deny incoming
@@ -262,9 +262,9 @@ Status: active
 
 ---
 
-## 5 — Protection fail2ban
+## 5 - Protection fail2ban
 
-### 5.1 — Créer la configuration
+### 5.1 - Créer la configuration
 
 ```bash
 tee /etc/fail2ban/jail.local << 'EOF'
@@ -281,7 +281,7 @@ backend = %(sshd_backend)s
 EOF
 ```
 
-### 5.2 — Activer et démarrer
+### 5.2 - Activer et démarrer
 
 ```bash
 systemctl enable fail2ban
@@ -301,9 +301,9 @@ Attendu : Affiche `sshd` dans la liste des jails actifs.
 
 ---
 
-## 6 — Node.js 20 LTS
+## 6 - Node.js 20 LTS
 
-### 6.1 — Ajouter le dépôt NodeSource
+### 6.1 - Ajouter le dépôt NodeSource
 
 ```bash
 curl -fsSL https://deb.nodesource.com/setup_20.x | bash -
@@ -311,7 +311,7 @@ curl -fsSL https://deb.nodesource.com/setup_20.x | bash -
 
 Attendu : Se termine par `Now run: apt-get install -y nodejs`
 
-### 6.2 — Installer Node.js
+### 6.2 - Installer Node.js
 
 ```bash
 apt -y install nodejs
@@ -330,13 +330,13 @@ Attendu : `10.x.x` ou supérieur
 
 ---
 
-## 7 — MongoDB 8.0
+## 7 - MongoDB 8.0
 
 > Correction importante : MongoDB 7.0 n'est pas compatible avec Ubuntu 24.04 Noble.
 > Utilisez obligatoirement MongoDB 8.0 sur Ubuntu 24.04. MongoDB 7.0 retourne une
 > erreur 404 lors de l'installation sur Noble.
 
-### 7.1 — Importer la clé GPG MongoDB
+### 7.1 - Importer la clé GPG MongoDB
 
 ```bash
 curl -fsSL https://www.mongodb.org/static/pgp/server-8.0.asc | \
@@ -349,7 +349,7 @@ ls -la /usr/share/keyrings/mongodb-server-8.0.gpg
 ```
 Attendu : Fichier présent avec une taille supérieure à 0.
 
-### 7.2 — Ajouter le dépôt MongoDB
+### 7.2 - Ajouter le dépôt MongoDB
 
 Pour Ubuntu 24.04 (Noble) :
 ```bash
@@ -365,7 +365,7 @@ echo "deb [ signed-by=/usr/share/keyrings/mongodb-server-8.0.gpg ] https://repo.
 
 > Pour connaître votre version Ubuntu : `lsb_release -cs` retourne `noble` ou `jammy`.
 
-### 7.3 — Installer MongoDB
+### 7.3 - Installer MongoDB
 
 ```bash
 apt update && apt -y install mongodb-org
@@ -377,7 +377,7 @@ mongod --version
 ```
 Attendu : `db version v8.0.x`
 
-### 7.4 — Verrouiller MongoDB sur localhost uniquement
+### 7.4 - Verrouiller MongoDB sur localhost uniquement
 
 ```bash
 sed -i 's/^\(\s*bindIp:\).*/\1 127.0.0.1/' /etc/mongod.conf
@@ -389,7 +389,7 @@ grep "bindIp" /etc/mongod.conf
 ```
 Attendu : `  bindIp: 127.0.0.1`
 
-### 7.5 — Activer et démarrer
+### 7.5 - Activer et démarrer
 
 ```bash
 systemctl enable mongod
@@ -398,7 +398,7 @@ sleep 3 && systemctl status mongod | grep "Active:"
 ```
 Attendu : `Active: active (running)`
 
-### 7.6 — Vérifications de sécurité
+### 7.6 - Vérifications de sécurité
 
 ```bash
 ss -tlnp | grep 27017
@@ -412,11 +412,11 @@ Attendu : `{ ok: 1 }`
 
 ---
 
-## 8 — Dossier isolé et utilisateur de service
+## 8 - Dossier isolé et utilisateur de service
 
 MeshCentral est installé dans son propre dossier, complètement séparé de vos autres services.
 
-### 8.1 — Créer l'utilisateur de service dédié
+### 8.1 - Créer l'utilisateur de service dédié
 
 ```bash
 useradd -r -m -d /opt/meshcentral-server -s /usr/sbin/nologin meshcentral
@@ -428,7 +428,7 @@ id meshcentral
 ```
 Attendu : `uid=... gid=... groups=...`
 
-### 8.2 — Créer la structure de dossiers
+### 8.2 - Créer la structure de dossiers
 
 ```bash
 install -d -o meshcentral -g meshcentral -m 750 \
@@ -449,7 +449,7 @@ ls -la /opt/meshcentral-server/
 ```
 Attendu : Tous les sous-dossiers présents, propriétaire `meshcentral`.
 
-### 8.3 — Autoriser Node.js à utiliser les ports inférieurs à 1024 sans root
+### 8.3 - Autoriser Node.js à utiliser les ports inférieurs à 1024 sans root
 
 ```bash
 setcap 'cap_net_bind_service=+ep' $(readlink -f $(which node))
@@ -463,7 +463,7 @@ Attendu : `...node = cap_net_bind_service+ep`
 
 ---
 
-## 9 — Installation de MeshCentral
+## 9 - Installation de MeshCentral
 
 ```bash
 su -s /bin/bash -c \
@@ -488,7 +488,7 @@ Attendu : Un numéro de version comme `1.2.x`
 
 ---
 
-## 10 — Configuration config.json
+## 10 - Configuration config.json
 
 > Remplacez `VOTRE_DOMAINE.duckdns.org` et `votre@email.com` avant de coller.
 > Adaptez également `title`, `title2`, `companyName` et `serviceName` à votre contexte.
@@ -583,12 +583,12 @@ Attendu : `JSON VALIDE`
 
 ---
 
-## 11 — Thème graphique moderne
+## 11 - Thème graphique moderne
 
 Ce guide utilise le thème Stylish UI, développé par la communauté MeshCentral.
 Il modernise complètement l'interface avec un design Bootstrap responsive.
 
-### 11.1 — Télécharger Stylish UI
+### 11.1 - Télécharger Stylish UI
 
 ```bash
 curl -fsSL \
@@ -608,7 +608,7 @@ wc -l /opt/meshcentral-server/meshcentral-web/public/styles/custom.css
 ```
 Attendu : Plus de 100 lignes.
 
-### 11.2 — Créer un logo SVG
+### 11.2 - Créer un logo SVG
 
 ```bash
 python3 << 'EOF'
@@ -637,7 +637,7 @@ print("Logo SVG cree")
 EOF
 ```
 
-### 11.3 — Corriger les permissions
+### 11.3 - Corriger les permissions
 
 ```bash
 chown -R meshcentral:meshcentral /opt/meshcentral-server/meshcentral-web
@@ -645,9 +645,9 @@ chown -R meshcentral:meshcentral /opt/meshcentral-server/meshcentral-web
 
 ---
 
-## 12 — Service systemd
+## 12 - Service systemd
 
-### 12.1 — Créer le fichier de service
+### 12.1 - Créer le fichier de service
 
 ```bash
 tee /etc/systemd/system/meshcentral.service << 'EOF'
@@ -675,7 +675,7 @@ WantedBy=multi-user.target
 EOF
 ```
 
-### 12.2 — Activer le service
+### 12.2 - Activer le service
 
 ```bash
 systemctl daemon-reload
@@ -690,11 +690,11 @@ Attendu : `enabled`
 
 ---
 
-## 13 — Domaine gratuit DuckDNS
+## 13 - Domaine gratuit DuckDNS
 
 DuckDNS offre des sous-domaines gratuits compatibles avec Let's Encrypt.
 
-### 13.1 — Créer votre sous-domaine
+### 13.1 - Créer votre sous-domaine
 
 1. Rendez-vous sur https://www.duckdns.org
 2. Connectez-vous avec Google ou GitHub
@@ -703,13 +703,13 @@ DuckDNS offre des sous-domaines gratuits compatibles avec Let's Encrypt.
 
 Votre domaine sera : `monserveur.duckdns.org`
 
-Notez votre token DuckDNS — visible en haut de la page après connexion.
+Notez votre token DuckDNS - visible en haut de la page après connexion.
 
 > Securite : Ne partagez jamais votre token DuckDNS publiquement. Il permet le controle
 > total de votre domaine. Si votre token est compromis, regenerez-en un nouveau
 > immediatement depuis l'interface DuckDNS.
 
-### 13.2 — Vérifier la propagation DNS
+### 13.2 - Vérifier la propagation DNS
 
 ```bash
 dig +short VOTRE_DOMAINE.duckdns.org
@@ -718,7 +718,7 @@ Attendu : L'IP publique de votre VPS. Si rien ne s'affiche, attendez 5 minutes.
 
 ---
 
-## 14 — Certificat TLS avec acme.sh
+## 14 - Certificat TLS avec acme.sh
 
 > Correction importante : Deux méthodes ont été testées et échouent avec DuckDNS :
 >
@@ -727,7 +727,7 @@ Attendu : L'IP publique de votre VPS. Si rien ne s'affiche, attendez 5 minutes.
 >
 > La solution fiable et validée est acme.sh avec le module natif dns_duckdns.
 
-### 14.1 — Installer acme.sh
+### 14.1 - Installer acme.sh
 
 ```bash
 curl https://get.acme.sh | sh -s email=votre@email.com
@@ -736,13 +736,13 @@ source ~/.bashrc
 
 Attendu : `Install success!`
 
-### 14.2 — Définir le token DuckDNS
+### 14.2 - Définir le token DuckDNS
 
 ```bash
 export DuckDNS_Token="VOTRE_TOKEN_DUCKDNS"
 ```
 
-### 14.3 — Obtenir le certificat
+### 14.3 - Obtenir le certificat
 
 ```bash
 ~/.acme.sh/acme.sh --issue --dns dns_duckdns \
@@ -759,7 +759,7 @@ Cert success.
 Your cert is in: /root/.acme.sh/VOTRE_DOMAINE.duckdns.org_ecc/VOTRE_DOMAINE.duckdns.org.cer
 ```
 
-### 14.4 — Installer le certificat vers MeshCentral
+### 14.4 - Installer le certificat vers MeshCentral
 
 ```bash
 ~/.acme.sh/acme.sh --install-cert -d VOTRE_DOMAINE.duckdns.org \
@@ -778,15 +778,15 @@ Attendu : `Reload successful`
 
 ---
 
-## 15 — Démarrage et vérification
+## 15 - Démarrage et vérification
 
-### 15.1 — Démarrer MeshCentral
+### 15.1 - Démarrer MeshCentral
 
 ```bash
 systemctl start meshcentral
 ```
 
-### 15.2 — Surveiller les logs au démarrage
+### 15.2 - Surveiller les logs au démarrage
 
 ```bash
 journalctl -u meshcentral -f
@@ -800,7 +800,7 @@ MeshCentral HTTPS server running on VOTRE_DOMAINE.duckdns.org:443, alias port 44
 
 Appuyez sur Ctrl+C pour arrêter l'affichage des logs.
 
-### 15.3 — Vérification complète en une commande
+### 15.3 - Vérification complète en une commande
 
 ```bash
 echo "=== MESHCENTRAL HEALTH CHECK ===" && \
@@ -815,9 +815,9 @@ echo "================================="
 
 Attendu : `active`, `enabled`, `active`, `active`, `v20.x.x`, `meshcentral`
 
-> Le processus doit tourner en tant que `meshcentral` — jamais `root`.
+> Le processus doit tourner en tant que `meshcentral` - jamais `root`.
 
-### 15.4 — Vérifier le certificat TLS
+### 15.4 - Vérifier le certificat TLS
 
 ```bash
 echo | openssl s_client -connect VOTRE_DOMAINE.duckdns.org:443 \
@@ -827,7 +827,7 @@ echo | openssl s_client -connect VOTRE_DOMAINE.duckdns.org:443 \
 
 Attendu : `issuer=...ZeroSSL...` ou `...Let's Encrypt...` avec des dates valides dans les 90 prochains jours.
 
-### 15.5 — Vérifier la redirection HTTP vers HTTPS
+### 15.5 - Vérifier la redirection HTTP vers HTTPS
 
 ```bash
 curl -I http://VOTRE_DOMAINE.duckdns.org 2>/dev/null | grep -E "HTTP|Location"
@@ -841,16 +841,16 @@ Location: https://VOTRE_DOMAINE.duckdns.org/
 
 ---
 
-## 16 — Sauvegardes automatiques
+## 16 - Sauvegardes automatiques
 
-### 16.1 — Créer le dossier de sauvegarde
+### 16.1 - Créer le dossier de sauvegarde
 
 ```bash
 mkdir -p /var/backups/meshcentral
 chmod 700 /var/backups/meshcentral
 ```
 
-### 16.2 — Créer le script de sauvegarde
+### 16.2 - Créer le script de sauvegarde
 
 ```bash
 tee /opt/meshcentral-server/backup.sh << 'EOF'
@@ -884,7 +884,7 @@ EOF
 chmod 700 /opt/meshcentral-server/backup.sh
 ```
 
-### 16.3 — Tester la sauvegarde immédiatement
+### 16.3 - Tester la sauvegarde immédiatement
 
 ```bash
 /opt/meshcentral-server/backup.sh
@@ -899,7 +899,7 @@ ls -lh /var/backups/meshcentral/$(ls /var/backups/meshcentral | tail -1)/
 
 Attendu : Deux fichiers (`database.archive` et `meshcentral-data.tar.gz`) avec une taille supérieure à 0.
 
-### 16.4 — Planifier les sauvegardes nocturnes
+### 16.4 - Planifier les sauvegardes nocturnes
 
 ```bash
 echo "30 2 * * * root /opt/meshcentral-server/backup.sh >> /var/log/meshcentral-backup.log 2>&1" \
@@ -912,9 +912,9 @@ echo "30 2 * * * root /opt/meshcentral-server/backup.sh >> /var/log/meshcentral-
 
 ---
 
-## 17 — Premier login et sécurisation
+## 17 - Premier login et sécurisation
 
-### 17.1 — Accéder à la console
+### 17.1 - Accéder à la console
 
 Ouvrez dans votre navigateur :
 ```
@@ -923,21 +923,21 @@ https://VOTRE_DOMAINE.duckdns.org
 
 Vous devez voir la page de login avec le thème sombre Stylish UI.
 
-### 17.2 — Créer le compte administrateur
+### 17.2 - Créer le compte administrateur
 
 - Cliquez **Create Account**
 - Le premier compte créé devient automatiquement administrateur du site
 - Utilisez votre adresse email comme identifiant
 - Choisissez un mot de passe d'au moins 12 caractères avec majuscule, minuscule, chiffre et symbole
 
-### 17.3 — Activer le 2FA (recommandé)
+### 17.3 - Activer le 2FA (recommandé)
 
 1. Cliquez votre nom en haut à droite → **My Account** → **Security**
 2. **Two-factor authentication** → **Add** → **Authenticator App**
 3. Scannez le QR code avec une application d'authentification (Google Authenticator, Authy, 1Password)
 4. Entrez le code à 6 chiffres pour confirmer
 
-### 17.4 — Fermer les inscriptions
+### 17.4 - Fermer les inscriptions
 
 > Cette étape est critique. Fermez les inscriptions immédiatement après avoir créé
 > votre compte administrateur pour empêcher tout accès non autorisé.
@@ -951,7 +951,7 @@ with open(path) as f:
 cfg['domains']['']['newAccounts'] = False
 with open(path, 'w') as f:
     json.dump(cfg, f, indent=2)
-print("Inscriptions fermees — newAccounts: false")
+print("Inscriptions fermees - newAccounts: false")
 EOF
 ```
 
@@ -967,16 +967,16 @@ Attendu : `false`
 
 ---
 
-## 18 — Connexion des appareils
+## 18 - Connexion des appareils
 
-### 18.1 — Créer un groupe d'appareils dans la console
+### 18.1 - Créer un groupe d'appareils dans la console
 
 1. Dans la barre de gauche → **Add Device Group**
 2. Nom : `Mes Ordinateurs` (ou selon votre contexte)
-3. Type : **Manage with software agents** — ce choix est obligatoire pour les agents logiciels
+3. Type : **Manage with software agents** - ce choix est obligatoire pour les agents logiciels
 4. Cliquez **OK**
 
-### 18.2 — Agent Windows
+### 18.2 - Agent Windows
 
 **Générer l'installeur :**
 1. Cliquez le groupe → **Add Agent** → **Windows**
@@ -997,7 +997,7 @@ Get-WmiObject Win32_Process -Filter "name='meshagent.exe'" | Select-Object Proce
 ```
 Attendu : `User : SYSTEM`
 
-### 18.3 — Activer RDP sur Windows pour Web-RDP
+### 18.3 - Activer RDP sur Windows pour Web-RDP
 
 Sur le PC Windows, ouvrir PowerShell en tant qu'administrateur :
 
@@ -1034,7 +1034,7 @@ Connexion dans MeshCentral Web-RDP :
 > - RDP fonctionne uniquement sur Windows Pro, Education et Enterprise. Windows Home ne supporte pas RDP.
 > - Si la connexion affiche un écran blanc puis retourne à la page de login, désactivez NLA avec la commande ci-dessus.
 
-### 18.4 — Agent macOS
+### 18.4 - Agent macOS
 
 **Télécharger et installer :**
 1. Cliquez le groupe → **Add Agent** → **macOS** → **Universal**
@@ -1059,23 +1059,23 @@ en raison de SIP. Les permissions doivent être accordées via les Réglages Sys
 > Sans ces deux permissions, l'agent apparaît connecté dans la console mais le bureau
 > distant retourne une erreur de connexion.
 
-### 18.5 — Mode plein écran pour le bureau distant
+### 18.5 - Mode plein écran pour le bureau distant
 
 Pour obtenir un affichage agrandi du bureau distant :
 
-Méthode 1 — Fenêtre détachée :
+Méthode 1 - Fenêtre détachée :
 1. Cliquez votre appareil → onglet **Desktop**
 2. Dans la barre d'outils, cliquez l'icône de détachement (carré avec flèche vers l'extérieur)
 3. Le bureau s'ouvre dans une nouvelle fenêtre indépendante
 4. Appuyez sur **F11** pour le plein écran navigateur
 
-Méthode 2 — Shift+Clic :
+Méthode 2 - Shift+Clic :
 - Maintenez **Shift** et cliquez le bouton fullscreen dans la barre d'outils
 - Le bureau s'ouvre directement en popup séparé
 
 ---
 
-## 19 — Dépannage
+## 19 - Dépannage
 
 ### Tableau des problèmes courants
 
@@ -1144,7 +1144,7 @@ journalctl -u mongod -n 30 --no-pager
 
 ---
 
-## 20 — Maintenance
+## 20 - Maintenance
 
 ### Mise à jour de MeshCentral
 
@@ -1238,4 +1238,4 @@ Verifiez chaque point avant de considerer l'installation terminee :
 
 ---
 
-*Guide teste sur Ubuntu 24.04.3 LTS — MeshCentral v1.2.1 — Node.js v20.20.2 — MongoDB 8.0*
+*Guide teste sur Ubuntu 24.04.3 LTS - MeshCentral v1.2.1 - Node.js v20.20.2 - MongoDB 8.0*
