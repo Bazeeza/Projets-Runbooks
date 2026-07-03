@@ -80,19 +80,19 @@ sudo -i
 ```
 
 Vérifier :
-```bash
+```
 whoami
 ```
 Attendu : `root`
 
 ### 1.3 - Vérifier les ressources disponibles
 
-```bash
+```
 lsb_release -a
 ```
 Attendu : Ubuntu 22.04 ou 24.04
 
-```bash
+```
 free -h
 ```
 Attendu : Au moins 2 GB sous `Mem:`
@@ -116,20 +116,20 @@ Notez cette IP - vous en aurez besoin pour configurer le DNS.
 
 ### 2.1 - Mettre à jour les paquets
 
-```bash
+```
 apt update && apt -y upgrade
 ```
 
 ### 2.2 - Installer les outils essentiels
 
-```bash
+```
 apt -y install curl wget gnupg ca-certificates \
   jq dnsutils ufw fail2ban unattended-upgrades \
   build-essential git openssl net-tools
 ```
 
 Vérifier que tout est installé :
-```bash
+```
 for cmd in curl wget jq dig ufw openssl; do
   printf "%-20s %s\n" "$cmd" "$(command -v $cmd || echo 'NON TROUVE')"
 done
@@ -213,12 +213,12 @@ Attendu : `PasswordAuthentication no`
 
 ### 3.4 - Redémarrer SSH
 
-```bash
+```
 systemctl restart ssh
 ```
 
 Vérifier :
-```bash
+```
 systemctl status ssh | grep "Active:"
 ```
 Attendu : `Active: active (running)`
@@ -234,7 +234,7 @@ Attendu : `Active: active (running)`
 
 ### 4.1 - Configurer les politiques et les ports
 
-```bash
+```
 ufw default deny incoming
 ufw default allow outgoing
 ufw allow OpenSSH
@@ -248,7 +248,7 @@ ufw --force enable
 > Sans ce port, la connexion au bureau des appareils distants échoue silencieusement.
 
 Vérifier :
-```bash
+```
 ufw status numbered
 ```
 Attendu :
@@ -283,18 +283,18 @@ EOF
 
 ### 5.2 - Activer et démarrer
 
-```bash
+```
 systemctl enable fail2ban
 systemctl restart fail2ban
 ```
 
 Vérifier :
-```bash
+```
 systemctl status fail2ban | grep "Active:"
 ```
 Attendu : `Active: active (running)`
 
-```bash
+```
 fail2ban-client status
 ```
 Attendu : Affiche `sshd` dans la liste des jails actifs.
@@ -305,7 +305,7 @@ Attendu : Affiche `sshd` dans la liste des jails actifs.
 
 ### 6.1 - Ajouter le dépôt NodeSource
 
-```bash
+```
 curl -fsSL https://deb.nodesource.com/setup_20.x | bash -
 ```
 
@@ -338,13 +338,13 @@ Attendu : `10.x.x` ou supérieur
 
 ### 7.1 - Importer la clé GPG MongoDB
 
-```bash
+```
 curl -fsSL https://www.mongodb.org/static/pgp/server-8.0.asc | \
   gpg -o /usr/share/keyrings/mongodb-server-8.0.gpg --dearmor --yes
 ```
 
 Vérifier :
-```bash
+```
 ls -la /usr/share/keyrings/mongodb-server-8.0.gpg
 ```
 Attendu : Fichier présent avec une taille supérieure à 0.
@@ -352,13 +352,13 @@ Attendu : Fichier présent avec une taille supérieure à 0.
 ### 7.2 - Ajouter le dépôt MongoDB
 
 Pour Ubuntu 24.04 (Noble) :
-```bash
+```
 echo "deb [ signed-by=/usr/share/keyrings/mongodb-server-8.0.gpg ] https://repo.mongodb.org/apt/ubuntu noble/mongodb-org/8.0 multiverse" \
   | tee /etc/apt/sources.list.d/mongodb-org-8.0.list
 ```
 
 Pour Ubuntu 22.04 (Jammy) :
-```bash
+```
 echo "deb [ signed-by=/usr/share/keyrings/mongodb-server-8.0.gpg ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/8.0 multiverse" \
   | tee /etc/apt/sources.list.d/mongodb-org-8.0.list
 ```
