@@ -138,13 +138,13 @@ Attendu : Un chemin pour chaque outil, aucun `NON TROUVE`.
 
 ### 2.3 - Activer les mises à jour de sécurité automatiques
 
-```bash
+```
 echo 'APT::Periodic::Update-Package-Lists "1";
 APT::Periodic::Unattended-Upgrade "1";' > /etc/apt/apt.conf.d/20auto-upgrades
 ```
 
 Vérifier :
-```bash
+```
 cat /etc/apt/apt.conf.d/20auto-upgrades
 ```
 Attendu :
@@ -158,7 +158,7 @@ APT::Periodic::Unattended-Upgrade "1";
 > Recommandé si votre VPS n'a pas de swap configuré. Vérifiez d'abord :
 > `free -h | grep Swap` - si la ligne affiche `0B`, ajoutez le swap ci-dessous.
 
-```bash
+```
 fallocate -l 2G /swapfile
 chmod 600 /swapfile
 mkswap /swapfile
@@ -167,7 +167,7 @@ echo '/swapfile none swap sw 0 0' >> /etc/fstab
 ```
 
 Vérifier :
-```bash
+```
 free -h | grep Swap
 ```
 Attendu : `Swap: 2.0G`
@@ -178,7 +178,7 @@ Attendu : `Swap: 2.0G`
 
 ### 3.1 - Vérifier si une clé SSH est configurée
 
-```bash
+```
 cat ~/.ssh/authorized_keys 2>/dev/null || echo "AUCUNE CLE TROUVEE"
 ```
 
@@ -187,26 +187,26 @@ cat ~/.ssh/authorized_keys 2>/dev/null || echo "AUCUNE CLE TROUVEE"
 
 ### 3.2 - Désactiver la connexion root via SSH
 
-```bash
+```
 sed -i 's/^#\?PermitRootLogin.*/PermitRootLogin no/' /etc/ssh/sshd_config
 grep -qE '^\s*PermitRootLogin' /etc/ssh/sshd_config || echo "PermitRootLogin no" >> /etc/ssh/sshd_config
 ```
 
 Vérifier :
-```bash
+```
 grep "PermitRootLogin" /etc/ssh/sshd_config
 ```
 Attendu : `PermitRootLogin no`
 
 ### 3.3 - Désactiver le login par mot de passe (seulement si une clé SSH est présente)
 
-```bash
+```
 sed -i 's/^#\?PasswordAuthentication.*/PasswordAuthentication no/' /etc/ssh/sshd_config
 grep -qE '^\s*PasswordAuthentication' /etc/ssh/sshd_config || echo "PasswordAuthentication no" >> /etc/ssh/sshd_config
 ```
 
 Vérifier :
-```bash
+```
 grep "PasswordAuthentication" /etc/ssh/sshd_config
 ```
 Attendu : `PasswordAuthentication no`
