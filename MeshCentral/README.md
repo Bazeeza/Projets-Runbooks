@@ -1,10 +1,10 @@
-# MeshCentral — Guide d'Installation Entreprise
+# MeshCentral - Guide d'Installation Entreprise
 **Présentation et bénéfices d'un serveur de gestion à distance auto-hébergé**
 
 | Élément       | Contenu                                                                                         |
 |---------------|-------------------------------------------------------------------------------------------------|
 | **Référent**  | Présentation et documentation d'un serveur MeshCentral auto-hébergé sur VPS Ubuntu, sécurisé avec TLS, supervisé via systemd et sauvegardé automatiquement. |
-| **Émetteur**  | Communauté open source — guide contributif public                                               |
+| **Émetteur**  | Communauté open source - guide contributif public                                               |
 | **Message**   | Présenter les bénéfices et le contenu du guide d'installation complet de MeshCentral en environnement entreprise ou privé. |
 | **Récepteur** | Toute personne souhaitant héberger son propre serveur de gestion à distance sans abonnement     |
 | **Canal**     | Dépôt GitHub public                                                                             |
@@ -28,7 +28,7 @@ MeshCentral est une plateforme de gestion et de contrôle à distance entièreme
 | Auto-hébergé          | Vos données restent sur votre propre serveur                           |
 | Accessible partout    | Navigateur web, mobile, tablette, aucun logiciel client requis         |
 | Multi-plateforme      | Agents disponibles pour Windows, macOS et Linux                        |
-| Sans port-forwarding  | Les agents se connectent en sortant — aucune ouverture de port requise |
+| Sans port-forwarding  | Les agents se connectent en sortant - aucune ouverture de port requise |
 | Transfert de fichiers | Envoi et réception de fichiers à distance                              |
 | Terminal distant      | Accès ligne de commande complet                                        |
 | Enregistrement        | Journal d'audit de toutes les sessions distantes                       |
@@ -74,7 +74,7 @@ Ce guide déploie une instance MeshCentral de niveau entreprise sur un VPS Ubunt
 ## Structure du dépôt
 
 ```
-README.md                    # Ce fichier — présentation et bénéfices
+README.md                    # Ce fichier - présentation et bénéfices
 GUIDE-INSTALLATION.md        # Guide complet étape par étape
 ```
 
@@ -90,27 +90,27 @@ Ce guide documente et corrige les problèmes réels rencontrés lors de l'instal
 | Redirection `>` échoue avec sudo              | Utilisation de `tee` dans toutes les étapes       |
 | `/etc/resolv.conf` cassé sur Ubuntu 24.04     | Gestion via systemd-resolved uniquement           |
 | certbot-dns-duckdns peu fiable                | Remplacement par acme.sh                          |
-| Port 4433 manquant — bureau distant échoue    | Port 4433 ajouté dans UFW dès le départ           |
+| Port 4433 manquant - bureau distant échoue    | Port 4433 ajouté dans UFW dès le départ           |
 | Agent Windows ne capture pas le bureau        | Installation obligatoire en tant qu'administrateur|
-| macOS — permissions TCC refusées par SIP      | Procédure manuelle via Réglages Système           |
-| RDP — écran blanc après login                 | Désactivation de NLA documentée                   |
+| macOS - permissions TCC refusées par SIP      | Procédure manuelle via Réglages Système           |
+| RDP - écran blanc après login                 | Désactivation de NLA documentée                   |
 
 ---
 
 ## Licence
 
-Ce guide est publié sous licence MIT — libre d'utilisation, modification et redistribution.
+Ce guide est publié sous licence MIT - libre d'utilisation, modification et redistribution.
 
-MeshCentral est sous licence Apache 2.0 — [github.com/Ylianst/MeshCentral](https://github.com/Ylianst/MeshCentral)
+MeshCentral est sous licence Apache 2.0 - [github.com/Ylianst/MeshCentral](https://github.com/Ylianst/MeshCentral)
 
 ---
 
 ## Crédits
 
-- MeshCentral par Ylian Saint-Hilaire (Intel) — [meshcentral.com](https://meshcentral.com)
-- MeshCentral Stylish UI par Melo-Professional — [github.com/Melo-Professional/MeshCentral-Stylish-UI](https://github.com/Melo-Professional/MeshCentral-Stylish-UI)
-- acme.sh — [github.com/acmesh-official/acme.sh](https://github.com/acmesh-official/acme.sh)
-- DuckDNS — [duckdns.org](https://www.duckdns.org)
+- MeshCentral par Ylian Saint-Hilaire (Intel) - [meshcentral.com](https://meshcentral.com)
+- MeshCentral Stylish UI par Melo-Professional - [github.com/Melo-Professional/MeshCentral-Stylish-UI](https://github.com/Melo-Professional/MeshCentral-Stylish-UI)
+- acme.sh - [github.com/acmesh-official/acme.sh](https://github.com/acmesh-official/acme.sh)
+- DuckDNS - [duckdns.org](https://www.duckdns.org)
 
 ---
 
