@@ -61,17 +61,17 @@ ip address 192.168.10.254 255.255.255.0
 no shutdown
 !
 interface gi0/0.20
- encapsulation dot1q 20
- ip address 192.168.20.254 255.255.255.0
- no shutdown
+encapsulation dot1q 20
+ip address 192.168.20.254 255.255.255.0
+no shutdown
 !
 interface gi0/1
- ip address 10.0.0.1 255.255.255.252
- no shutdown
+ip address 10.0.0.1 255.255.255.252
+no shutdown
 !
 interface gi0/2
- ip address 10.0.0.5 255.255.255.252
- no shutdown
+ip address 10.0.0.5 255.255.255.252
+no shutdown
 !
 ! --- Routes principales vers le bâtiment B ---
 ip route 172.16.110.0 255.255.255.0 10.0.0.2
@@ -96,45 +96,45 @@ L'interface physique `gi0/0` ne porte aucune adresse. Ce sont les sous-interface
 
 Commutateur multicouche du bâtiment B. Assure le routage inter-VLAN et remplace un routeur classique.
 
-```cisco
+```
 ena
 conf t
 hostname Router-Switch-BUILDING-B
 ip routing
 !
 vlan 110
- name PC-VLAN110
+name PC-VLAN110
 vlan 120
- name PC-VLAN120
+name PC-VLAN120
 !
 interface fa0/1
- switchport mode access
- switchport access vlan 110
- no shutdown
+switchport mode access
+switchport access vlan 110
+no shutdown
 !
 interface fa0/13
- switchport mode access
- switchport access vlan 120
- no shutdown
+switchport mode access
+switchport access vlan 120
+no shutdown
 !
 interface vlan 110
- ip address 172.16.110.254 255.255.255.0
- no shutdown
+ip address 172.16.110.254 255.255.255.0
+no shutdown
 !
 interface vlan 120
- ip address 172.16.120.254 255.255.255.0
- no shutdown
+ip address 172.16.120.254 255.255.255.0
+no shutdown
 !
 ! --- Ports routés (no switchport AVANT ip address) ---
 interface gi0/1
- no switchport
- ip address 10.0.0.2 255.255.255.252
- no shutdown
+no switchport
+ip address 10.0.0.2 255.255.255.252
+no shutdown
 !
 interface gi0/2
- no switchport
- ip address 10.0.0.9 255.255.255.252
- no shutdown
+no switchport
+ip address 10.0.0.9 255.255.255.252
+no shutdown
 !
 ! --- Routes principales vers le bâtiment A ---
 ip route 192.168.10.0 255.255.255.0 10.0.0.1
@@ -159,18 +159,18 @@ Deux commandes conditionnent tout le fonctionnement de cet équipement : `ip rou
 
 Routeur de secours. Ne transporte aucun trafic tant que le lien principal 10.0.0.0/30 est debout.
 
-```cisco
+```
 ena
 conf t
 hostname Router-Secours
 !
 interface gi0/0
- ip address 10.0.0.6 255.255.255.252
- no shutdown
+ip address 10.0.0.6 255.255.255.252
+no shutdown
 !
 interface gi0/1
- ip address 10.0.0.10 255.255.255.252
- no shutdown
+ip address 10.0.0.10 255.255.255.252
+no shutdown
 !
 ! --- Routes vers le bâtiment A ---
 ip route 192.168.10.0 255.255.255.0 10.0.0.5
@@ -221,7 +221,7 @@ do wr
 
 Sur `Router-Switch-BUILDING-B`, contrôler que les deux ports routés ont bien pris leur adresse :
 
-```cisco
+```
 show ip interface brief | include 10.0.0
 ```
 
@@ -229,7 +229,7 @@ Les interfaces `GigabitEthernet0/1` et `GigabitEthernet0/2` doivent apparaître 
 
 Sur chaque équipement, vérifier la table de routage :
 
-```cisco
+```
 show ip route static
 ```
 
