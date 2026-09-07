@@ -1,4 +1,4 @@
-# Configurations complètes des équipements
+# Configurations des équipements
 
 Configuration testée des quatre équipements du réseau redondant. Les commandes sont à coller directement dans la console de chaque appareil sous Cisco Packet Tracer.
 
