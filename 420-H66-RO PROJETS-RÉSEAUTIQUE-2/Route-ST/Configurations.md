@@ -10,30 +10,30 @@ Configuration testée des quatre équipements du réseau redondant. Les commande
 
 Commutateur d'accès du bâtiment A. Porte les deux VLAN utilisateurs et le lien trunk vers le routeur.
 
-```cisco
+```
 ena
 conf t
 hostname Switch-BUILDING-A
 !
 vlan 10
- name PC-VLAN10
+name PC-VLAN10
 vlan 20
- name PC-VLAN20
+name PC-VLAN20
 !
 interface fa0/1
- switchport mode access
- switchport access vlan 10
- no shutdown
+switchport mode access
+switchport access vlan 10
+no shutdown
 !
 interface fa0/13
- switchport mode access
- switchport access vlan 20
- no shutdown
+switchport mode access
+switchport access vlan 20
+no shutdown
 !
 interface gi0/1
- switchport mode trunk
- switchport trunk allowed vlan 10,20
- no shutdown
+switchport mode trunk
+switchport trunk allowed vlan 10,20
+no shutdown
 !
 do wr
 ```
@@ -46,19 +46,19 @@ Le trunk n'autorise que les VLAN 10 et 20, ce qui limite le trafic transporté a
 
 Routeur sur bâton du bâtiment A. Assure les passerelles des VLAN 10 et 20 et raccorde les deux liens de transit.
 
-```cisco
+```
 ena
 conf t
 hostname Router-BUILDING-A
 !
 interface gi0/0
- no ip address
- no shutdown
+no ip address
+no shutdown
 !
 interface gi0/0.10
- encapsulation dot1q 10
- ip address 192.168.10.254 255.255.255.0
- no shutdown
+encapsulation dot1q 10
+ip address 192.168.10.254 255.255.255.0
+no shutdown
 !
 interface gi0/0.20
  encapsulation dot1q 20
