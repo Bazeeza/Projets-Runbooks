@@ -1,11 +1,8 @@
 # Projets-Runbooks
 
-Recueil de **runbooks** techniques — procédures reproductibles étape par étape pour le déploiement, la configuration, la supervision et le dépannage d'infrastructures réseau et de services.
-
+**Runbooks** techniques — procédures reproductibles étape par étape pour le déploiement, la configuration, la supervision et le dépannage d'infrastructures réseau et de services.
 Chaque document présente le contexte, la topologie, les commandes exécutées et les résultats attendus, de façon à ce que la manipulation puisse être reproduite intégralement par un autre technicien.
-
 ---
-
 ## Contenu du dépôt
 
 ### `420-H63-RO SUPERVISION-RÉSEAUX-LOCAUX/`
@@ -88,12 +85,10 @@ Une infrastructure qu'on ne peut pas reconstruire n'est documentée qu'à moiti�
 
 ## Formation
 
-Projets réalisés dans le cadre du **DEC en Techniques de l'informatique (Réseautique)** au Collège de Rosemont, Montréal.
+Projets réalisés dans le cadre du **DEC en Techniques de l'informatique (Réseautique)**.
 
 ---
-
 ## Auteur
-
 **Abdul-Bariu Ishola Azeez**
 Technicien en réseautique et télécommunication — Montréal, QC
 Portfolio : [bazeeza.github.io](https://bazeeza.github.io) · GitHub : [@Bazeeza](https://github.com/Bazeeza)
