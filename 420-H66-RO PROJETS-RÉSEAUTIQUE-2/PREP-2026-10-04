@@ -1,3 +1,6 @@
 ena
 conf t
-hostname 
+hostname SW-A
+!
+vlan 10
+name PC-vlan-10
