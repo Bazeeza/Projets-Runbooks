@@ -9,5 +9,15 @@ name PC-vlan-10
 vlan 20
 name PC-vlan-20
 !
-interface fa0/
-description vers
+interface fa0/1
+description vers PC-VLAN-10
+switchport mode acces
+switchport access vlan 10
+no shut
+!
+interface fa0/12
+description vers PC-VLAN-20
+switchport mode access
+switchport access vlan 20
+no shut
+!
