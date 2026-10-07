@@ -4,3 +4,8 @@ hostname SW-A
 !
 vlan 10
 name PC-vlan-10
+vlan 20
+name PC-vlan-20
+!
+interface fa0/
+description vers
