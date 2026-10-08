@@ -25,7 +25,13 @@ no shut
 !
 interface gig0/1
 description vers trunk Rxx
-
+switchport mode trunk
+switchport trunk allowed 10,20,44
+no shut
 !
 interface vlan 444
 description vers gestion 444
+ip address
+no shut
+!
+ip default-gateway x.x.x.x
