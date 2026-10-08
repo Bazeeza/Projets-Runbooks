@@ -23,3 +23,5 @@ switchport mode access
 switchport access vlan 20
 no shut
 !
+interface vlan 444
+description vers gestion 444
