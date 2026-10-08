@@ -23,5 +23,9 @@ switchport mode access
 switchport access vlan 20
 no shut
 !
+interface gig0/1
+description vers trunk Rxx
+
+!
 interface vlan 444
 description vers gestion 444
