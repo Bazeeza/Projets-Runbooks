@@ -8,6 +8,8 @@ vlan 10
 name PC-vlan-10
 vlan 20
 name PC-vlan-20
+vlan 444
+name vlan-gestion
 !
 interface fa0/1
 description vers PC-VLAN-10
