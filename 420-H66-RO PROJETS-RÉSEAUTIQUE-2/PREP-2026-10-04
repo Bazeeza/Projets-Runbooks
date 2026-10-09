@@ -35,7 +35,3 @@ ip address
 no shut
 !
 ip default-gateway x.x.x.x
-
-
-
-
