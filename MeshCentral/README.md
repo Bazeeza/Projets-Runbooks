@@ -18,6 +18,7 @@
 MeshCentral est une plateforme de gestion et de contrôle à distance entièrement open source, sous licence Apache 2.0, développée par Intel. Elle permet de gérer tous vos ordinateurs Windows, macOS et Linux depuis n'importe quel navigateur web, de partout dans le monde, sans frais d'abonnement et sans dépendre d'un serveur tiers.
 
 ---
+
 ## Pourquoi choisir MeshCentral ?
 
 | Avantage              | Détail                                                                 |
