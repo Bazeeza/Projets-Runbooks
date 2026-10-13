@@ -1,7 +1,4 @@
 NB :
-
-
-
 ena
 conf t
 hostname SW-A
@@ -37,7 +34,3 @@ ip address
 no shut
 !
 ip default-gateway x.x.x.x
-
-
-
-
