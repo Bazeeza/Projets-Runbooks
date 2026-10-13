@@ -117,4 +117,3 @@ MeshCentral est sous licence Apache 2.0 - [github.com/Ylianst/MeshCentral](https
 *Guide testé sur Ubuntu 24.04.3 LTS avec MeshCentral v1.2.1*
 
 
-
