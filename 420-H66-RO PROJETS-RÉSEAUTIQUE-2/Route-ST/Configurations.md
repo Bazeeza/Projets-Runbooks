@@ -245,3 +245,5 @@ ping 10.0.0.10
 ```
 
 Enfin, supprimer le câble entre `Router-BUILDING-A` gi0/1 et `Router-Switch-BUILDING-B` gi0/1, patienter une dizaine de secondes, puis relancer `show ip route static` : les routes doivent afficher `[5/0]`. Un `tracert 172.16.110.10` depuis `PC-VLAN10` doit passer par 10.0.0.6 puis 10.0.0.10.
+
+
