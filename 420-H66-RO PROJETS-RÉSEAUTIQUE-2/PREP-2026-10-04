@@ -10,6 +10,8 @@ name PC-vlan-20
 vlan 444
 name vlan-gestion
 !
+
+
 interface fa0/1
 description vers PC-VLAN-10
 switchport mode acces
