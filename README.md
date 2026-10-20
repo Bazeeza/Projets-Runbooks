@@ -16,17 +16,17 @@ Chaque document présente le contexte, la topologie, les commandes exécutées e
 - Traduction d'adresses **NAT** et accès Internet
 - Supervision **SNMP v2c** pour l'inventaire et la collecte de métriques
 - Tests de connectivité et procédures de dépannage
+- Serveur **Zabbix** (AlmaLinux 9) et agents Linux et Windows
+- Templates, items et déclencheurs (triggers) avec seuils d'alerte (warning / critical) justifiés
 
 ---
 
 
 ### `420-H34-RO UTILITAIRES-RÉSEAUX-AVANCÉS/`
-**Supervision avancée avec Zabbix**
+**Scripts d'automatisation et de durcissement**
 
-- Installation et configuration d'un serveur **Zabbix**
-- Création de templates, d'items et de déclencheurs (triggers)
-- Définition de seuils d'alerte (warning / critical) avec justification
-- Collecte de métriques réseau et système
+- Durcissement selon le **CIS Benchmark** : Ubuntu 24.04 (Bash) et Windows 11 (PowerShell), modes validation et correction pilotés par un fichier XML
+- Script **Python** d'automatisation de l'API Asana à partir d'un fichier XML
 
 ---
 
@@ -91,6 +91,6 @@ Projets réalisés dans le cadre du **DEC en Techniques de l'informatique (Rése
 
 ---
 ## Auteur
-**Abdul-Bariu Ishola Azeez**
+**Bariu Azeez**
 Technicien en réseautique et télécommunication — Montréal, QC
-Portfolio : [bazeeza.github.io](https://bazeeza.github.io) · GitHub : [@Bazeeza](https://github.com/Bazeeza)
+GitHub : [@Bazeeza](https://github.com/Bazeeza) · Courriel : [Azeez@bazeeza.ca](mailto:Azeez@bazeeza.ca)
