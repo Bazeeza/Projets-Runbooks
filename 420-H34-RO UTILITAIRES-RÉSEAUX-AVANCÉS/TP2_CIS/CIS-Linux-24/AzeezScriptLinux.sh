@@ -1,7 +1,7 @@
 #######################################################################################
 #!/bin/bash
 # AzeezScriptLinux.sh
-# Nom : Abdul-Bariu Ishola Azeez
+# Nom : Bariu Azeez
 # But    : Vérifier et corriger quelques règles CIS sur Ubuntu 24.04
 #          à partir d'un fichier XML passé avec -f (nom du fichier).
 #          Le contenu du XML sert comme "config", mais ici on applique

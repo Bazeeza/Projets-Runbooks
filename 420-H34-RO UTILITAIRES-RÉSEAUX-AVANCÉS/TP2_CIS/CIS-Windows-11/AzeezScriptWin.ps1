@@ -1,6 +1,6 @@
 #######################################################################################
 # AzeezScriptWin.ps1
-# Nom : Abdul-Bariu Ishola Azeez
+# Nom : Bariu Azeez
 # But : Script de sécurisation Windows 11 basé sur un fichier XML.
 #       Script lit un fichier XML avec des règles de sécurité
 # Récepteur : M. Gilles Lacasse

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# Nom : Abdul-Bariu Ishola Azeez
+# Nom : Bariu Azeez
 # Date : 2025-10 -09
 # But : Ce script a pour but d'importer un projet Asana depuis un XML
 # afin de créer des projets/taches/sous-tache dans les sections et activités Asana
