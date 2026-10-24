@@ -122,7 +122,7 @@ Attention au masque : `255.255.255.252`, et non `255.255.255.0`. IOS rejette un 
 
 ![Vue d'ensemble de la configuration](images/configuration-overview.png)
 
-La configuration complète et testée de chaque équipement se trouve dans le dossier [`configs/`](configs/).
+La configuration complète et testée de chaque équipement se trouve dans [`Configurations.md`](Configurations.md) (une section par équipement, un récapitulatif des routes et les vérifications après saisie).
 
 ### Points à retenir
 
@@ -193,20 +193,17 @@ Le chemin doit passer par **10.0.0.6** puis **10.0.0.10**. Rebranchez le câble 
 
 ---
 
-## 8. Structure du dépôt
+## 8. Structure du dossier
 
 ```
-redundant-routing-lab/
-├── README.md
-├── images/
-│   ├── topology.png
-│   ├── addressing-plan.png
-│   └── configuration-overview.png
-└── configs/
-    ├── Switch-BUILDING-A.txt
-    ├── Router-BUILDING-A.txt
-    ├── Router-Switch-BUILDING-B.txt
-    └── Router-Secours.txt
+Route-ST/
+├── README.md            ← ce document
+├── Configurations.md    ← configuration des quatre équipements
+├── NotesDeCours.md      ← notes de cours sur les routes statiques
+└── images/
+    ├── topology.png
+    ├── addressing-plan.png
+    └── configuration-overview.png
 ```
 
 ---
