@@ -30,7 +30,7 @@ Chaque document présente le contexte, la topologie, les commandes exécutées e
 
 ---
 
-### `420-H66-RO POJET-SRV-INTERNET-3/`
+### `420-H66-RO PROJET-SRV-INTERNET-3/`
 **Services Internet et infrastructure cloud**
 
 - Déploiement de services sur infrastructure AWS
