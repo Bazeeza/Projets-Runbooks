@@ -4,7 +4,7 @@
 | Élément        | Contenu                                                                 |
 |----------------|-------------------------------------------------------------------------|
 | **Référent**   | Présentation et documentation les func. |
-| **Émetteur**   | **Abdul-Bariu.**                                      |
+| **Émetteur**   | **Bariu Azeez.**                                      |
 | **Message**    | Présenter et documenter les résultats complets de l’installation et du déploiement de Jellyfin avec sa supervision CloudWatch sur . |
 | **Récepteur**  | M. Jérémy Massinon                                                  |
 | **Canal**      | Un dépôt GitLab-Rosemont                                                         |
