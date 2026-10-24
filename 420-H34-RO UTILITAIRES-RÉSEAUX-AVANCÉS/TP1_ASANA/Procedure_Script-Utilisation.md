@@ -5,7 +5,7 @@
 | Élément       | Contenu                                                                 |
 |---------------|-------------------------------------------------------------------------|
 | **Référent**  | Un script qui lit un fichier XML et crée des projets/tâches/sous-tâches, sections et activités dans **Asana**. |
-| **Émetteur**  | Moi-même, Abdul-Bariu.                                                  |
+| **Émetteur**  | Moi-même, Bariu Azeez.                                                  |
 | **Message**   | Mon but ici est de documenter la procédure à suivre afin de tester mon SCRIPT pour un utilisateur. |
 | **Récepteur** | M. Gilles Lacasse                                                       |
 | **Canal**     | Un dépôt GitLab                                                         |

@@ -5,7 +5,7 @@
 | Élément       | Contenu |
 |-------------|---------|
 | **Référent**  | Présentation et documentation de l’instance **EC2-GLPI** hébergée sur **AWS** (Compte 2 / **Oregon – us-west-2**). |
-| **Émetteur**  | **Abdul-Bariu, Freddy, Abdul-Majid et Aran** |
+| **Émetteur**  | **Bariu Azeez, Freddy, Abdul-Majid et Aran** |
 | **Message**   | Documenter les résultats de l’architecture réseau (**VPC / Subnet / IP**) et les **règles de pare-feu (Security Groups)** associées au serveur GLPI. |
 | **Récepteur** | M. Jérémy Massinon |
 | **Canal**     | Dépôt GitLab |

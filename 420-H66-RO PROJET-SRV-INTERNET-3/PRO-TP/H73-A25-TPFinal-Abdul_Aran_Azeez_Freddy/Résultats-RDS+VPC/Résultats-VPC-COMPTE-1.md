@@ -5,7 +5,7 @@
 | Élément       | Contenu |
 |-------------|---------|
 | **Référent**  | Présentation et documentation du réseau **VPC-Compte1** (AWS / us-east-1) et de la connexion privée point à point via **VPC Peering** entre le Compte 1 et le Compte 2. |
-| **Émetteur**  | **Abdul-Bariu, Freddy, Abdul-Majid et Aran** |
+| **Émetteur**  | **Bariu Azeez, Freddy, Abdul-Majid et Aran** |
 | **Message**   | Documenter les résultats de l’architecture réseau du **VPC-Compte1** (CIDR, DNS, tables de routage, subnets) et la connexion **point à point** (Peering) vers le VPC du Compte 2. |
 | **Récepteur** | M. Jérémy Massinon |
 | **Canal**     | Dépôt GitLab |

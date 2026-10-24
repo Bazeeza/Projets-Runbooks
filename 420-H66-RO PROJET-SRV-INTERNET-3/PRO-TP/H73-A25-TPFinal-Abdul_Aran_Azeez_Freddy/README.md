@@ -1,7 +1,7 @@
 # TP Final – Jey INC.
 Création d’une infrastructure Cloud (AWS)
 ## Membres de l’équipe
-- Abdul-Bariu
+- Bariu Azeez
 - Freddy
 - Abdul-Majid
 - Aran

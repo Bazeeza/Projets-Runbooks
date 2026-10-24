@@ -5,7 +5,7 @@
 | Élément       | Contenu |
 |-------------|---------|
 | **Référent**  | Preuves de supervision CloudWatch : tableaux de bord, métriques (CPU, disque, bande passante) et alertes (notifications) pour les services du TP Final. |
-| **Émetteur**  | **Abdul-Bariu, Freddy, Abdul-Majid et Aran** |
+| **Émetteur**  | **Bariu Azeez, Freddy, Abdul-Majid et Aran** |
 | **Message**   | Prouver la mise en place d’un dashboard CloudWatch et des alertes (seuils) pour chaque service de l’infrastructure. |
 | **Récepteur** | M. Jérémy Massinon |
 | **Canal**     | Dépôt GitLab |

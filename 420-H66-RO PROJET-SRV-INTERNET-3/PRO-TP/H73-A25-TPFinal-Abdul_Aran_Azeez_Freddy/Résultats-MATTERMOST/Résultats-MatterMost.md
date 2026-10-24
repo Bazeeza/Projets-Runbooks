@@ -5,7 +5,7 @@
 | Élément        | Contenu |
 |--------------|---------|
 | **Référent**  | Preuves d’installation et de fonctionnement du service **Mattermost** hébergé sur AWS (Compte 1 / **us-east-1**) et relié à une base de données. |
-| **Émetteur**  | **Abdul-Bariu, Freddy, Abdul-Majid et Aran** |
+| **Émetteur**  | **Bariu Azeez, Freddy, Abdul-Majid et Aran** |
 | **Message**   | Fournir les preuves nécessaires à la correction : machine support, service actif, conteneurs, DNS/HTTPS, base de données et inventaire (agent). |
 | **Récepteur** | M. Jérémy Massinon |
 | **Canal**     | Dépôt GitLab |

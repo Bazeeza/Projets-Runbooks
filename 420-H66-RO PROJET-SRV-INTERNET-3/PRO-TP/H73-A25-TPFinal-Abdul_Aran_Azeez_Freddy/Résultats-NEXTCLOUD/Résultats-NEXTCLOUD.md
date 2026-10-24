@@ -5,7 +5,7 @@
 | Élément       | Contenu |
 |-------------|---------|
 | **Référent**  | Preuves d’installation et de fonctionnement du service **Nextcloud** hébergé sur AWS (Compte 1 / us-east-1). |
-| **Émetteur**  | **Abdul-Bariu, Freddy, Abdul-Majid et Aran** |
+| **Émetteur**  | **Bariu Azeez, Freddy, Abdul-Majid et Aran** |
 | **Message**   | Fournir les preuves : service installé, service actif, statut applicatif (occ), certificat TLS côté serveur, stockage externe (S3) et inventaire (agent). |
 | **Récepteur** | M. Jérémy Massinon |
 | **Canal**     | Dépôt GitLab |

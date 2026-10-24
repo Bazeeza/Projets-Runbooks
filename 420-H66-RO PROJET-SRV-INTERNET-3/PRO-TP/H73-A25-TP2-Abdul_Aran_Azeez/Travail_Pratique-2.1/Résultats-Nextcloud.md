@@ -4,7 +4,7 @@
 | Élément        | Contenu                                                                 |
 |----------------|-------------------------------------------------------------------------|
 | **Référent**   | Présentation et documentation  d’un serveur Nextcloud + Certs (Let's Encrypt) et enfin avec une stockage AWS S3  |
-| **Émetteur**   | **Abdul-Bariu. Abdul-Majid. Aran**                                      |
+| **Émetteur**   | **Bariu Azeez. Abdul-Majid. Aran**                                      |
 | **Message**    | Présenter et documenter les résultats de notre installation et la déploiement dune instance Ubuntu Server sur AWS et Nextcloud avec certs             |
 | **Récepteur**  | **M. Jérémy Massinon**                                                  |
 | **Canal**      | Un dépôt GitLab                                                         |

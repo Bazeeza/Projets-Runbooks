@@ -4,7 +4,7 @@
 | Élément        | Contenu                                                                 |
 |----------------|-------------------------------------------------------------------------|
 | **Référent**   | Présentation et documentation d’un serveur Jellyfin hébergé sur AWS sécurisé avec HTTPS, et supervisé via AWS CloudWatch. |
-| **Émetteur**   | **Abdul-Bariu. Abdul-Majid. Aran**                                      |
+| **Émetteur**   | **Bariu Azeez. Abdul-Majid. Aran**                                      |
 | **Message**    | Présenter et documenter les résultats complets de l’installation et du déploiement de Jellyfin avec sa supervision CloudWatch sur AWS. |
 | **Récepteur**  | M. Jérémy Massinon                                                  |
 | **Canal**      | Un dépôt GitLab                                                         |

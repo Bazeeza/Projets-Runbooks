@@ -5,7 +5,7 @@
 | Élément | Contenu |
 |---|---|
 | **Référent** | Conception et documentation d'un réseau redondant reliant deux bâtiments, où un routeur de secours prend automatiquement le relais grâce à la distance administrative. |
-| **Émetteur** | **Abdul-Bariu.** |
+| **Émetteur** | **Bariu Azeez.** |
 | **Message** | Présenter et documenter la configuration complète d'une topologie en triangle assurant une connectivité continue malgré la panne du lien principal. |
 | **Récepteur** | Le grand public — toute personne souhaitant comprendre ou reproduire une redondance réseau sans protocole de routage dynamique. |
 | **Canal** | Un dépôt GitLab-Rosemont |

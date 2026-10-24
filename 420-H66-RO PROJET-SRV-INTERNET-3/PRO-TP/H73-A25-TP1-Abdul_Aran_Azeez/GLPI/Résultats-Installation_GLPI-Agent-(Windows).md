@@ -3,7 +3,7 @@
 | Élément       | Contenu                                                                 |
 |---------------|-------------------------------------------------------------------------|
 | **Référent**  | Une presentation et documentation de la partie installation -- configuration du **GLPI** x **MySQL** hebergé sur un Serveur Ubuntu AWS |
-| **Émetteur**  | Abdul-Bariu. Abdul-Majid. Aran                                                  |
+| **Émetteur**  | Bariu Azeez. Abdul-Majid. Aran                                                  |
 | **Message**   | Notre but ici est de vous présenter et documenté nos résultats de notre installation |
 | **Récepteur** | **M. Jérémy Massinon**                                                      |
 | **Canal**     | Un dépôt GitLab                                                         |

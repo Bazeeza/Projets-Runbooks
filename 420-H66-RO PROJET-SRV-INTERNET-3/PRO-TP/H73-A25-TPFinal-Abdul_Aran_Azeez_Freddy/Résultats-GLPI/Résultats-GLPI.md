@@ -5,7 +5,7 @@
 | Élément       | Contenu |
 |-------------|---------|
 | **Référent**  | Preuves d’installation et de fonctionnement du service **GLPI** hébergé sur AWS (Compte 2 / us-west-2). |
-| **Émetteur**  | **Abdul-Bariu, Freddy, Abdul-Majid et Aran** |
+| **Émetteur**  | **Bariu Azeez, Freddy, Abdul-Majid et Aran** |
 | **Message**   | Fournir les preuves : service installé, service actif, certificat TLS, inventaire (agent) et présence des équipements dans GLPI. |
 | **Récepteur** | M. Jérémy Massinon |
 | **Canal**     | Dépôt GitLab |

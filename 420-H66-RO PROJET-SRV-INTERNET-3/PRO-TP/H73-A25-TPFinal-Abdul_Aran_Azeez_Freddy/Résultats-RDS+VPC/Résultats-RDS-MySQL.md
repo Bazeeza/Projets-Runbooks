@@ -5,7 +5,7 @@
 | Élément       | Contenu |
 |-------------|---------|
 | **Référent**  | Présentation et documentation de l’instance **AWS RDS MySQL** `rds-sql-compte1` hébergée sur **AWS** (Compte 1 / **N. Virginia – us-east-1**), déployée en réseau privé via **VPC / DB Subnet Group / Security Group**. |
-| **Émetteur**  | **Abdul-Bariu, Freddy, Abdul-Majid et Aran** |
+| **Émetteur**  | **Bariu Azeez, Freddy, Abdul-Majid et Aran** |
 | **Message**   | Documenter les résultats de l’architecture réseau (**endpoint, VPC, subnets, accessibilité**) et l’association de sécurité (**Security Group RDS**) pour la base de données. |
 | **Récepteur** | M. Jérémy Massinon |
 | **Canal**     | Dépôt GitLab |

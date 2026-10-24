@@ -10,7 +10,7 @@ Mon objectif ici est de décrire ma stratégie avant de commencer le projet sur 
 | Élément       | Contenu                                                                 |
 |---------------|-------------------------------------------------------------------------|
 | **Référent**  | Un script qui lit un fichier XML et crée des projets, sections et activités dans **Asana**. |
-| **Émetteur**  | Moi-même, Abdul-Bariu.                                                  |
+| **Émetteur**  | Moi-même, Bariu Azeez.                                                  |
 | **Message**   | Mon but est d’expliquer comment je vais organiser mon travail étape par étape pour réussir à produire un script fonctionnel. |
 | **Récepteur** | M. Gilles Lacasse                                                       |
 | **Canal**     | Un dépôt GitLab                                                         |

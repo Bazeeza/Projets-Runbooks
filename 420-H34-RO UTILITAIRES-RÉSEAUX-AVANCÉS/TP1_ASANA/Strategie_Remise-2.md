@@ -5,7 +5,7 @@
 | Élément       | Contenu                                                                 |
 |---------------|-------------------------------------------------------------------------|
 | **Référent**  | Un script qui lit un fichier XML et crée des projets, sections et activités dans **Asana**. |
-| **Émetteur**  | Moi-même, Abdul-Bariu.                                                  |
+| **Émetteur**  | Moi-même, Bariu Azeez.                                                  |
 | **Message**   | Mon but est d’expliquer et montre une réflexion en faissant une comparaison du stratégie du début est celle qui est enfin utilisée |
 | **Récepteur** | M. Gilles Lacasse                                                       |
 | **Canal**     | Un dépôt GitLab                                                         |
