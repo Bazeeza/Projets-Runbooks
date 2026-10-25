@@ -23,14 +23,15 @@ flowchart LR
     U["Utilisateurs<br/>Internet"] -->|"HTTP 80 · HTTPS 443"| IGW["Internet Gateway"]
     subgraph VPC["VPC · 10.0.0.0/16"]
         subgraph PUB["Sous-réseau public · 10.0.1.0/24"]
-            SG["Groupe de sécurité bitwarden-sg<br/>22 · 80 · 443"] --> EC2
+            SG["Groupe de sécurité bitwarden-sg<br/>22 · 80 · 443"]
             subgraph EC2["EC2 Ubuntu 22.04 · t2.micro"]
                 CADDY["Caddy<br/>HTTPS automatique"] -->|"localhost:8000"| VW["Conteneur Docker<br/>vaultwarden/server"]
             end
         end
     end
     IGW --> SG
-    EIP["Elastic IP<br/>bitwarden-eip"] -.-> EC2
+    SG --> CADDY
+    EIP["Elastic IP<br/>bitwarden-eip"] -.-> CADDY
 ```
 
 -----

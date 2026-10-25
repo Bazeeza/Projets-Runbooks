@@ -21,7 +21,7 @@ flowchart LR
     U["Utilisateurs<br/>Internet"] -->|"HTTP 80 / HTTPS 443"| SGE
     subgraph VPC["VPC du TP"]
         subgraph PUB["Sous-réseau avec IP publique"]
-            SGE["Groupe de sécurité EC2<br/>22, 80, 443"] --> EC2
+            SGE["Groupe de sécurité EC2<br/>22, 80, 443"]
             subgraph EC2["EC2 Ubuntu 24.04 · t3.small"]
                 NGX["NGINX<br/>terminaison TLS"] -->|"127.0.0.1:8065"| MM["Mattermost"]
             end
@@ -30,6 +30,7 @@ flowchart LR
             SGR["Groupe de sécurité RDS<br/>5432 depuis le SG EC2 seulement"] --> RDS[("RDS PostgreSQL 14<br/>db.t3.micro · non public")]
         end
     end
+    SGE --> NGX
     MM -->|"PostgreSQL 5432 + TLS"| SGR
 ```
 
