@@ -1,36 +1,70 @@
-# Plan d'Architecture Réseau
-Ce documentation présente la procédure de configuration pour mettre en place une architecture réseau qui a pour objectif de permettre un relais d'assignation d'adresses IP à partir d'un serveur DHCP.
+# Plan d'architecture réseau du laboratoire
 
-## Préparation de l'environnement de travail et prérequis
-Pour mettre en place ce réseau, assurez-vous d'avoir ces équipements reseau (Switch/Routeur) selon vos besions. Au moins;
-   - Un Routeur Cisco Physique
-   - Un Switch Cisco Physique
+**Routeur et commutateur Cisco physiques : accès Internet par NAT/PAT et préparation de l'inventaire SNMP**
 
-- Référence: Consultez la [Documentation du cour Serveurs de services Internet 1 (420H03RO - Automne 2024)](https://crosemont.moodle.decclic.qc.ca/course/view.php?id=5563&section=3)
+| Élément | Contenu |
+|---|---|
+| **Référent** | La configuration d'un routeur et d'un commutateur Cisco physiques : NAT/PAT vers le réseau du département, sous-interface VLAN 2 (802.1Q) et SNMP v2c. |
+| **Émetteur** | Bariu Azeez |
+| **Message** | Permettre de recâbler et de reconfigurer le réseau du laboratoire à partir de zéro, puis de le préparer à la supervision par SNMP. |
+| **Récepteur** | Étudiants et techniciens du laboratoire de supervision |
+| **Canal** | Dépôt GitLab du cours (Collège de Rosemont), republié sur GitHub |
+| **Code** | Français |
+| **Référence** | [Cisco — Configure Network Address Translation](https://www.cisco.com/c/en/us/support/docs/ip/network-address-translation-nat/13772-12.html) · [Cisco — Configure SNMP Community Strings](https://www.cisco.com/c/en/us/support/docs/ip/simple-network-management-protocol-snmp/7282-12.html) · [documentation du cours 420-H03-RO (Moodle, accès réservé)](https://crosemont.moodle.decclic.qc.ca/course/view.php?id=5563&section=3) |
 
-## Attention !
+---
 
-La configuration qui vous a été fournie nécessite un câblage des équipements très spécifiques ! Assurez-vous de bien respecter les connexions suivantes :
+## Topologie
 
-- Le port `Ga 0/0` du routeur doit être connecté au switch.
-- Le port `Ga 0/1` du routeur doit être connecté au port `LINK LOCAL` du réseau du département..
-- Vos stations de travail peuvent utiliser n'importe quel autre port du commutateur.
+```mermaid
+flowchart LR
+    DEP["Réseau du département<br/>adresse obtenue par DHCP"]
+    subgraph LAB["Laboratoire"]
+        RT["Routeur Cisco<br/>NAT/PAT overload"]
+        SW["Commutateur Cisco<br/>SVI VLAN 2 : 192.168.6.177/24"]
+        PC["Stations de travail<br/>VLAN 1 : 192.168.5.0/24"]
+        SUP["Serveur de supervision<br/>Zabbix"]
+    end
+    DEP ---|"Gi0/1 : ip nat outside"| RT
+    RT ---|"Gi0/0 : 192.168.5.1/24<br/>Gi0/0.2 : 192.168.6.1/24<br/>trunk VLAN 1 et 2"| SW
+    SW --- PC
+    SW --- SUP
+    SUP -. "inventaire SNMP v2c" .-> RT
+    SUP -. "inventaire SNMP v2c" .-> SW
+```
 
-## Procédure pour notre Routeur
+| Équipement | Interface | Adresse | Rôle |
+|---|---|---|---|
+| Routeur | `Gi0/1` | DHCP (réseau du département) | Côté extérieur du NAT (`ip nat outside`) |
+| Routeur | `Gi0/0` | `192.168.5.1/24` | Passerelle du VLAN 1, côté intérieur du NAT |
+| Routeur | `Gi0/0.2` | `192.168.6.1/24` | Passerelle du VLAN 2 (encapsulation 802.1Q) |
+| Commutateur | `interface vlan 2` | `192.168.6.177/24` | Adresse de gestion interrogée par SNMP |
+| Commutateur | `Gi0/1` | — | Lien trunk vers le routeur (VLAN 1 et 2) |
 
-1. Connectez-vous avec le port console sur votre routeur.
-2. Saisissez `enable` puis `conf t` pour passer en mode de configuration.
-   - Vous devriez voir afficher `Routeur( config )#`
-3. Copiez et collez la configuration fournie ci-dessous dans votre session terminal et appuyez sur "enter".
-4. Réinitialisation du routeur avant configuration:
-   - Pour effacer la configuration actuelle, entrez les commandes suivantes :
-     ```
-     erase startup-config
-     ```
-   - Une fois la commande exécutée, rechargez le routeur pour appliquer les changements :
-     ```
-     reload
-     ```
+## Prérequis
+
+- Un routeur Cisco physique
+- Un commutateur Cisco physique
+- Un câble console et un logiciel de terminal
+
+## Câblage
+
+> [!IMPORTANT]
+> La configuration exige un câblage précis :
+> - le port `Gi0/0` du routeur est relié au commutateur ;
+> - le port `Gi0/1` du routeur est relié au port `LINK LOCAL` du réseau du département ;
+> - les stations de travail utilisent n'importe quel autre port du commutateur.
+
+## Procédure pour le routeur
+
+1. Connectez-vous au routeur par le port console.
+2. Effacez la configuration existante, puis redémarrez :
+   ```
+   erase startup-config
+   reload
+   ```
+3. Saisissez `enable` puis `conf t` pour passer en mode de configuration globale (l'invite devient `Router(config)#`).
+4. Collez la configuration ci-dessous et appuyez sur Entrée.
 
 ### Configuration du routeur
 
@@ -62,50 +96,47 @@ end
 !
 ```
 
-## Sauvegarder la configuration :
-- Pour sauvegarder la nouvelle configuration dans le fichier de démarrage, utilisez la commande suivante :
-     ```
-     copy running-config startup-config
-     ```
+### Sauvegarder la configuration
 
-## Procédure pour le Switch
+```
+copy running-config startup-config
+```
 
-1. Connexion au switch
-    -Connectez-vous au switch via le port console.
+## Procédure pour le commutateur
 
-2. Réinitialisation du Switch avant utilisation:
-   - Pour effacer la configuration actuelle, entrez les commandes suivantes :
-     ```
-     erase startup-config
-     ```
-   - Une fois la commande exécutée, rechargez le routeur pour appliquer les changements :
-     ```
-     reload
-     ```
+1. Connectez-vous au commutateur par le port console.
+2. Effacez la configuration existante, puis redémarrez le commutateur :
+   ```
+   erase startup-config
+   reload
+   ```
+
 ---
 
+## Étape suivante : inventaire SNMP des équipements physiques
 
-## Modifications à Apporter Plus Tard sur Votre l'Infrastructure Réseau pour l'Inventaire SNMP des Équipements Physiques
+Pour que le serveur de supervision puisse inventorier les équipements, le routeur et le commutateur doivent répondre aux requêtes SNMP.
 
-Lorsque vous serez en mesure d'effectuer l'inventaire des équipements réseau physiques via SNMP, assurez-vous de configurer correctement le routeur et le switch pour qu'ils répondent aux requêtes SNMP.
+### SNMP v2c sur le routeur
 
-
-#### Ajoutez ce configuration pour SNMP v2c (Routeur) :
 ```
 snmp-server community Routeur-reseaux-locaux
 snmp-server location E-305-rosemont
 snmp-server contact equipe1
 ```
 
-- **Le Switch nécessite une configuration supplémentaire sur la switch elle-meme, ainsi sur le Routeur. Pour réaliser son inventaire, il est nécessaire de lui attribuer une adresse IP spécifique.**
+> [!NOTE]
+> Le commutateur demande une configuration supplémentaire, sur lui-même **et** sur le routeur : il lui faut une adresse IP de gestion pour être interrogé.
 
-#### Ajoutez ce configuration pour SNMP v2c (Switch) :
+### SNMP v2c sur le commutateur
+
 ```
 snmp-server community Switch-reseaux-locaux
 snmp-server location E-305-rosemont
 snmp-server contact equipe1
 ```
-#### Ajoutez ce configuration sur votre Switch
+
+### Adresse de gestion du commutateur
 
 ```
 !
@@ -123,7 +154,8 @@ interface GigabitEthernet0/1
  no shutdown
 !
 ```
-#### Ajoutez ce configuration sur votre Routeur
+
+### Sous-interface VLAN 2 sur le routeur
 
 ```
 ! Sous-interface pour le VLAN 2 (réseau 192.168.6.0/24)
@@ -149,9 +181,12 @@ ip route 0.0.0.0 0.0.0.0 GigabitEthernet0/1
 !
 end
 ```
---- 
-## Sauvegarder la configuration :
-- Pour sauvegarder la nouvelle configuration dans le fichier de démarrage, utilisez la commande suivante :
-     ```
-     copy running-config startup-config
-     ```
+
+### Sauvegarder la configuration
+
+```
+copy running-config startup-config
+```
+
+> [!WARNING]
+> SNMP v2c transmet la communauté en clair. Il convient à un laboratoire isolé ; en production, on utilise SNMP v3 (authentification et chiffrement).
