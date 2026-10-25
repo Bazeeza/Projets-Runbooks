@@ -1,14 +1,18 @@
-# Inventaire Serveur et Client
+# Travail pratique 1 — Installation de l'agent GLPI sur Windows
 
-| Élément       | Contenu                                                                 |
-|---------------|-------------------------------------------------------------------------|
-| **Référent**  | Une presentation et documentation de la partie installation -- configuration du **GLPI** x **MySQL** hebergé sur un Serveur Ubuntu AWS |
-| **Émetteur**  | Bariu Azeez. Abdul-Majid. Aran                                                  |
-| **Message**   | Notre but ici est de vous présenter et documenté nos résultats de notre installation |
-| **Récepteur** | **M. Jérémy Massinon**                                                      |
-| **Canal**     | Un dépôt GitLab                                                         |
-| **Code**      | La langue française écrite.                                             |
-| **Référence**      | Consultez la [Documentation GLPI](https://glpi-agent.readthedocs.io/en/latest/installation/) ou encore [Numelion IT Tutoriels](https://www.youtube.com/watch?v=xmLPdNdPZ_k&t=316s) |
+**Inventaire d'un poste client ou d'un serveur Windows dans GLPI**
+
+| Élément | Contenu |
+|---|---|
+| **Référent** | L'installation et la configuration de **l'agent GLPI** sur un client Windows ou un Windows Server 2019 pour l'inventorier dans le serveur GLPI. |
+| **Émetteur** | Bariu Azeez, Abdul-Majid, Aran |
+| **Message** | Présenter les étapes et les résultats de l'inventaire d'un poste Windows. |
+| **Récepteur** | M. Jérémy Massinon |
+| **Canal** | Dépôt GitLab du cours (Collège de Rosemont), republié sur GitHub |
+| **Code** | Français |
+| **Référence** | [Documentation de l'agent GLPI — Installation](https://glpi-agent.readthedocs.io/en/latest/installation/) · [Numelion IT — tutoriel vidéo](https://www.youtube.com/watch?v=xmLPdNdPZ_k&t=316s) |
+
+---
 
 ## Préparation de l'environnement de travail et Prérequis
 
