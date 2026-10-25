@@ -1,15 +1,16 @@
-# Guide TUTO d'utilisation du script CIS Bench Ubuntu 24.04 (AzeezScriptLinux.sh)
+# Guide d'utilisation du script CIS Benchmark pour Ubuntu 24.04
 
-## Schéma de planification
+**Vérification et correction automatisées des règles CIS avec `AzeezScriptLinux.sh`**
 
-| Élément       | Contenu                                                                                                                                                                              |
-| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **Référent**  | Un script Bash qui lit un fichier XML et vérifie / corrige des règles CIS Benchmark pour **Ubuntu Desktop 24.04** (packages, sysctl, services, comptes, journald, fichiers système). |
-| **Émetteur**  | Moi-même.                                                                                                                                                                     |
-| **Message**   | Expliquer clairement comment préparer, lancer et tester mon script de sécurisation CIS pour Ubuntu.                                                                                  |
-| **Récepteur** | M. Gilles Lacasse                                                                                                                                                                    |
-| **Canal**     | Dépôt GitLab : `azeez-420_utilitaires-2/TP2_CIS_Linux`                                                                             |
-| **Code**      | Langue française écrite.                                                                                                                                                             |
+| Élément | Contenu |
+|---|---|
+| **Référent** | Un script Bash qui lit un fichier XML et vérifie / corrige des règles CIS Benchmark pour **Ubuntu Desktop 24.04** (paquets, sysctl, services, comptes, journald, fichiers système). |
+| **Émetteur** | Bariu Azeez |
+| **Message** | Expliquer comment préparer, lancer et tester le script de durcissement CIS pour Ubuntu. |
+| **Récepteur** | M. Gilles Lacasse |
+| **Canal** | Dépôt GitLab du cours (`azeez-420_utilitaires-2/TP2_CIS_Linux`), republié sur GitHub |
+| **Code** | Français |
+| **Référence** | [CIS Benchmarks — Ubuntu Linux](https://www.cisecurity.org/cis-benchmarks) |
 
 ---
 

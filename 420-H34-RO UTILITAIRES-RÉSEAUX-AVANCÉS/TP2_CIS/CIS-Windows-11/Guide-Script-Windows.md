@@ -1,15 +1,16 @@
-# Guide TUTO d'utilisation du script CIS Bench Windows 11 (AzeezScriptWin.ps1)
+# Guide d'utilisation du script CIS Benchmark pour Windows 11
 
-## Schéma de planification
+**Vérification et correction automatisées des règles CIS avec `AzeezScriptWin.ps1`**
 
-| Élément       | Contenu                                                                                                                                                            |
-| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **Référent**  | Un script PowerShell qui va pourvoir lit un fichier XML et applique des règles CIS Benchmark sur Windows 11 (mots de passe, verrouillage, comptes, services, firewall, audit). |
-| **Émetteur**  | Moi-même.                                                                                                                                                   |
-| **Message**   | Documenter clairement la procédure pour tester mon script de sécurisation CIS Windows 11.                                                                          |
-| **Récepteur** | M. Gilles Lacasse                                                                                                                                                  |
-| **Canal**     | Dépôt GitLab : `azeez-420_utilitaires-2/TP2_CIS_Windows`                                                                                                           |
-| **Code**      | Langue française écrite.                                                                                                                                           |
+| Élément | Contenu |
+|---|---|
+| **Référent** | Un script PowerShell qui lit un fichier XML et applique des règles CIS Benchmark sur Windows 11 (mots de passe, verrouillage, comptes, services, pare-feu, audit). |
+| **Émetteur** | Bariu Azeez |
+| **Message** | Documenter la procédure pour tester le script de durcissement CIS sur Windows 11. |
+| **Récepteur** | M. Gilles Lacasse |
+| **Canal** | Dépôt GitLab du cours (`azeez-420_utilitaires-2/TP2_CIS_Windows`), republié sur GitHub |
+| **Code** | Français |
+| **Référence** | [CIS Benchmarks — Microsoft Windows](https://www.cisecurity.org/cis-benchmarks) |
 
 ---
 
