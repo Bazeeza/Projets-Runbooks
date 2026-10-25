@@ -1,10 +1,18 @@
-# TP Final – Jey INC.
-Création d’une infrastructure Cloud (AWS)
-## Membres de l’équipe
-- Bariu Azeez
-- Freddy
-- Abdul-Majid
-- Aran
+# TP final — Infrastructure cloud de Jey INC.
+
+**Création d'une infrastructure AWS répartie sur deux comptes reliés par VPC Peering**
+
+| Élément | Contenu |
+|---|---|
+| **Référent** | L'infrastructure cloud de l'entreprise fictive Jey INC. : GLPI, Mattermost, Nextcloud, RDS MySQL, VPN et CloudWatch sur deux comptes AWS (us-east-1 et us-west-2). |
+| **Émetteur** | Bariu Azeez, Freddy, Abdul-Majid, Aran |
+| **Message** | Présenter l'architecture livrée, l'organisation des preuves par service et les réponses aux questions théoriques. |
+| **Récepteur** | M. Jérémy Massinon |
+| **Canal** | Dépôt GitLab du cours (Collège de Rosemont), republié sur GitHub |
+| **Code** | Français |
+| **Référence** | [Amazon VPC](https://docs.aws.amazon.com/vpc/) · [VPC Peering](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) · [Amazon CloudWatch](https://docs.aws.amazon.com/cloudwatch/) |
+
+---
 
 ## Introduction
 D’abord, l’objectif de ce travail pratique final est de déployer une première partie de l’infrastructure Cloud de Jey INC. en respectant le cahier des charges du TP finale.
@@ -16,6 +24,48 @@ Dans notre cas, on a mis en place :
 - VPN (accès d’administration + échanges sécurisés)
 - CloudWatch (métriques + tableaux de bord + alarmes)
 
+---
+
+## Schéma de l'architecture
+
+Construit à partir des documents d'architecture réseau de chaque service (adresses privées des VPC du laboratoire).
+
+```mermaid
+flowchart TB
+    U["Utilisateurs<br/>Internet"]
+    VPN["Réseau VPN d'administration<br/>10.8.0.0/24"]
+    subgraph C1["Compte AWS 1 · us-east-1"]
+        subgraph V1["VPC-Compte1 · 10.0.0.0/16"]
+            NC["EC2-Nextcloud<br/>10.0.1.221"]
+            MM["EC2-Mattermost<br/>10.0.1.108"]
+            RDS[("RDS MySQL<br/>rds-sql-compte1 · non public")]
+        end
+        S3[("Amazon S3<br/>stockage externe Nextcloud")]
+    end
+    subgraph C2["Compte AWS 2 · us-west-2"]
+        subgraph V2["VPC-Compte2 · 10.1.0.0/16"]
+            GLPI["EC2-GLPI<br/>10.1.1.100"]
+        end
+    end
+    CW["Amazon CloudWatch<br/>tableaux de bord et alarmes"]
+    U -->|"HTTPS 443"| NC
+    U -->|"HTTPS 443"| MM
+    U -->|"HTTPS 443"| GLPI
+    NC --> S3
+    V1 <-->|"VPC Peering<br/>Peering-East-West"| V2
+    VPN -. "administration" .-> V1
+    NC -. "métriques" .-> CW
+    MM -. "métriques" .-> CW
+    RDS -. "métriques" .-> CW
+```
+
+| Service | Compte / région | Documents |
+|---|---|---|
+| Nextcloud | Compte 1 · us-east-1 | [Architecture réseau](<Résultats-NEXTCLOUD/Résultats-ArchitectureReseau-NEXTCLOUD.md>) · [Preuves](<Résultats-NEXTCLOUD/Résultats-NEXTCLOUD.md>) |
+| Mattermost | Compte 1 · us-east-1 | [Architecture réseau](<Résultats-MATTERMOST/Résultats-ArchitectureReseau-MATTERMOST.md>) · [Preuves](<Résultats-MATTERMOST/Résultats-MatterMost.md>) |
+| GLPI | Compte 2 · us-west-2 | [Architecture réseau](<Résultats-GLPI/Résultats-ArchitectureReseau-GLPI.md>) · [Preuves](<Résultats-GLPI/Résultats-GLPI.md>) |
+| RDS MySQL et VPC | Comptes 1 et 2 | [RDS MySQL](<Résultats-RDS+VPC/Résultats-RDS-MySQL.md>) · [VPC Compte 1](<Résultats-RDS+VPC/Résultats-VPC-COMPTE-1.md>) · [VPC Compte 2](<Résultats-RDS+VPC/Résultats-VPC-COMPTE-2.md>) |
+| CloudWatch | — | [Tableaux de bord, métriques et alertes](<Résultats-V-CLOUDWATCH/Résultats-CLOUDWATCH.md>) |
 
 ---
 
