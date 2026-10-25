@@ -1,16 +1,14 @@
 # Travail Pratique Final – AWS – Architecture réseau + groupes de sécurité (RDS-MySQL – Compte 1)
 
-**Auteur / But et schéma de planification**
-
-| Élément       | Contenu |
-|-------------|---------|
-| **Référent**  | Présentation et documentation de l’instance **AWS RDS MySQL** `rds-sql-compte1` hébergée sur **AWS** (Compte 1 / **N. Virginia – us-east-1**), déployée en réseau privé via **VPC / DB Subnet Group / Security Group**. |
-| **Émetteur**  | **Bariu Azeez, Freddy, Abdul-Majid et Aran** |
-| **Message**   | Documenter les résultats de l’architecture réseau (**endpoint, VPC, subnets, accessibilité**) et l’association de sécurité (**Security Group RDS**) pour la base de données. |
+| Élément | Contenu |
+|---|---|
+| **Référent** | Présentation et documentation de l’instance **AWS RDS MySQL** `rds-sql-compte1` hébergée sur **AWS** (Compte 1 / **N. Virginia – us-east-1**), déployée en réseau privé via **VPC / DB Subnet Group / Security Group**. |
+| **Émetteur** | Bariu Azeez, Freddy, Abdul-Majid, Aran |
+| **Message** | Documenter les résultats de l’architecture réseau (**endpoint, VPC, subnets, accessibilité**) et l’association de sécurité (**Security Group RDS**) pour la base de données. |
 | **Récepteur** | M. Jérémy Massinon |
-| **Canal**     | Dépôt GitLab |
-| **Code**      | Français |
-| **Références** | [AWS RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/) · [MySQL](https://dev.mysql.com/doc/) |
+| **Canal** | Dépôt GitLab du cours (Collège de Rosemont), republié sur GitHub |
+| **Code** | Français |
+| **Référence** | [AWS RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/) · [MySQL](https://dev.mysql.com/doc/) |
 
 ---
 

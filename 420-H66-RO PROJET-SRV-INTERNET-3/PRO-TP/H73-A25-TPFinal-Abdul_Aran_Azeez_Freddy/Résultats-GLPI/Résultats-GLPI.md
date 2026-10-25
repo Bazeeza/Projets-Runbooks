@@ -1,16 +1,14 @@
 # Travail Pratique Final – Preuves d’installation et de fonctionnement (GLPI)
 
-**Auteur / But et schéma de planification**
-
-| Élément       | Contenu |
-|-------------|---------|
-| **Référent**  | Preuves d’installation et de fonctionnement du service **GLPI** hébergé sur AWS (Compte 2 / us-west-2). |
-| **Émetteur**  | **Bariu Azeez, Freddy, Abdul-Majid et Aran** |
-| **Message**   | Fournir les preuves : service installé, service actif, certificat TLS, inventaire (agent) et présence des équipements dans GLPI. |
+| Élément | Contenu |
+|---|---|
+| **Référent** | Preuves d’installation et de fonctionnement du service **GLPI** hébergé sur AWS (Compte 2 / us-west-2). |
+| **Émetteur** | Bariu Azeez, Freddy, Abdul-Majid, Aran |
+| **Message** | Fournir les preuves : service installé, service actif, certificat TLS, inventaire (agent) et présence des équipements dans GLPI. |
 | **Récepteur** | M. Jérémy Massinon |
-| **Canal**     | Dépôt GitLab |
-| **Code**      | Français |
-| **Références** | [AWS EC2](https://docs.aws.amazon.com/fr_fr/ec2/) · [GLPI](https://glpi-project.org/) |
+| **Canal** | Dépôt GitLab du cours (Collège de Rosemont), republié sur GitHub |
+| **Code** | Français |
+| **Référence** | [AWS EC2](https://docs.aws.amazon.com/fr_fr/ec2/) · [GLPI](https://glpi-project.org/) |
 
 ---
 

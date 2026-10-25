@@ -1,16 +1,14 @@
 # Travail Pratique Final – AWS – Architecture réseau + groupes de sécurité (EC2-Mattermost)
 
-**Auteur / But et schéma de planification**
-
-| Élément       | Contenu |
-|-------------|---------|
-| **Référent**  | Présentation et documentation de l’instance **EC2-Mattermost** hébergée sur **AWS** (Compte 1 / **N. Virginia – us-east-1**). |
-| **Émetteur**  | **Bariu Azeez, Freddy, Abdul-Majid et Aran** |
-| **Message**   | Documenter les résultats de l’architecture réseau (**VPC / Subnet / IP**) et les **règles de pare-feu (Security Groups)** associées au serveur Mattermost. |
+| Élément | Contenu |
+|---|---|
+| **Référent** | Présentation et documentation de l’instance **EC2-Mattermost** hébergée sur **AWS** (Compte 1 / **N. Virginia – us-east-1**). |
+| **Émetteur** | Bariu Azeez, Freddy, Abdul-Majid, Aran |
+| **Message** | Documenter les résultats de l’architecture réseau (**VPC / Subnet / IP**) et les **règles de pare-feu (Security Groups)** associées au serveur Mattermost. |
 | **Récepteur** | M. Jérémy Massinon |
-| **Canal**     | Dépôt GitLab |
-| **Code**      | Français |
-| **Références** | [AWS EC2](https://docs.aws.amazon.com/fr_fr/ec2/) · [Mattermost Docs](https://docs.mattermost.com/) |
+| **Canal** | Dépôt GitLab du cours (Collège de Rosemont), republié sur GitHub |
+| **Code** | Français |
+| **Référence** | [AWS EC2](https://docs.aws.amazon.com/fr_fr/ec2/) · [Mattermost Docs](https://docs.mattermost.com/) |
 
 ---
 

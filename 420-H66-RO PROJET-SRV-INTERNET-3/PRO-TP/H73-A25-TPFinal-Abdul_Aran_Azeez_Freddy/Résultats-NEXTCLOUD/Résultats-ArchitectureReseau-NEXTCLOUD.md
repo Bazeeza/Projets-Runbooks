@@ -1,16 +1,14 @@
 # Travail Pratique Final – AWS – Architecture réseau + groupes de sécurité (EC2-Nextcloud)
 
-**Auteur / But et schéma de planification**
-
-| Élément       | Contenu |
-|-------------|---------|
-| **Référent**  | Présentation et documentation de l’instance **EC2-Nextcloud** hébergée sur **AWS** (Compte 1 / **N. Virginia – us-east-1**). |
-| **Émetteur**  | **Bariu Azeez, Freddy, Abdul-Majid et Aran** |
-| **Message**   | Documenter les résultats de l’architecture réseau (**VPC / Subnet / IP**) et les **règles de pare-feu (Security Groups)** associées au serveur Nextcloud. |
+| Élément | Contenu |
+|---|---|
+| **Référent** | Présentation et documentation de l’instance **EC2-Nextcloud** hébergée sur **AWS** (Compte 1 / **N. Virginia – us-east-1**). |
+| **Émetteur** | Bariu Azeez, Freddy, Abdul-Majid, Aran |
+| **Message** | Documenter les résultats de l’architecture réseau (**VPC / Subnet / IP**) et les **règles de pare-feu (Security Groups)** associées au serveur Nextcloud. |
 | **Récepteur** | M. Jérémy Massinon |
-| **Canal**     | Dépôt GitLab |
-| **Code**      | Français |
-| **Références** | [AWS EC2](https://docs.aws.amazon.com/fr_fr/ec2/) · [Nextcloud Docs](https://docs.nextcloud.com/) |
+| **Canal** | Dépôt GitLab du cours (Collège de Rosemont), republié sur GitHub |
+| **Code** | Français |
+| **Référence** | [AWS EC2](https://docs.aws.amazon.com/fr_fr/ec2/) · [Nextcloud Docs](https://docs.nextcloud.com/) |
 
 ---
 

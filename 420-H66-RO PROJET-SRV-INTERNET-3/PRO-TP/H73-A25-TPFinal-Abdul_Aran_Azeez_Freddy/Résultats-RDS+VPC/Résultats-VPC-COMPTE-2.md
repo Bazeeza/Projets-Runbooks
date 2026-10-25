@@ -1,16 +1,14 @@
 # Travail Pratique Final – AWS – Réseau VPC + connexion privée point à point (Compte 2)
 
-**Auteur / But et schéma de planification**
-
-| Élément       | Contenu |
-|-------------|---------|
-| **Référent**  | Présentation et documentation du réseau **VPC-Compte2** (AWS / us-west-2) et de la connexion privée point à point via **VPC Peering** entre le Compte 2 et le Compte 1. |
-| **Émetteur**  | **Bariu Azeez, Freddy, Abdul-Majid et Aran** |
-| **Message**   | Documenter les résultats de l’architecture réseau du **VPC-Compte2** (CIDR, DNS, tables de routage, subnets) et la connexion **point à point** (Peering) vers le VPC du Compte 1. |
+| Élément | Contenu |
+|---|---|
+| **Référent** | Présentation et documentation du réseau **VPC-Compte2** (AWS / us-west-2) et de la connexion privée point à point via **VPC Peering** entre le Compte 2 et le Compte 1. |
+| **Émetteur** | Bariu Azeez, Freddy, Abdul-Majid, Aran |
+| **Message** | Documenter les résultats de l’architecture réseau du **VPC-Compte2** (CIDR, DNS, tables de routage, subnets) et la connexion **point à point** (Peering) vers le VPC du Compte 1. |
 | **Récepteur** | M. Jérémy Massinon |
-| **Canal**     | Dépôt GitLab |
-| **Code**      | Français |
-| **Références** | [AWS VPC](https://docs.aws.amazon.com/vpc/) · [VPC Peering](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) |
+| **Canal** | Dépôt GitLab du cours (Collège de Rosemont), republié sur GitHub |
+| **Code** | Français |
+| **Référence** | [AWS VPC](https://docs.aws.amazon.com/vpc/) · [VPC Peering](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) |
 
 ---
 
