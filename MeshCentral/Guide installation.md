@@ -1,14 +1,15 @@
-# MeshCentral - Guide d'Installation
-**Procédurier 18 Étapes - Ubuntu 24.04 LTS**
+# MeshCentral — Guide d'installation
 
-| Élément       | Contenu                                                                                         |
-|---------------|-------------------------------------------------------------------------------------------------|
-| **Référent**  | Installation complète d'un serveur MeshCentral auto-hébergé sur VPS Ubuntu, avec MongoDB 8.0, certificat TLS via acme.sh, thème graphique Stylish UI, sauvegardes automatiques et connexion d'appareils Windows et macOS. |
-| **Émetteur**  | Communauté open source - guide contributif public                                               |
-| **Message**   | Fournir un procédurier complet, corrigé et validé, permettant à tout utilisateur de déployer MeshCentral en production sur Ubuntu 24.04. |
+**Procédure en 18 étapes — Ubuntu 24.04 LTS**
+
+| Élément | Contenu |
+|---|---|
+| **Référent** | Installation complète d'un serveur MeshCentral auto-hébergé sur VPS Ubuntu, avec MongoDB 8.0, certificat TLS via acme.sh, thème graphique Stylish UI, sauvegardes automatiques et connexion d'appareils Windows et macOS. |
+| **Émetteur** | Bariu Azeez |
+| **Message** | Fournir une procédure complète, corrigée et validée, permettant à tout utilisateur de déployer MeshCentral en production sur Ubuntu 24.04. |
 | **Récepteur** | Administrateurs systèmes, entreprises et utilisateurs privés souhaitant héberger leur propre serveur de gestion à distance. |
-| **Canal**     | Dépôt GitHub public                                                                             |
-| **Code**      | La langue française                                                                             |
+| **Canal** | Dépôt GitHub public |
+| **Code** | Français |
 | **Référence** | Consultez la [Documentation officielle MeshCentral](https://docs.meshcentral.com), [acme.sh](https://github.com/acmesh-official/acme.sh) et [DuckDNS](https://www.duckdns.org). |
 
 ---

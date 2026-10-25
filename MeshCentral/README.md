@@ -1,14 +1,15 @@
-# MeshCentral - Guide d'Installation Entreprise
+# MeshCentral — Serveur de gestion à distance auto-hébergé
+
 **Présentation et bénéfices d'un serveur de gestion à distance auto-hébergé**
 
-| Élément       | Contenu                                                                                         |
-|---------------|-------------------------------------------------------------------------------------------------|
-| **Référent**  | Présentation et documentation d'un serveur MeshCentral auto-hébergé sur VPS Ubuntu, sécurisé avec TLS, supervisé via systemd et sauvegardé automatiquement. |
-| **Émetteur**  | Communauté open source - guide contributif public                                               |
-| **Message**   | Présenter les bénéfices et le contenu du guide d'installation complet de MeshCentral en environnement entreprise ou privé. |
-| **Récepteur** | Toute personne souhaitant héberger son propre serveur de gestion à distance sans abonnement     |
-| **Canal**     | Dépôt GitHub public                                                                             |
-| **Code**      | La langue française                                                                             |
+| Élément | Contenu |
+|---|---|
+| **Référent** | Présentation et documentation d'un serveur MeshCentral auto-hébergé sur VPS Ubuntu, sécurisé avec TLS, supervisé via systemd et sauvegardé automatiquement. |
+| **Émetteur** | Bariu Azeez |
+| **Message** | Présenter les bénéfices et le contenu du guide d'installation complet de MeshCentral en environnement d'entreprise ou privé. |
+| **Récepteur** | Toute personne souhaitant héberger son propre serveur de gestion à distance sans abonnement |
+| **Canal** | Dépôt GitHub public |
+| **Code** | Français |
 | **Référence** | Consultez la [Documentation officielle MeshCentral](https://docs.meshcentral.com) et [MeshCentral GitHub](https://github.com/Ylianst/MeshCentral). |
 
 ---
