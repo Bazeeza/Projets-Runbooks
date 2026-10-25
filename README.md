@@ -86,6 +86,8 @@ Une infrastructure qu'on ne peut pas reconstruire n'est documentée qu'à moiti�
 2. **Traçabilité** — les commandes exactes et les résultats attendus sont consignés
 3. **Transfert de connaissances** — la logique derrière chaque choix technique est expliquée, pas seulement la commande
 
+Tous les documents principaux suivent le même en-tête (référent, émetteur, message, récepteur, canal, code, référence) : voir le [gabarit des documents](GABARIT-DOCUMENT.md).
+
 ---
 
 ## Technologies couvertes
