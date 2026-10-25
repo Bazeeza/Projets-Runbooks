@@ -1,20 +1,22 @@
-# Fiche de planification de la stratégie
+# Stratégie de réalisation du script Asana — remise 1
 
-## Objectif de Stratégie
-Mon objectif ici est de décrire ma stratégie avant de commencer le projet sur **Asana**. J’explique la procédure de comment je vais découper le projet en plusieurs parties et comment je vais les réaliser pour arriver au but final avec un script fonctionnel.
+**Plan de travail rédigé avant le début du projet**
+
+| Élément | Contenu |
+|---|---|
+| **Référent** | Un script Python qui lit un fichier XML et crée des projets, sections et activités dans **Asana**. |
+| **Émetteur** | Bariu Azeez |
+| **Message** | Expliquer comment le travail sera organisé étape par étape pour produire un script fonctionnel. |
+| **Récepteur** | M. Gilles Lacasse |
+| **Canal** | Dépôt GitLab du cours (Collège de Rosemont), republié sur GitHub |
+| **Code** | Français |
+| **Référence** | [Asana API — Quick start guide](https://developers.asana.com/docs/quick-start) |
 
 ---
 
-## Schéma de planification
+## Objectif de la stratégie
 
-| Élément       | Contenu                                                                 |
-|---------------|-------------------------------------------------------------------------|
-| **Référent**  | Un script qui lit un fichier XML et crée des projets, sections et activités dans **Asana**. |
-| **Émetteur**  | Moi-même, Bariu Azeez.                                                  |
-| **Message**   | Mon but est d’expliquer comment je vais organiser mon travail étape par étape pour réussir à produire un script fonctionnel. |
-| **Récepteur** | M. Gilles Lacasse                                                       |
-| **Canal**     | Un dépôt GitLab                                                         |
-| **Code**      | La langue française écrite.                                             |
+Décrire la stratégie avant de commencer le projet sur **Asana** : comment le projet sera découpé en plusieurs parties et comment chacune sera réalisée pour aboutir à un script fonctionnel.
 
 ---
 

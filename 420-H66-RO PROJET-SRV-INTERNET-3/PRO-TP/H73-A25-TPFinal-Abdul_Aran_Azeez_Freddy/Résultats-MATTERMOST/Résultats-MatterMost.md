@@ -1,16 +1,14 @@
-# Travail Pratique Final – Preuves d’installation et de fonctionnement (Mattermost)
+# Travail pratique final — Preuves d’installation et de fonctionnement (Mattermost)
 
-**Auteur / But et schéma de planification**
-
-| Élément        | Contenu |
-|--------------|---------|
-| **Référent**  | Preuves d’installation et de fonctionnement du service **Mattermost** hébergé sur AWS (Compte 1 / **us-east-1**) et relié à une base de données. |
-| **Émetteur**  | **Bariu Azeez, Freddy, Abdul-Majid et Aran** |
-| **Message**   | Fournir les preuves nécessaires à la correction : machine support, service actif, conteneurs, DNS/HTTPS, base de données et inventaire (agent). |
+| Élément | Contenu |
+|---|---|
+| **Référent** | Preuves d’installation et de fonctionnement du service **Mattermost** hébergé sur AWS (Compte 1 / **us-east-1**) et relié à une base de données. |
+| **Émetteur** | Bariu Azeez, Freddy, Abdul-Majid, Aran |
+| **Message** | Fournir les preuves nécessaires à la correction : machine support, service actif, conteneurs, DNS/HTTPS, base de données et inventaire (agent). |
 | **Récepteur** | M. Jérémy Massinon |
-| **Canal**     | Dépôt GitLab |
-| **Code**      | Français |
-| **Références** | [Mattermost Docs](https://docs.mattermost.com/) · [AWS EC2](https://docs.aws.amazon.com/fr_fr/ec2/) |
+| **Canal** | Dépôt GitLab du cours (Collège de Rosemont), republié sur GitHub |
+| **Code** | Français |
+| **Référence** | [Mattermost Docs](https://docs.mattermost.com/) · [AWS EC2](https://docs.aws.amazon.com/fr_fr/ec2/) |
 
 ---
 

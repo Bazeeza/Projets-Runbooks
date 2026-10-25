@@ -1,15 +1,16 @@
-# Guide TUTO d'utilisation du script ASANA (macOS)
+# Guide d'utilisation du script Asana (macOS)
 
-**Schéma de planification**
+**Création automatique de projets Asana à partir d'un fichier XML**
 
-| Élément       | Contenu                                                                 |
-|---------------|-------------------------------------------------------------------------|
-| **Référent**  | Un script qui lit un fichier XML et crée des projets/tâches/sous-tâches, sections et activités dans **Asana**. |
-| **Émetteur**  | Moi-même, Bariu Azeez.                                                  |
-| **Message**   | Mon but ici est de documenter la procédure à suivre afin de tester mon SCRIPT pour un utilisateur. |
-| **Récepteur** | M. Gilles Lacasse                                                       |
-| **Canal**     | Un dépôt GitLab                                                         |
-| **Code**      | La langue française écrite.                                             |
+| Élément | Contenu |
+|---|---|
+| **Référent** | Un script Python qui lit un fichier XML et crée des projets, tâches, sous-tâches, sections et activités dans **Asana**. |
+| **Émetteur** | Bariu Azeez |
+| **Message** | Documenter la procédure à suivre pour qu'un utilisateur puisse tester le script. |
+| **Récepteur** | M. Gilles Lacasse |
+| **Canal** | Dépôt GitLab du cours (Collège de Rosemont), republié sur GitHub |
+| **Code** | Français |
+| **Référence** | [Asana API — Quick start guide](https://developers.asana.com/docs/quick-start) |
 
 ---
 ### Prérequis

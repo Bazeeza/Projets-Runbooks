@@ -1,16 +1,17 @@
-# Réflexion sur la stratégie 1
+# Stratégie de réalisation du script Asana — remise 2
 
-**Schéma de planification**
+**Retour sur la stratégie de départ et comparaison avec celle finalement utilisée**
 
-| Élément       | Contenu                                                                 |
-|---------------|-------------------------------------------------------------------------|
-| **Référent**  | Un script qui lit un fichier XML et crée des projets, sections et activités dans **Asana**. |
-| **Émetteur**  | Moi-même, Bariu Azeez.                                                  |
-| **Message**   | Mon but est d’expliquer et montre une réflexion en faissant une comparaison du stratégie du début est celle qui est enfin utilisée |
-| **Récepteur** | M. Gilles Lacasse                                                       |
-| **Canal**     | Un dépôt GitLab                                                         |
-| **Code**      | La langue française écrite.                                             |
-  
+| Élément | Contenu |
+|---|---|
+| **Référent** | Un script Python qui lit un fichier XML et crée des projets, sections et activités dans **Asana**. |
+| **Émetteur** | Bariu Azeez |
+| **Message** | Présenter une réflexion en comparant la stratégie du début avec celle qui a finalement été utilisée. |
+| **Récepteur** | M. Gilles Lacasse |
+| **Canal** | Dépôt GitLab du cours (Collège de Rosemont), republié sur GitHub |
+| **Code** | Français |
+| **Référence** | [Asana API — Quick start guide](https://developers.asana.com/docs/quick-start) |
+
 ---
 
 ## 1. Familiarisation avec Asana

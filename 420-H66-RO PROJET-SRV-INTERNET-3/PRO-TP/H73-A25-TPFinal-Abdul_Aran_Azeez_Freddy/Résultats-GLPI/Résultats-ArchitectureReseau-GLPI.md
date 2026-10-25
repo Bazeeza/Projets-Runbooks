@@ -1,16 +1,14 @@
-# Travail Pratique Final – AWS – Architecture réseau + groupes de sécurité (EC2-GLPI)
+# Travail pratique final — Architecture réseau et groupes de sécurité (EC2-GLPI)
 
-**Auteur / But et schéma de planification**
-
-| Élément       | Contenu |
-|-------------|---------|
-| **Référent**  | Présentation et documentation de l’instance **EC2-GLPI** hébergée sur **AWS** (Compte 2 / **Oregon – us-west-2**). |
-| **Émetteur**  | **Bariu Azeez, Freddy, Abdul-Majid et Aran** |
-| **Message**   | Documenter les résultats de l’architecture réseau (**VPC / Subnet / IP**) et les **règles de pare-feu (Security Groups)** associées au serveur GLPI. |
+| Élément | Contenu |
+|---|---|
+| **Référent** | Présentation et documentation de l’instance **EC2-GLPI** hébergée sur **AWS** (Compte 2 / **Oregon – us-west-2**). |
+| **Émetteur** | Bariu Azeez, Freddy, Abdul-Majid, Aran |
+| **Message** | Documenter les résultats de l’architecture réseau (**VPC / Subnet / IP**) et les **règles de pare-feu (Security Groups)** associées au serveur GLPI. |
 | **Récepteur** | M. Jérémy Massinon |
-| **Canal**     | Dépôt GitLab |
-| **Code**      | Français |
-| **Références** | [AWS EC2](https://docs.aws.amazon.com/fr_fr/ec2/) · [GLPI](https://glpi-project.org/) |
+| **Canal** | Dépôt GitLab du cours (Collège de Rosemont), republié sur GitHub |
+| **Code** | Français |
+| **Référence** | [AWS EC2](https://docs.aws.amazon.com/fr_fr/ec2/) · [GLPI](https://glpi-project.org/) |
 
 ---
 

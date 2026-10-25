@@ -1,10 +1,26 @@
-# Samba - Partage de ficher
+# Travail pratique 1 — Partage de fichiers avec Samba
 
-## Pourquoi Samba?
+**Partage entre un client Windows et un serveur Ubuntu**
 
-Nous avons pris Samba, puisqu'il est compaatible avec Windows et Linux, ce qui est ce que nous avons besoins pour faire ce partage entre notre VM WINDOWS CLIENT et VM UBUNTU SERVEUR
+| Élément | Contenu |
+|---|---|
+| **Référent** | L'installation et la configuration d'un partage **Samba** sur Ubuntu Server, accessible depuis un client Windows. |
+| **Émetteur** | Bariu Azeez, Abdul-Majid, Aran |
+| **Message** | Présenter les étapes d'installation, de configuration et de vérification du partage. |
+| **Récepteur** | M. Jérémy Massinon |
+| **Canal** | Dépôt GitLab du cours (Collège de Rosemont), republié sur GitHub |
+| **Code** | Français |
+| **Référence** | [Ubuntu Server — Set up Samba as a file server](https://ubuntu.com/server/docs/how-to/samba/file-server/) |
+
+---
+
+## Pourquoi Samba ?
+
+Nous avons choisi Samba parce qu'il est compatible avec Windows et Linux, ce dont nous avions besoin pour partager des fichiers entre notre VM client Windows et notre VM serveur Ubuntu.
+
 ## Installation
-Tout d'abord, il faut mettre à jour toute les packets installés
+
+Tout d'abord, il faut mettre à jour la liste des paquets.
 
 *image 1*
 ```

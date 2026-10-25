@@ -1,16 +1,14 @@
-# Travail Pratique Final – AWS CloudWatch – Tableaux de bord, métriques et alertes (TPFinal-Alerts)
+# Travail pratique final — CloudWatch : tableaux de bord, métriques et alertes (TPFinal-Alerts)
 
-**Auteur / But et schéma de planification**
-
-| Élément       | Contenu |
-|-------------|---------|
-| **Référent**  | Preuves de supervision CloudWatch : tableaux de bord, métriques (CPU, disque, bande passante) et alertes (notifications) pour les services du TP Final. |
-| **Émetteur**  | **Bariu Azeez, Freddy, Abdul-Majid et Aran** |
-| **Message**   | Prouver la mise en place d’un dashboard CloudWatch et des alertes (seuils) pour chaque service de l’infrastructure. |
+| Élément | Contenu |
+|---|---|
+| **Référent** | Preuves de supervision CloudWatch : tableaux de bord, métriques (CPU, disque, bande passante) et alertes (notifications) pour les services du TP Final. |
+| **Émetteur** | Bariu Azeez, Freddy, Abdul-Majid, Aran |
+| **Message** | Prouver la mise en place d’un dashboard CloudWatch et des alertes (seuils) pour chaque service de l’infrastructure. |
 | **Récepteur** | M. Jérémy Massinon |
-| **Canal**     | Dépôt GitLab |
-| **Code**      | Français |
-| **Références** | [AWS CloudWatch](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/) · [CloudWatch Alarms](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html) |
+| **Canal** | Dépôt GitLab du cours (Collège de Rosemont), republié sur GitHub |
+| **Code** | Français |
+| **Référence** | [AWS CloudWatch](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/) · [CloudWatch Alarms](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html) |
 
 ---
 

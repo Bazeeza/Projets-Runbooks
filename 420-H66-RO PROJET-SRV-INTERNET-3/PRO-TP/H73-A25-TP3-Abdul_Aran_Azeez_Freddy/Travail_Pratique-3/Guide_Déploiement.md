@@ -1,15 +1,38 @@
-# Travail Pratique 3 – Guide/Tuto Déploiement Ubuntu Desktop
-**Auteur But et Schéma planification**
+# Travail pratique 3 — Déploiement de Vaultwarden sur AWS avec Terraform
 
-| Élément        | Contenu                                                                                                                                                                                                                                                                                                                                                             |
-| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Référent**   | Guide de déploiement d’un serveur **Vaultwarden** (serveur compatible Bitwarden écrit en Rust) hébergé sur **AWS**,                                                                                                      |
-| **Émetteur**   | **Bariu Azeez – Abdul-Majid – Aran**                                                                                                                                                                                                                                                                                                                                |
-| **Message**    | Présenter/documenter un tutoriel et les résultats du déploiement du serveur **Vaultwarden** sur AWS à l’aide des scripts Terraform.                                                                                                                                                                     |
-| **Récepteur**  | M. Jérémy Massinon                                                                                                                                                                                                                                                                                                                                                  |
-| **Canal**      | GitLab                                                                                                                                                                                                                                                                                                                       |
-| **Code**       | Français                                                                                                                                                                                                                                                                                                                                                            |
-| **Références** | [Vaultwarden](https://github.com/dani-garcia/vaultwarden) · [Terraform](https://developer.hashicorp.com/terraform/docs) · [AWS EC2 Docs](https://docs.aws.amazon.com/fr_fr/ec2/) · [AWS VPC Docs](https://docs.aws.amazon.com/vpc/) · |
+**Guide pas à pas depuis un poste Ubuntu Desktop**
+
+| Élément | Contenu |
+|---|---|
+| **Référent** | Le déploiement d'un serveur **Vaultwarden** (serveur compatible Bitwarden écrit en Rust) sur **AWS** à l'aide de scripts Terraform. |
+| **Émetteur** | Bariu Azeez, Abdul-Majid, Aran |
+| **Message** | Présenter un tutoriel et les résultats du déploiement de Vaultwarden sur AWS avec Terraform. |
+| **Récepteur** | M. Jérémy Massinon |
+| **Canal** | Dépôt GitLab du cours (Collège de Rosemont), republié sur GitHub |
+| **Code** | Français |
+| **Référence** | [Vaultwarden](https://github.com/dani-garcia/vaultwarden) · [Terraform](https://developer.hashicorp.com/terraform/docs) · [AWS EC2](https://docs.aws.amazon.com/fr_fr/ec2/) · [Amazon VPC](https://docs.aws.amazon.com/vpc/) |
+
+---
+
+#### Schéma de l'architecture déployée
+
+Ressources créées par [`Scripts-Terraform/main.tf`](Scripts-Terraform/main.tf) :
+
+```mermaid
+flowchart LR
+    U["Utilisateurs<br/>Internet"] -->|"HTTP 80 · HTTPS 443"| IGW["Internet Gateway"]
+    subgraph VPC["VPC · 10.0.0.0/16"]
+        subgraph PUB["Sous-réseau public · 10.0.1.0/24"]
+            SG["Groupe de sécurité bitwarden-sg<br/>22 · 80 · 443"]
+            subgraph EC2["EC2 Ubuntu 22.04 · t2.micro"]
+                CADDY["Caddy<br/>HTTPS automatique"] -->|"localhost:8000"| VW["Conteneur Docker<br/>vaultwarden/server"]
+            end
+        end
+    end
+    IGW --> SG
+    SG --> CADDY
+    EIP["Elastic IP<br/>bitwarden-eip"] -.-> CADDY
+```
 
 -----
 

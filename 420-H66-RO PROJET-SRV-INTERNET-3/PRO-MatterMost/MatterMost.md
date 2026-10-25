@@ -1,15 +1,16 @@
-# Travail Pratique 2.3 – AWS RDS + MatterMost
-**Auteur But et Schéma planification**
+# Travail pratique 2.3 — Mattermost avec AWS RDS
 
-| Élément        | Contenu                                                                        |
-| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Référent**   | Présentation et documentation d’un serveur **Mattermost** hébergé sur AWS et relié à une base de données **AWS RDS PostgreSQL**.              |
-| **Émetteur**   | **Bariu Azeez. Abdul-Majid. Aran**                   |
-| **Message**    | Présenter et documenter les **résultats** du déploiement réseau et services DNS, TLS, RDS et notifications e-mail) de **Mattermost**.   |
-| **Récepteur**  | M. Jérémy Massinon      |
-| **Canal**      | Dépôt GitLab                |
-| **Code**       | La langue française   |
-| **Références** | [MatterMost Docs](https://docs.mattermost.com/index.html) [EC2 DOCS](https://docs.aws.amazon.com/fr_fr/ec2/), [AWS RDS DOCS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_PostgreSQL.html)|
+**Déploiement de Mattermost sur EC2 derrière NGINX, avec une base RDS PostgreSQL privée**
+
+| Élément | Contenu |
+|---|---|
+| **Référent** | Un serveur **Mattermost** hébergé sur AWS et relié à une base de données **AWS RDS PostgreSQL**. |
+| **Émetteur** | Bariu Azeez, Abdul-Majid, Aran |
+| **Message** | Présenter les **résultats** du déploiement : réseau, DNS, TLS, RDS et notifications par courriel de **Mattermost**. |
+| **Récepteur** | M. Jérémy Massinon |
+| **Canal** | Dépôt GitLab du cours (Collège de Rosemont), republié sur GitHub |
+| **Code** | Français |
+| **Référence** | [Documentation Mattermost](https://docs.mattermost.com/index.html) · [AWS EC2](https://docs.aws.amazon.com/fr_fr/ec2/) · [AWS RDS pour PostgreSQL](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_PostgreSQL.html) |
 
 ---
 

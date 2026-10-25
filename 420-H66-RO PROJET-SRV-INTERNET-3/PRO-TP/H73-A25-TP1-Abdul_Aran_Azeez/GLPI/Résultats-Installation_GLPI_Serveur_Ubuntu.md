@@ -1,16 +1,16 @@
-# Configuration MySQL et GLPI sur Ubuntu Serveur
+# Travail pratique 1 — Installation de GLPI et MySQL sur Ubuntu Server
 
-#### Auteur But et Schéma de planification
+**Serveur d'inventaire GLPI hébergé sur une instance Ubuntu AWS**
 
-| Élément        | Contenu                                                                 |
-|----------------|-------------------------------------------------------------------------|
-| **Référent**   | Présentation et documentation de l’installation et configuration de **GLPI** + **MySQL** hébergés sur un serveur Ubuntu AWS |
-| **Émetteur**   | **Bariu Azeez. Abdul-Majid. Aran**                                      |
-| **Message**    | Présenter et documenter les résultats de notre installation              |
-| **Récepteur**  | **M. Jérémy Massinon**                                                  |
-| **Canal**      | Un dépôt GitLab                                                         |
-| **Code**       | La langue française                                                     |
-| **Référence**  | Consultez la [Documentation GLPI](https://faq.teclib.com/fr/03_knowledgebase/procedures/install_glpi/) |
+| Élément | Contenu |
+|---|---|
+| **Référent** | L'installation et la configuration de **GLPI** et de **MySQL** sur un serveur Ubuntu hébergé sur AWS. |
+| **Émetteur** | Bariu Azeez, Abdul-Majid, Aran |
+| **Message** | Présenter et documenter les résultats de l'installation du serveur GLPI. |
+| **Récepteur** | M. Jérémy Massinon |
+| **Canal** | Dépôt GitLab du cours (Collège de Rosemont), republié sur GitHub |
+| **Code** | Français |
+| **Référence** | [Teclib — Installer GLPI](https://faq.teclib.com/fr/03_knowledgebase/procedures/install_glpi/) |
 
 ---
 

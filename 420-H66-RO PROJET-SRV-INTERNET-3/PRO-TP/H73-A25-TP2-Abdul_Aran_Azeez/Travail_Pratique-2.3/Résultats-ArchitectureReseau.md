@@ -1,16 +1,38 @@
-# Travail Pratique 2.3 – Architecture Reseau Mattermost + AWS RDS
-**Auteur But et Schéma planification**
+# Travail pratique 2.3 — Architecture réseau de Mattermost avec AWS RDS
 
-| Élément        | Contenu                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Référent**   | Présentation et documentation d’un serveur **Mattermost** hébergé sur AWS et relié à une base de données **AWS RDS PostgreSQL**.                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| **Émetteur**   | **Bariu Azeez. Abdul-Majid. Aran**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| **Message**    | Présenter et documenter les **résultats** de la partie réseau VPC, DNS, TLS, groupes de sécurité, et accès RDS.                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| **Récepteur**  | M. Jérémy Massinon                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| **Canal**      | Dépôt GitLab                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| **Code**       | La langue française                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| **Références** | [MatterMost Docs](https://docs.mattermost.com/index.html) [EC2 DOCS](https://docs.aws.amazon.com/fr_fr/ec2/), [AWS RDS DOCS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_PostgreSQL.html)|
+**Résultats de la partie réseau : VPC, DNS, TLS, groupes de sécurité et accès à RDS**
 
+| Élément | Contenu |
+|---|---|
+| **Référent** | Un serveur **Mattermost** hébergé sur une instance EC2 et relié à une base de données **AWS RDS PostgreSQL** privée. |
+| **Émetteur** | Bariu Azeez, Abdul-Majid, Aran |
+| **Message** | Présenter et documenter les **résultats** de la partie réseau : VPC, DNS, TLS, groupes de sécurité et accès à RDS. |
+| **Récepteur** | M. Jérémy Massinon |
+| **Canal** | Dépôt GitLab du cours (Collège de Rosemont), republié sur GitHub |
+| **Code** | Français |
+| **Référence** | [Documentation Mattermost](https://docs.mattermost.com/index.html) · [AWS EC2](https://docs.aws.amazon.com/fr_fr/ec2/) · [AWS RDS pour PostgreSQL](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_PostgreSQL.html) |
+
+---
+
+### Schéma de l'architecture
+
+```mermaid
+flowchart LR
+    U["Utilisateurs<br/>Internet"] -->|"HTTP 80 / HTTPS 443"| SGE
+    subgraph VPC["VPC du TP"]
+        subgraph PUB["Sous-réseau avec IP publique"]
+            SGE["Groupe de sécurité EC2<br/>22, 80, 443"]
+            subgraph EC2["EC2 Ubuntu 24.04 · t3.small"]
+                NGX["NGINX<br/>terminaison TLS"] -->|"127.0.0.1:8065"| MM["Mattermost"]
+            end
+        end
+        subgraph PRIV["Sous-réseaux privés · DB Subnet Group"]
+            SGR["Groupe de sécurité RDS<br/>5432 depuis le SG EC2 seulement"] --> RDS[("RDS PostgreSQL 14<br/>db.t3.micro · non public")]
+        end
+    end
+    SGE --> NGX
+    MM -->|"PostgreSQL 5432 + TLS"| SGR
+```
 
 ### Configuration du VPC
 

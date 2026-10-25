@@ -1,4 +1,19 @@
-# Installation de **Zabbix Agent** sur **Ubuntu Desktop**
+# Installation de l'agent Zabbix sur Ubuntu Desktop
+
+**Agent précompilé (binaire statique) relié au serveur Zabbix du laboratoire**
+
+| Élément | Contenu |
+|---|---|
+| **Référent** | L'installation de l'agent Zabbix à partir de l'archive précompilée officielle sur Ubuntu Desktop 22.04 / 24.04. |
+| **Émetteur** | Bariu Azeez |
+| **Message** | Installer, vérifier (somme SHA-256) et démarrer l'agent pour qu'il soit supervisé par le serveur Zabbix. |
+| **Récepteur** | Étudiants et techniciens du laboratoire de supervision |
+| **Canal** | Dépôt GitLab du cours (Collège de Rosemont), republié sur GitHub |
+| **Code** | Français |
+| **Référence** | [Zabbix — Téléchargement des agents précompilés](https://www.zabbix.com/download_agents) · [Zabbix — Agent](https://www.zabbix.com/documentation/7.0/en/manual/concepts/agent) |
+
+---
+
 Procédure validée
 Compatible Ubuntu **22.04** / **24.04**. Serveur Zabbix d’exemple : **192.168.2.175**.
 
