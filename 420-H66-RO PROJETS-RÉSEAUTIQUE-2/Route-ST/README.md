@@ -5,11 +5,11 @@
 | Élément | Contenu |
 |---|---|
 | **Référent** | Conception et documentation d'un réseau redondant reliant deux bâtiments, où un routeur de secours prend automatiquement le relais grâce à la distance administrative. |
-| **Émetteur** | **Bariu Azeez.** |
+| **Émetteur** | Bariu Azeez |
 | **Message** | Présenter et documenter la configuration complète d'une topologie en triangle assurant une connectivité continue malgré la panne du lien principal. |
 | **Récepteur** | Le grand public — toute personne souhaitant comprendre ou reproduire une redondance réseau sans protocole de routage dynamique. |
-| **Canal** | Un dépôt GitLab-Rosemont |
-| **Code** | La langue française |
+| **Canal** | Dépôt GitLab du cours (Collège de Rosemont), republié sur GitHub |
+| **Code** | Français |
 | **Référence** | Consultez le [guide Cisco sur le routage statique](https://www.cisco.com/c/en/us/support/docs/ip/routing-information-protocol-rip/13716-49.html) et la [documentation Cisco sur la distance administrative](https://www.cisco.com/c/en/us/support/docs/ip/border-gateway-protocol-bgp/15986-admin-distance.html). |
 
 ---
