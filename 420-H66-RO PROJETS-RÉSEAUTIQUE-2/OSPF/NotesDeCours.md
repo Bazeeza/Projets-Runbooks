@@ -10,7 +10,7 @@
 | **Récepteur** | M. Jérémy Massinon |
 | **Canal** | Dépôt GitLab du cours (Collège de Rosemont), republié sur GitHub |
 | **Code** | Français |
-| **Référence** | [Cisco — OSPF Design Guide](https://www.cisco.com/c/en/us/support/docs/ip/open-shortest-path-first-ospf/7039-1.html) |
+| **Référence** | [Cisco — IP Routing: OSPF Configuration Guide](https://www.cisco.com/c/en/us/td/docs/ios-xml/ios/iproute_ospf/configuration/xe-16/iro-xe-16-book/iro-cfg.html) |
 
 ---
 

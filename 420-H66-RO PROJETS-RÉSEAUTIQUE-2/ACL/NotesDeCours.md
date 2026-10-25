@@ -10,7 +10,7 @@
 | **Récepteur** | M. Jérémy Massinon |
 | **Canal** | Dépôt GitLab du cours (Collège de Rosemont), republié sur GitHub |
 | **Code** | Français |
-| **Référence** | [Cisco — Configure and Filter IP Access Lists](https://www.cisco.com/c/en/us/support/docs/security/ios-firewall/23602-confaccesslists.html) |
+| **Référence** | [Cisco — Configure IP Access Lists](https://www.cisco.com/c/en/us/support/docs/security/ios-firewall/23602-confaccesslists.html) |
 
 ---
 
