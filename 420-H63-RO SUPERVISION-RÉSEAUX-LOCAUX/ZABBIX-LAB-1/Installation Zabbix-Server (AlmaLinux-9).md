@@ -1,19 +1,21 @@
-# Guide d'Installation Zabbix - AlmaLinux 9
+# Installation du serveur Zabbix sur AlmaLinux 9
 
-**Auteur But et Schéma planification**
+**Zabbix 7.0 LTS, MariaDB et interface web sur une machine virtuelle du laboratoire**
 
-| Élément        | Contenu                                                                 |
-|----------------|-------------------------------------------------------------------------|
-| **Référent**   | Présentation et documentation d’un serveur Jellyfin hébergé sur AWS sécurisé avec HTTPS, et supervisé via AWS CloudWatch. |
-| **Émetteur**   | **Bariu Azeez. Abdul-Majid. Aran**                                      |
-| **Message**    | Présenter et documenter les résultats complets de l’installation et du déploiement de Jellyfin avec sa supervision CloudWatch sur AWS. |
-| **Récepteur**  | M. Jérémy Massinon                                                  |
-| **Canal**      | Un dépôt GitLab                                                         |
-| **Code**       | La langue française                                                     |
-| **Référence**  | Consultez la [Documentation officielle AWS EC2](https://docs.aws.amazon.com/fr_fr/ec2/) et [Jellyfin Docs](https://jellyfin.org/docs/). |
+| Élément | Contenu |
+|---|---|
+| **Référent** | L'installation du serveur Zabbix 7.0 LTS avec une base MariaDB et l'interface web sur AlmaLinux 9. |
+| **Émetteur** | Bariu Azeez, Abdul-Majid, Aran |
+| **Message** | Installer le serveur de supervision pas à pas, y compris la correction du paramètre `DBPassword` qui empêchait la connexion à la base. |
+| **Récepteur** | Étudiants et techniciens du laboratoire de supervision |
+| **Canal** | Dépôt GitLab du cours (Collège de Rosemont), republié sur GitHub |
+| **Code** | Français |
+| **Référence** | [Zabbix — Installation à partir des paquets (RHEL / AlmaLinux)](https://www.zabbix.com/documentation/7.0/en/manual/installation/install_from_packages/rhel) · [Zabbix — Téléchargement](https://www.zabbix.com/download) |
+
+---
 
 
-# Installation Zabbix - AlmaLinux 9
+## Correction principale — AlmaLinux 9
 > Correction principale : **garantir que `DBPassword` est bien présent** dans `/etc/zabbix/zabbix_server.conf`.  
 > Le problème rencontré venait d’une ligne `DBPassword` **absente** → Zabbix tentait la connexion **sans mot de passe** (`using password: NO`).
 
