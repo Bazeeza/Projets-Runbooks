@@ -1,17 +1,19 @@
-# Travail Pratique 2.2 – AWS CloudWatch + Jellyfin
-**Auteur But et Schéma planification**
+# Travail pratique 2.2 — Jellyfin supervisé par AWS CloudWatch
 
-| Élément        | Contenu                                                                 |
-|----------------|-------------------------------------------------------------------------|
-| **Référent**   | Présentation et documentation d’un serveur Jellyfin hébergé sur AWS sécurisé avec HTTPS, et supervisé via AWS CloudWatch. |
-| **Émetteur**   | **Bariu Azeez. Abdul-Majid. Aran**                                      |
-| **Message**    | Présenter et documenter les résultats complets de l’installation et du déploiement de Jellyfin avec sa supervision CloudWatch sur AWS. |
-| **Récepteur**  | M. Jérémy Massinon                                                  |
-| **Canal**      | Un dépôt GitLab-Rosemont                                                         |
-| **Code**       | La langue française                                                     |
-| **Référence**  | Consultez la [Documentation officielle AWS EC2](https://docs.aws.amazon.com/fr_fr/ec2/) et [Jellyfin Docs](https://jellyfin.org/docs/). |
+**Déploiement du serveur multimédia Jellyfin sur EC2 et supervision par CloudWatch**
+
+| Élément | Contenu |
+|---|---|
+| **Référent** | Un serveur **Jellyfin** hébergé sur une instance EC2, sécurisé avec HTTPS et supervisé par **AWS CloudWatch**. |
+| **Émetteur** | Bariu Azeez, Abdul-Majid, Aran |
+| **Message** | Présenter les résultats de l'installation et du déploiement de Jellyfin, puis de sa supervision CloudWatch. |
+| **Récepteur** | M. Jérémy Massinon |
+| **Canal** | Dépôt GitLab du cours (Collège de Rosemont), republié sur GitHub |
+| **Code** | Français |
+| **Référence** | [Documentation Jellyfin](https://jellyfin.org/docs/) · [Amazon CloudWatch](https://docs.aws.amazon.com/cloudwatch/) · [AWS EC2](https://docs.aws.amazon.com/fr_fr/ec2/) |
 
 ---
+
 ### Déploiement et configuration du serveur Jellyfin
 **Explication**
 Le service **Jellyfin** a été configuré et déployé sur le port **8096**.  

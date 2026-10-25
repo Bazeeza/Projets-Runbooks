@@ -1,15 +1,16 @@
-# Travail Pratique 2 – Déploiement serveur Nextcloud + Stockage AWS S3
-**Auteur But et Schéma de planification**
+# Travail pratique 2.1 — Serveur Nextcloud avec stockage AWS S3
 
-| Élément        | Contenu                                                                 |
-|----------------|-------------------------------------------------------------------------|
-| **Référent**   | Présentation et documentation  d’un serveur Nextcloud + Certs (Let's Encrypt) et enfin avec une stockage AWS S3  |
-| **Émetteur**   | **Bariu Azeez. Abdul-Majid. Aran**                                      |
-| **Message**    | Présenter et documenter les résultats de notre installation et la déploiement dune instance Ubuntu Server sur AWS et Nextcloud avec certs             |
-| **Récepteur**  | **M. Jérémy Massinon**                                                  |
-| **Canal**      | Un dépôt GitLab                                                         |
-| **Code**       | La langue française                                                     |
-| **Référence**  | Consultez la [Documentation](https://faq.teclib.com/fr/03_knowledgebase/procedures/install_glpi/) |
+**Déploiement de Nextcloud sur EC2, certificat Let's Encrypt et stockage externe S3**
+
+| Élément | Contenu |
+|---|---|
+| **Référent** | Un serveur **Nextcloud** (Apache, PHP, MariaDB) sur une instance EC2 Ubuntu 24.04, sécurisé par un certificat Let's Encrypt et relié à un compartiment **AWS S3**. |
+| **Émetteur** | Bariu Azeez, Abdul-Majid, Aran |
+| **Message** | Présenter les résultats de l'installation : instance EC2, dépendances, Nextcloud, certificat et stockage S3. |
+| **Récepteur** | M. Jérémy Massinon |
+| **Canal** | Dépôt GitLab du cours (Collège de Rosemont), republié sur GitHub |
+| **Code** | Français |
+| **Référence** | [Manuel d'administration Nextcloud](https://docs.nextcloud.com/server/latest/admin_manual/) · [Amazon S3](https://docs.aws.amazon.com/s3/) · [Certbot](https://certbot.eff.org/) |
 
 ---
 
