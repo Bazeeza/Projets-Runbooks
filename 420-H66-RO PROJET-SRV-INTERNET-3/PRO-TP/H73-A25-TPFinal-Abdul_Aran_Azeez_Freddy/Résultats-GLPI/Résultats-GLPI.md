@@ -1,4 +1,4 @@
-# Travail Pratique Final – Preuves d’installation et de fonctionnement (GLPI)
+# Travail pratique final — Preuves d’installation et de fonctionnement (GLPI)
 
 | Élément | Contenu |
 |---|---|

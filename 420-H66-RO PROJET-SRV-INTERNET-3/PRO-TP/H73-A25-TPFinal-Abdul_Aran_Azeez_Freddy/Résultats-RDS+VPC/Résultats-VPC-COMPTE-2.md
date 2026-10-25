@@ -1,4 +1,4 @@
-# Travail Pratique Final – AWS – Réseau VPC + connexion privée point à point (Compte 2)
+# Travail pratique final — Réseau VPC et connexion privée point à point (Compte 2)
 
 | Élément | Contenu |
 |---|---|

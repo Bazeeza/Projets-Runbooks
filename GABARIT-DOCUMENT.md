@@ -30,7 +30,8 @@ Les fichiers de configuration brute (exercices Cisco, `PREP-*`) et les index de 
 
 | Champ | Règle |
 |---|---|
-| **Titre** | Un seul titre de niveau 1 (`#`), sans point final ni numéro de version. |
+| **Titre** | Un seul titre de niveau 1 (`#`), sans point final ni numéro de version. Forme « Travail pratique N — Sujet » pour les travaux pratiques, « Notes de cours — Sujet » pour les notes. |
+| **Sous-titre** | Facultatif : une phrase en gras qui précise le contexte (jamais « Auteur, but et schéma de planification »). |
 | **Référent** | Décrit le contenu **réel** du document, jamais celui d'un autre travail copié. |
 | **Émetteur** | Nom public **Bariu Azeez** ; les coéquipiers sont gardés, séparés par des virgules. |
 | **Code** | Toujours « Français » (le dépôt `Technical-Runbooks` contient la version anglaise des procédures générales). |

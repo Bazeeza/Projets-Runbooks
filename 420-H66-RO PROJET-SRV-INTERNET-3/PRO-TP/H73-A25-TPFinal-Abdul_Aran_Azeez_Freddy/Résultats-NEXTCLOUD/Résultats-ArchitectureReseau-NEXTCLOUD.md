@@ -1,4 +1,4 @@
-# Travail Pratique Final – AWS – Architecture réseau + groupes de sécurité (EC2-Nextcloud)
+# Travail pratique final — Architecture réseau et groupes de sécurité (EC2-Nextcloud)
 
 | Élément | Contenu |
 |---|---|
