@@ -1,17 +1,30 @@
-# Travail Pratique 2.2 – AWS Architecture Reseau + Groupe de sécurité  
-**Auteur But et Schéma planification**
+# Travail pratique 2.2 — Architecture réseau et groupe de sécurité de Jellyfin
 
-| Élément        | Contenu                                                                 |
-|----------------|-------------------------------------------------------------------------|
-| **Référent**   | Présentation et documentation d’un serveur Jellyfin hébergé sur AWS sécurisé avec HTTPS, et supervisé via AWS CloudWatch. |
-| **Émetteur**   | **Bariu Azeez. Abdul-Majid. Aran**                                      |
-| **Message**    | Présenter et documenter les résultats complets de l’installation et du déploiement de Jellyfin avec sa supervision CloudWatch sur AWS. |
-| **Récepteur**  | M. Jérémy Massinon                                                  |
-| **Canal**      | Un dépôt GitLab                                                         |
-| **Code**       | La langue française                                                     |
-| **Référence**  | Consultez la [Documentation officielle AWS EC2](https://docs.aws.amazon.com/fr_fr/ec2/) et [Jellyfin Docs](https://jellyfin.org/docs/). |
+**Instance EC2 et règles d'entrée du serveur Jellyfin**
+
+| Élément | Contenu |
+|---|---|
+| **Référent** | L'instance EC2 Ubuntu 24.04 qui héberge **Jellyfin** et son groupe de sécurité (ports 22, 80, 443 et 8096). |
+| **Émetteur** | Bariu Azeez, Abdul-Majid, Aran |
+| **Message** | Documenter l'instance et justifier chaque port ouvert dans le groupe de sécurité. |
+| **Récepteur** | M. Jérémy Massinon |
+| **Canal** | Dépôt GitLab du cours (Collège de Rosemont), republié sur GitHub |
+| **Code** | Français |
+| **Référence** | [AWS — Groupes de sécurité EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-security-groups.html) · [Documentation Jellyfin](https://jellyfin.org/docs/) |
 
 ---
+
+### Schéma de l'architecture
+
+```mermaid
+flowchart LR
+    U["Utilisateurs<br/>Internet"] --> SG
+    subgraph AWS["AWS · VPC par défaut"]
+        SG["Groupe de sécurité<br/>22 SSH · 80 HTTP · 443 HTTPS · 8096 Jellyfin"] --> EC2["EC2 Ubuntu 24.04 · t3.small<br/>Jellyfin"]
+        EC2 -. "métriques" .-> CW["Amazon CloudWatch"]
+    end
+```
+
 ### Architecture Réseautique et Configuration Base
 
 - Une instance **Ubuntu Server 24.04 LTS**.  
