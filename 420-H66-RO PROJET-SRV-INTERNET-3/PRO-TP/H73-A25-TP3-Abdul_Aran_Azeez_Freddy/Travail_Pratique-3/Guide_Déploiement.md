@@ -14,7 +14,7 @@
 
 ---
 
-### Schéma de l'architecture déployée
+## Schéma de l'architecture déployée
 
 Ressources créées par [`Scripts-Terraform/main.tf`](Scripts-Terraform/main.tf) :
 
@@ -36,7 +36,7 @@ flowchart LR
 
 -----
 
-### Prérequis
+## Prérequis
 
 Avant de commencer, il faut :
 
@@ -47,7 +47,7 @@ Avant de commencer, il faut :
 
 -----
 
-### C’est quoi Vaultwarden ?
+## C’est quoi Vaultwarden ?
 
  D’abord, **Vaultwarden** est un gestionnaire de mots de passe (un *vault*) qui permet de garder de façon sécurisée :
 
@@ -69,19 +69,19 @@ Dans le cadre de ce travail pratique, on déploie Vaultwarden sur AWS à l’aid
 
 -----
 
-### Schéma globale du Déploiement
+## Schéma globale du Déploiement
 
     Les scripts Terraform s'est trouve dans le répertoire Scripts-Terraform du projets git-lab H73-A25-TP3-Abdul_Aran_Azeez_Freddy
 ----
 ![Capture 56](https://i.postimg.cc/3wHBMVRT/Screenshot-2025-11-18-at-8-15-03-PM.png)  
 
 -----
-### Phase 1 - Préparer la machine Ubuntu de déploiement
+## Phase 1 - Préparer la machine Ubuntu de déploiement
 
 Cette phase sert à préparer votre machine qui va lancer Terraform ça peut être un Ubuntu.
 
 
-#### Mettre à jour la machine
+### Mettre à jour la machine
 ```
 sudo apt update && sudo apt upgrade -y
 ```
@@ -137,7 +137,7 @@ Default region name= ********************
 ![Capture 7](https://i.postimg.cc/Nft3QJPC/Screenshot-2025-11-18-at-6-22-23-PM.png)  
 ----
 
-#### Installer Terraform
+### Installer Terraform
 
 ```
 curl -fsSL https://apt.releases.hashicorp.com/gpg | \
@@ -157,7 +157,7 @@ terraform -version
 ![Capture 5](https://i.postimg.cc/VsXyQQ42/Screenshot-2025-11-18-at-6-09-02-PM.png)  
 ---
 
-### Phase 2 - Initialisation
+## Phase 2 - Initialisation
 
 Donc ici cette phase sert à copier les script et par la suite lancer le déploiement à partir des scripts Terraform déjà présents dans le repotoire.
 
@@ -237,7 +237,7 @@ terraform destroy
 ![Capture 52](https://i.postimg.cc/6pZ0mtBH/Screenshot-2025-11-18-at-7-58-53-PM.png)  
 ---
 
-### Phase 3 - Tests de fonctionnement
+## Phase 3 - Tests de fonctionnement
 
 **Configuration du VPC**
 
@@ -279,7 +279,7 @@ terraform destroy
 ![Capture 19](https://i.postimg.cc/MKYhH7C6/Screenshot-2025-11-18-at-6-47-31-PM.png)  
 ----
 
-### Phase 4 - Validation
+## Phase 4 - Validation
 
 - Résultats Attendu: **Page web en https et avec nom de domaine**
 ----
