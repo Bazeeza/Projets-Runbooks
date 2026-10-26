@@ -14,7 +14,7 @@
 
 ---
 
-### Création et configuration de l’instance EC2
+## Création et configuration de l’instance EC2
 
 - Une instance Ubuntu Server 24.04 LTS a été créée dans la région us-east-1.  
 - Version ubuntu : **Ubuntu Server 24.04 LTS**
@@ -29,7 +29,7 @@
 ![Capture 2](https://i.postimg.cc/3NwVCJDG/2.png)
 ---
 
-### Installation des dépendances et de Nextcloud
+## Installation des dépendances et de Nextcloud
 
 Connexion SSH à l’instance et installation des paquets apache2 et autres installation pour le fonctionement :
 
@@ -70,7 +70,7 @@ sudo apt install python3-certbot-apache -y
 ![Capture 13](https://i.postimg.cc/d30pmtT6/13.png)
 ---
 
-### Téléchargement et configuration de Nextcloud
+## Téléchargement et configuration de Nextcloud
 
 Téléchargement avec wget par la suite il faut faire unzip nextcloud :
 
@@ -89,7 +89,7 @@ chown -R www-data:www-data /var/www/nextcloud
 ![Capture 9](https://i.postimg.cc/4y3qbNhQ/9.png)
 ---
 
-### Configuration du VirtualHost Apache
+## Configuration du VirtualHost Apache
 
 - Création du fichier /etc/apache2/sites-available/nextcloud.conf :
 
@@ -115,7 +115,7 @@ sudo systemctl status apache2
 ![Capture 15](https://i.postimg.cc/QCMwkxWf/15.png)
 ----
 
-### Configuration du DNS dynamique (No-IP)
+## Configuration du DNS dynamique (No-IP)
 
 - Création d’un domaine dynamique : **aran.servebeer.com**  
 - Outil utilisé : No-IP  
@@ -132,7 +132,7 @@ sudo systemctl status apache2
 ![Capture 12](https://i.postimg.cc/SRK37NzV/12.png)
 ---
 
-### Installation de Nextcloud via navigateur
+## Installation de Nextcloud via navigateur
 
 Depuis le navigateur tapez votre address publique :  
 - 54.83.127.219 ou bien http://aran.servebeer.com
@@ -152,7 +152,7 @@ Configuration :
 ![Capture 11](https://i.postimg.cc/wMBZcTsk/11.png)
 ---
 
-### Résolution du domaine non approuvé
+## Résolution du domaine non approuvé
 
 - Lors de l’accès avec le nom de domaine, Nextcloud affichait :  
 - **Accès à partir d’un domaine non approuvé**
@@ -176,7 +176,7 @@ array (
 ![Capture 17](https://i.postimg.cc/0jH3tRp7/17.png)
 ---
 
-### Sécurisation HTTPS avec Certbot
+## Sécurisation HTTPS avec Certbot
 
 - Commande à exécutée :
 ```
@@ -204,7 +204,7 @@ sudo certbot --apache -d aran.servebeer.com --register--unsafely-without-email
 ---
 ![Capture 21](https://i.postimg.cc/L507yKzQ/21.png)
 ---
-### Configuration du stockage externe S3
+## Configuration du stockage externe S3
 
 **Dans Paramètres → Administration → Stockage externe :  **
 - Type : Amazon S3  
@@ -224,7 +224,7 @@ sudo certbot --apache -d aran.servebeer.com --register--unsafely-without-email
 ![Capture 25](https://i.postimg.cc/gjB5MFvB/25.png)
 ---
 
-### Vérification dans la console AWS
+## Vérification dans la console AWS
 
 **Dans notre console AWS → S3 → tp2mpb :  **
 Veuillez confirmer que le fichier cred_s3.txt est bien visible dans le bucket.  

@@ -13,7 +13,7 @@
 | **Référence** | [Asana API — Quick start guide](https://developers.asana.com/docs/quick-start) |
 
 ---
-### Prérequis
+## Prérequis
 
 1. **Un ordinateur** : Avec macOS (ou Windows, Linux). Le script est exécutable sur tous les systèmes.
 2. **Un compte Asana** : Si vous n’en avez pas, allez sur https://app.asana.com/ et créez-en un gratuitement. Notez votre email et mot de passe.

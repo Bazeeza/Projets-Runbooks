@@ -14,7 +14,7 @@
 
 ---
 
-### Schéma de l'architecture
+## Schéma de l'architecture
 
 ```mermaid
 flowchart LR
@@ -34,7 +34,7 @@ flowchart LR
     MM -->|"PostgreSQL 5432 + TLS"| SGR
 ```
 
-### Configuration du VPC
+## Configuration du VPC
 
 * **VPC** : `vpc-01cacd1ef26e91987`
 * **Sous-réseaux RDS (DB Subnet Group `rds-ec2-db-subnet-group-1`)** :
@@ -46,7 +46,7 @@ flowchart LR
 ![test e](https://i.postimg.cc/ZqYycWdk/Screenshot-2025-10-28-193737.png)
 ---
 
-### Instance EC2 MatterMost
+## Instance EC2 MatterMost
 * **Système** : Ubuntu Server **24.04 LTS** (voir capture)
 * **Adresse IP publique** : `3.209.116.82` (voir capture)
 * **Nom de domaine** : `mattermost-azeez.ddns.net` (No-IP)
@@ -69,7 +69,7 @@ flowchart LR
 ---
 
 
-### Instance RDS PostgreSQL
+## Instance RDS PostgreSQL
 
 * **Moteur** : PostgreSQL version 14.19
 * **Type** : `db.t3.micro`
@@ -107,7 +107,7 @@ flowchart LR
 ![Screenshot 2025-10-28 17:46:13](https://i.postimg.cc/rwPqZ06k/Screenshot-2025-10-28-174613.png)
 ---
 
-### Résultats Groupe Sécurité EC2 MatterMost
+## Résultats Groupe Sécurité EC2 MatterMost
 
 **Ports ouverts sur l’instance EC2**
 
@@ -126,7 +126,7 @@ flowchart LR
 ![Screenshot 2025-10-28 18:43:43](https://i.postimg.cc/5tQbh4JD/Screenshot-2025-10-28-184343.png)
 ---
 
-### Résultats Groupe de Sécurité - RDS(PostgreSQL)
+## Résultats Groupe de Sécurité - RDS(PostgreSQL)
 
 **Autorisations d’entrée sur l’instance RDS**
 

@@ -14,7 +14,7 @@
 
 ---
 
-#### Schéma de l'architecture déployée
+### Schéma de l'architecture déployée
 
 Ressources créées par [`Scripts-Terraform/main.tf`](Scripts-Terraform/main.tf) :
 
@@ -36,7 +36,7 @@ flowchart LR
 
 -----
 
-#### Prérequis
+### Prérequis
 
 Avant de commencer, il faut :
 
