@@ -5,7 +5,10 @@
 ![AWS](https://img.shields.io/badge/AWS-EC2%20%7C%20VPC%20%7C%20RDS-ffb454?style=flat-square)
 ![Zabbix](https://img.shields.io/badge/supervision-Zabbix%20%7C%20CloudWatch-c792ea?style=flat-square)
 
-> **English summary** — Hands-on runbooks written during a college diploma in network technology (DEC, Techniques de l'informatique — réseautique). They cover Cisco routing and switching (VLANs, static routing with floating routes, OSPF, NAT, ACLs), network monitoring with Zabbix and SNMP, AWS services (EC2, VPC, RDS, S3, CloudWatch, Terraform), CIS Benchmark hardening scripts in Bash and PowerShell, and a MeshCentral remote-support server. Documents are in French; each course folder has its own index README.
+[![Script lint](https://github.com/Bazeeza/Projets-Runbooks/actions/workflows/scripts.yml/badge.svg)](https://github.com/Bazeeza/Projets-Runbooks/actions/workflows/scripts.yml)
+[![Markdown](https://github.com/Bazeeza/Projets-Runbooks/actions/workflows/markdown.yml/badge.svg)](https://github.com/Bazeeza/Projets-Runbooks/actions/workflows/markdown.yml)
+
+> **English summary** — Hands-on runbooks written during a college diploma in network technology (DEC, Techniques de l'informatique — réseautique). They cover Cisco routing and switching (VLANs, static routing with floating routes, OSPF, NAT, ACLs), network monitoring with Zabbix and SNMP, AWS services (EC2, VPC, RDS, S3, CloudWatch, Terraform), CIS Benchmark hardening scripts in Bash and PowerShell, and a MeshCentral remote-support server. Documents are in French; each course folder has its own index README. GitHub Actions lint the scripts (ShellCheck, PSScriptAnalyzer, Ruff) and the Markdown (markdownlint, offline link check) on every push and pull request.
 
 **Runbooks** techniques — procédures reproductibles étape par étape pour le déploiement, la configuration, la supervision et le dépannage d'infrastructures réseau et de services.
 
@@ -20,6 +23,7 @@ Chaque document présente le contexte, la topologie, les commandes exécutées e
   - [Projets de réseautique 2 (420-H66)](#projets-de-réseautique-2-420-h66)
   - [MeshCentral](#meshcentral)
 - [Pourquoi des runbooks ?](#pourquoi-des-runbooks-)
+- [Contrôles qualité (CI)](#contrôles-qualité-ci)
 - [Technologies couvertes](#technologies-couvertes)
 - [Compétences démontrées](#compétences-démontrées)
 - [Formation](#formation)
@@ -87,6 +91,23 @@ Une infrastructure qu'on ne peut pas reconstruire n'est documentée qu'à moiti�
 3. **Transfert de connaissances** — la logique derrière chaque choix technique est expliquée, pas seulement la commande
 
 Tous les documents principaux suivent le même en-tête (référent, émetteur, message, récepteur, canal, code, référence) : voir le [gabarit des documents](GABARIT-DOCUMENT.md).
+
+---
+
+## Contrôles qualité (CI)
+
+Chaque push et chaque pull request lance des vérifications automatiques avec GitHub Actions :
+
+| Workflow | Outil | Ce qui est vérifié |
+|---|---|---|
+| [Script lint](.github/workflows/scripts.yml) | ShellCheck | Scripts Bash : guillemets, variables inutilisées, shebang (niveau *warning* et plus) |
+| [Script lint](.github/workflows/scripts.yml) | PSScriptAnalyzer | Scripts PowerShell : verbes approuvés, variables automatiques, encodage UTF-8 avec BOM ([réglages](PSScriptAnalyzerSettings.psd1)) |
+| [Script lint](.github/workflows/scripts.yml) | `py_compile` + Ruff | Script Python : syntaxe et erreurs (imports, noms non définis) |
+| [Markdown](.github/workflows/markdown.yml) | markdownlint | Règles souples : hiérarchie des titres, liens vides ou mal formés, texte alternatif des images ([règles](.markdownlint-cli2.jsonc)) |
+| [Markdown](.github/workflows/markdown.yml) | lychee (hors ligne) | Tous les liens relatifs entre les documents du dépôt |
+
+> [!NOTE]
+> Les corrections faites pour ces outils n'ont pas changé la logique des scripts ; chacune est décrite dans son message de commit. Seule différence visible : le script Windows est maintenant enregistré en UTF-8 avec BOM, ce qui corrige l'affichage des accents sous Windows PowerShell 5.1.
 
 ---
 
