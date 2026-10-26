@@ -174,7 +174,7 @@ Donc ici, si jamais quelque ne va pas voici les message erreur donné:
 
 ## Comment vérifier le résultat
 
-1. Allez sur https://app.asana.com/ et connectez-vous avec votre compte (par exemple, `barriuazeez@gmail.com`).
+1. Allez sur https://app.asana.com/ et connectez-vous avec votre compte (par exemple, `vous@example.com`).
 2. Cliquez sur votre workspace (par exemple, "My workspace").
 3. Cherchez le projet (par exemple, `Déploiements Projet` ou `Test Déploiement`).
 4. Vérifiez les sections (par exemple, `Pratico-Pratique`, `Main Section`).
