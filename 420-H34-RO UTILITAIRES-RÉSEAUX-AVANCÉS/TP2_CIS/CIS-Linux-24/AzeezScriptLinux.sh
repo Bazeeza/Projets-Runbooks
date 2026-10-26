@@ -332,7 +332,8 @@ Azeez_Test_LastChange() {
     fi
 
     local probleme=0
-    while IFS=: read -r user pass lastchange rest; do
+    # "_" = champs lus mais non utilisés (nom du compte, champs suivants)
+    while IFS=: read -r _ pass lastchange _; do
         # si compte verrouillé ou sans mot de passe, on skip
         if [[ "$pass" =~ ^(!|[*]) ]]; then
             continue
@@ -408,7 +409,8 @@ Azeez_Test_RootSSH() {
 # 5.4.2.7 – comptes système sans shell interactif
 Azeez_Test_SystemAccountsShell() {
     local probleme=0
-    while IFS=: read -r user pass uid gid desc home shell; do
+    # "_" = champs non utilisés (mot de passe, GID, description, dossier personnel)
+    while IFS=: read -r user _ uid _ _ _ shell; do
         if [ "$uid" -ge 1000 ]; then
             continue
         fi
