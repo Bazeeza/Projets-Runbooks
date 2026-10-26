@@ -172,7 +172,7 @@ Add-InfoLine "=== Azeez - début du traitement pour '$XmlFile' ==="
 # et compare avec les valeurs attendues dans le XML.
 # Si le mode correction est activé, elle change les réglages.
 
-function TestAndFix-PasswordRule {
+function Invoke-PasswordRule {
     param(
         $Rule
     )
@@ -275,7 +275,7 @@ function TestAndFix-PasswordRule {
 # combien de temps il reste verrouillé, etc.
 # En mode correction, elle ajuste ces paramètres avec "net accounts".
 
-function TestAndFix-LockoutRule {
+function Invoke-LockoutRule {
     param(
         $Rule
     )
@@ -336,7 +336,7 @@ function TestAndFix-LockoutRule {
 # Par exemple, elle peut vérifier si le compte invité (Guest) est désactivé
 # ou si les mots de passe vides sont interdits.
 
-function TestAndFix-AccountRule {
+function Invoke-AccountRule {
     param(
         $Rule
     )
@@ -383,7 +383,7 @@ function TestAndFix-AccountRule {
 # Si le service n’existe pas, on considère que c’est bon.
 # Sinon, on vérifie son type de démarrage et on le désactive si nécessaire.
 
-function TestAndFix-ServiceRule {
+function Invoke-ServiceRule {
     param(
         $Rule
     )
@@ -415,7 +415,7 @@ function TestAndFix-ServiceRule {
 # Elle vérifie si le profil (Domaine, Privé, Public) est activé ou non.
 # En mode correction, elle active le firewall si ce n’est pas conforme.
 
-function TestAndFix-FirewallRule {
+function Invoke-FirewallRule {
     param(
         $Rule
     )
@@ -448,7 +448,7 @@ function TestAndFix-FirewallRule {
 # par exemple : succès et/ou échecs d’authentification.
 # En mode correction, elle modifie la configuration d’audit.
 
-function TestAndFix-AuditRule {
+function Invoke-AuditRule {
     param(
         $Rule
     )
@@ -489,12 +489,12 @@ foreach ($rule in $rules) {
     $cat = [string]$rule.category
 
     switch ($cat) {
-        'password' { TestAndFix-PasswordRule -Rule $rule }
-        'lockout'  { TestAndFix-LockoutRule  -Rule $rule }
-        'account'  { TestAndFix-AccountRule  -Rule $rule }
-        'service'  { TestAndFix-ServiceRule  -Rule $rule }
-        'firewall' { TestAndFix-FirewallRule -Rule $rule }
-        'audit'    { TestAndFix-AuditRule    -Rule $rule }
+        'password' { Invoke-PasswordRule -Rule $rule }
+        'lockout'  { Invoke-LockoutRule  -Rule $rule }
+        'account'  { Invoke-AccountRule  -Rule $rule }
+        'service'  { Invoke-ServiceRule  -Rule $rule }
+        'firewall' { Invoke-FirewallRule -Rule $rule }
+        'audit'    { Invoke-AuditRule    -Rule $rule }
         default {
             Add-CheckLine "[INCONNU] Catégorie inconnue '$cat' dans le XML, règle ignorée." $false
         }
