@@ -135,10 +135,10 @@ Veuillez noter que le script Python se trouve dans le dossier TP1-Remise-Semaine
    ```
 4. Tapez la commande pour lancer le script :
    ```
-   python3 as_xml_tester.py --xml P01_Deploiements.xml --workspace 1211590922040040
+   python3 as_xml_final.py --xml P01_Deploiements.xml --workspace <WORKSPACE_GID>
    ```
    - Remplacez `P01_Deploiements.xml` par votre fichier XML (par exemple, `Test1_Projet.xml`).
-   - Remplacez `1211590922040040` par votre GID de workspace. 
+   - Remplacez `<WORKSPACE_GID>` par votre GID de workspace.
      - Pour trouver le GID : Allez dans Asana, cliquez sur votre workspace, regardez l’URL (comme `app.asana.com/0/1234567891223455/list` – le nombre `1234567891223455` est le GID).
 5. Le script vous demande :
    - Nom du projet si `Nom="?"` (tapez un nom comme `Déploiements Projet`).
@@ -149,7 +149,7 @@ Veuillez noter que le script Python se trouve dans le dossier TP1-Remise-Semaine
 ## Exemple de commande complète
 
 ```
-python3 as_xml_final.py --xml Pratique.xml --workspace 12345678532122040040
+python3 as_xml_final.py --xml Pratique.xml --workspace <WORKSPACE_GID>
 ```
 
 - Si vous avez le token dans `.env`, pas besoin de `--token`.
