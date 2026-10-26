@@ -121,7 +121,7 @@ flowchart LR
   * **8065** n’est pas ouvert publiquement. Mattermost écoute localement derrière NGINX.
   * **RDS:5432** Sortant EC2 autorise la connexion
 --
-- Security Groups (inbound/outbound)](captures/ec2-sg.png)`
+- Capture : Security Groups de l'EC2 (inbound/outbound)
 ---
 ![Screenshot 2025-10-28 18:43:43](https://i.postimg.cc/5tQbh4JD/Screenshot-2025-10-28-184343.png)
 ---
@@ -138,7 +138,7 @@ flowchart LR
   * Aucun port 22/80/443 n’est ouvert sur RDS.
   * TCP est ouvert que pour la base de données
 ---
-- Connectivity & Security (inbound 5432 depuis SG EC2)](captures/rds-connectivity.png)
+- Capture : Connectivity & Security de RDS (inbound 5432 depuis le SG de l'EC2)
 ---
 ![Screenshot 2025-10-28 17:46:13](https://i.postimg.cc/rwPqZ06k/Screenshot-2025-10-28-174613.png)
 ---
