@@ -1,0 +1,58 @@
+name: Script lint
+
+on:
+  push:
+    branches: [main]
+    paths: ["**/*.sh", "**/*.ps1", "**/*.py", "PSScriptAnalyzerSettings.psd1", ".github/workflows/scripts.yml"]
+  pull_request:
+    paths: ["**/*.sh", "**/*.ps1", "**/*.py", "PSScriptAnalyzerSettings.psd1", ".github/workflows/scripts.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  shellcheck:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # ShellCheck is preinstalled on ubuntu-latest; -z keeps paths with spaces and accents intact
+      - name: ShellCheck (warning and above)
+        run: |
+          shellcheck --version
+          git ls-files -z '*.sh' | xargs -0 --no-run-if-empty shellcheck --severity=warning
+
+  psscriptanalyzer:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: PSScriptAnalyzer
+        shell: pwsh
+        run: |
+          if (-not (Get-Module -ListAvailable -Name PSScriptAnalyzer)) {
+              Install-Module -Name PSScriptAnalyzer -Scope CurrentUser -Force
+          }
+          $results = Invoke-ScriptAnalyzer -Path . -Recurse -Settings ./PSScriptAnalyzerSettings.psd1
+          $results | Format-Table -AutoSize RuleName, Severity, ScriptName, Line, Message | Out-String -Width 200
+          if ($results) {
+              Write-Error "$(@($results).Count) PSScriptAnalyzer finding(s)"
+              exit 1
+          }
+
+  python:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # Syntax check plus Ruff's error-level rules (pyflakes and pycodestyle errors only)
+      - name: Compile and lint Python scripts
+        run: |
+          pip install --quiet ruff
+          git ls-files -z '*.py' | xargs -0 --no-run-if-empty python -m py_compile
+          git ls-files -z '*.py' | xargs -0 --no-run-if-empty ruff check --select E4,E7,E9,F
