@@ -1,4 +1,4 @@
-#######################################################################################
+﻿#######################################################################################
 # AzeezScriptWin.ps1
 # Nom : Bariu Azeez
 # But : Script de sécurisation Windows 11 basé sur un fichier XML.
@@ -10,7 +10,7 @@
 
 # Initaialisation de variiables
 
-$XmlFile       = $null 
+$XmlFile       = $null
 $ModeValidate  = $false
 $ModeCorrect   = $false
 $ModeQuiet     = $false
@@ -75,7 +75,7 @@ if (-not $ModeValidate -and -not $ModeCorrect) {
     $ModeValidate = $true
 }
 
-#  2. Gestion de la sortie (écran / fichier / -q) 
+#  2. Gestion de la sortie (écran / fichier / -q)
 # Dans cette partie, on décide où vont les messages :
 # seulement à l’écran, seulement dans un fichier, ou les deux.
 # On gère aussi le mode silencieux (-q) qui cache les messages “OK”.
@@ -135,7 +135,7 @@ function Add-InfoLine {
     }
 }
 
-#  3. Lecture du fichier XML 
+#  3. Lecture du fichier XML
 # Ici on essaie de charger le contenu du fichier XML donné par -f.
 # Si la lecture échoue (mauvais chemin, fichier corrompu, etc.),
 # on affiche une erreur et on arrête tout, car le script dépend du XML.
@@ -159,7 +159,7 @@ if (-not $rules) {
 
 Add-InfoLine "=== Azeez - début du traitement pour '$XmlFile' ==="
 
-#  4. Fonctions utilitaires pour chaque type 
+#  4. Fonctions utilitaires pour chaque type
 # Dans cette grosse section, il y a plusieurs fonctions.
 # Chaque fonction gère un type de règle différent :
 # mot de passe, verrouillage, compte, service, firewall et audit.
@@ -485,7 +485,7 @@ function Invoke-AuditRule {
     }
 }
 
-#  5. Boucle principale sur les règles 
+#  5. Boucle principale sur les règles
 # Maintenant qu’on a toutes les fonctions prêtes,
 # on parcourt chaque règle du XML ($rules) une par une.
 # Selon la catégorie (password, lockout, account, etc.),
@@ -509,7 +509,7 @@ foreach ($rule in $rules) {
 
 Add-InfoLine "=== Azeez - fin du traitement ==="
 
-#  6. Écriture éventuelle du fichier de sortie 
+#  6. Écriture éventuelle du fichier de sortie
 # À la fin, si l’utilisateur a donné l’option -s,
 # on enregistre toutes les lignes de résultats ($ResultLines)
 # dans un fichier texte (UTF-8).
