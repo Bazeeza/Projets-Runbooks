@@ -14,7 +14,7 @@
 
 ---
 
-### Schéma de l'architecture
+## Schéma de l'architecture
 
 ```mermaid
 flowchart LR
@@ -25,7 +25,7 @@ flowchart LR
     end
 ```
 
-### Architecture Réseautique et Configuration Base
+## Architecture Réseautique et Configuration Base
 
 - Une instance **Ubuntu Server 24.04 LTS**.  
 - Type d’instance : **t3.small**  
@@ -37,7 +37,7 @@ flowchart LR
 ![cap 2](https://i.postimg.cc/MH62pcng/Screenshot-2025-10-21-at-7-35-50-PM.png)
 ---
 
-### Résultats Groupe de sécurité
+## Résultats Groupe de sécurité
 
 **Voici les ports ouverts sur la machine :  **
 
@@ -49,7 +49,7 @@ flowchart LR
 | **TCP personnalisé pour Jellyfin** | TCP | 8096 | 0.0.0.0/0 | utilisation par la service Jellyfin. |
 
 ---
-### Pourquoi ces règles ?
+## Pourquoi ces règles ?
 
 - Le port **22 (SSH)** ici est essentiel pour la connexion sur machine et faire les Configuration nécessaire.
 - Le port **80 (HTTP)** ici est requis pour la redirection vers une page web securisé.

@@ -14,7 +14,7 @@
 
 ---
 
-### Déploiement et configuration du serveur Jellyfin
+## Déploiement et configuration du serveur Jellyfin
 **Explication**
 Le service **Jellyfin** a été configuré et déployé sur le port **8096**.  
 Donc, ici elle s’agit d’une serveur multimédia qui permettant de diffuser des fichiers vidéo, musique et tout autres contenus.  
@@ -38,7 +38,7 @@ Donc, ici elle s’agit d’une serveur multimédia qui permettant de diffuser d
 ---
 
 
-### Nom domaine et HTTPS
+## Nom domaine et HTTPS
 
 Nous avons liée un **nom de domaine dynamique** via **No-IP** afin d’accéder à notre service Jellyfin sans utiliser l’adresse IP.  
 
@@ -58,7 +58,7 @@ Nous avons liée un **nom de domaine dynamique** via **No-IP** afin d’accéder
 ---
 
 
-### HTTPS avec Certbot
+## HTTPS avec Certbot
 
 - Le HTTPS est configuré via **Certbot** (Let's Encrypt).  
 - Une fois le certificat généré, le site est maintenat accessible en **https://azeezjellyfinaws** avec un **certificat SSL valide**.  
@@ -71,7 +71,7 @@ Nous avons liée un **nom de domaine dynamique** via **No-IP** afin d’accéder
 ---
 
 
-### Supervision AWS CloudWatch
+## Supervision AWS CloudWatch
 
 - AWS CloudWatch est un service de surveillance qui a un but premier de surveiller la performance d'un serveur afin de optimiser l'utilisation ses ressources. 
 - Un tableau de bord avec plusieurs **métriques** pour évaluer la santé du système et du service Jellyfin.

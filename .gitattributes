@@ -1,0 +1,7 @@
+# Bash scripts must keep LF line endings: with CRLF, "#!/bin/bash\r" fails on Linux
+*.sh text eol=lf
+
+# Screenshots and diagrams are binary
+*.png binary
+*.jpg binary
+*.jpeg binary

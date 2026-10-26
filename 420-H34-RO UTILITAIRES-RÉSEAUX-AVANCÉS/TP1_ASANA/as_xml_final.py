@@ -5,7 +5,7 @@
 # But : Ce script a pour but d'importer un projet Asana depuis un XML
 # afin de créer des projets/taches/sous-tache dans les sections et activités Asana
 # Prérequis: Un terminal d'un systeme d'exploitation et Python est ses dépendances installer
-# python3 as_xml_tester.py --xml Pratique.xml --workspace 1211590922040040
+# python3 as_xml_final.py --xml Pratique.xml --workspace <WORKSPACE_GID>
 # ***********************************************************************************************
 # ***********************************************************************************************
 # ***********************************************************************************************

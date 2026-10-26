@@ -1,0 +1,17 @@
+{
+  // Soft rule set: only rules that catch real rendering or navigation problems.
+  // Style rules (line length, list markers, blank lines, code fence languages...)
+  // stay off because these documents are course deliverables kept as written.
+  "config": {
+    "default": false,
+    "MD001": true, // heading levels increase one at a time
+    "MD011": true, // reversed link syntax (text)[url]
+    "MD018": true, // space after the # of a heading
+    "MD019": true, // only one space after the # of a heading
+    "MD023": true, // headings start at the beginning of the line
+    "MD039": true, // no spaces inside link text
+    "MD042": true, // no empty links
+    "MD045": true, // images have alternative text
+    "MD047": true  // files end with a newline
+  }
+}

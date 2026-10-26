@@ -110,11 +110,11 @@ Nous avons lié un **nom de domaine dynamique** via **No-IP** pour accéder au s
 ## Résultats création de comptes
 * Résultats attendus
 ---
-* **Compte 1** : `aranmattermost@gmail.com` - reçoit les notifications, connexion au workspace fonctionnelle.
+* **Compte 1** : adresse courriel de test (masquée) - reçoit les notifications, connexion au workspace fonctionnelle.
 ---
 ![Image 20](https://i.postimg.cc/DZNwVBhy/Screenshot-2025-10-24-at-6-52-40-PM.png)
 ---
-* **Compte 2** : `azeezmattermost@gmail.com` - reçoit les notifications, connexion au workspace fonctionnelle.
+* **Compte 2** : adresse courriel de test (masquée) - reçoit les notifications, connexion au workspace fonctionnelle.
 ---
 ![Image 8](https://i.postimg.cc/LX580Gr0/Screenshot-2025-10-24-at-4-45-15-PM.png)
 ---

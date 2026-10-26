@@ -23,7 +23,7 @@ La traduction d'adresses avec surcharge (PAT) sur R1 et R2.
 La redirection de port sur R2 pour que les PCs du site A puissent consulter les seveurs du site B.
 Les listes de contrôles d'accès.
 
- ## Corrigé complet TP3 — Objectif 70/70 (format Markdown)
+## Corrigé complet TP3 — Objectif 70/70 (format Markdown)
 
 > **Topologie (selon l’image)**
 

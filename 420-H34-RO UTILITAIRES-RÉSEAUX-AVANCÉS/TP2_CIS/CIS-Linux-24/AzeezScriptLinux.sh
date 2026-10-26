@@ -1,5 +1,5 @@
-#######################################################################################
 #!/bin/bash
+#######################################################################################
 # AzeezScriptLinux.sh
 # Nom : Bariu Azeez
 # But    : Vérifier et corriger quelques règles CIS sur Ubuntu 24.04
@@ -189,14 +189,14 @@ Azeez_Test_UnSeulFirewall() {
     dpkg -s nftables >/dev/null 2>&1
     c=$?
     n=0
-    [ $a -eq 0 ] && n=$((n+1))
-    [ $b -eq 0 ] && n=$((n+1))
-    [ $c -eq 0 ] && n=$((n+1))
+    [ "$a" -eq 0 ] && n=$((n+1))
+    [ "$b" -eq 0 ] && n=$((n+1))
+    [ "$c" -eq 0 ] && n=$((n+1))
 
     if [ "$n" -le 1 ]; then
-        Azeez_AjouterLigne "[FW][CIS-4.1.1-FW-ONLYONE] au plus un firewall installé (ufw=$([ $a -eq 0 ] && echo 1 || echo 0), firewalld=$([ $b -eq 0 ] && echo 1 || echo 0), nftables=$([ $c -eq 0 ] && echo 1 || echo 0))." 1
+        Azeez_AjouterLigne "[FW][CIS-4.1.1-FW-ONLYONE] au plus un firewall installé (ufw=$([ "$a" -eq 0 ] && echo 1 || echo 0), firewalld=$([ "$b" -eq 0 ] && echo 1 || echo 0), nftables=$([ "$c" -eq 0 ] && echo 1 || echo 0))." 1
     else
-        Azeez_AjouterLigne "[FW][CIS-4.1.1-FW-ONLYONE] plusieurs firewalls en même temps (ufw=$([ $a -eq 0 ] && echo 1 || echo 0), firewalld=$([ $b -eq 0 ] && echo 1 || echo 0), nftables=$([ $c -eq 0 ] && echo 1 || echo 0)). À corriger manuellement." 0
+        Azeez_AjouterLigne "[FW][CIS-4.1.1-FW-ONLYONE] plusieurs firewalls en même temps (ufw=$([ "$a" -eq 0 ] && echo 1 || echo 0), firewalld=$([ "$b" -eq 0 ] && echo 1 || echo 0), nftables=$([ "$c" -eq 0 ] && echo 1 || echo 0)). À corriger manuellement." 0
     fi
 }
 
@@ -332,7 +332,8 @@ Azeez_Test_LastChange() {
     fi
 
     local probleme=0
-    while IFS=: read -r user pass lastchange rest; do
+    # "_" = champs lus mais non utilisés (nom du compte, champs suivants)
+    while IFS=: read -r _ pass lastchange _; do
         # si compte verrouillé ou sans mot de passe, on skip
         if [[ "$pass" =~ ^(!|[*]) ]]; then
             continue
@@ -343,7 +344,7 @@ Azeez_Test_LastChange() {
         fi
     done < /etc/shadow
 
-    if [ $probleme -eq 0 ]; then
+    if [ "$probleme" -eq 0 ]; then
         Azeez_AjouterLigne "[LASTCHANGE][CIS-5.4.1.6-LASTCHANGE] tous les comptes ont une date de changement (pas 'never')." 1
     else
         Azeez_AjouterLigne "[LASTCHANGE][CIS-5.4.1.6-LASTCHANGE] au moins un compte avec date de changement invalide." 0
@@ -408,7 +409,8 @@ Azeez_Test_RootSSH() {
 # 5.4.2.7 – comptes système sans shell interactif
 Azeez_Test_SystemAccountsShell() {
     local probleme=0
-    while IFS=: read -r user pass uid gid desc home shell; do
+    # "_" = champs non utilisés (mot de passe, GID, description, dossier personnel)
+    while IFS=: read -r user _ uid _ _ _ shell; do
         if [ "$uid" -ge 1000 ]; then
             continue
         fi
@@ -425,7 +427,7 @@ Azeez_Test_SystemAccountsShell() {
         esac
     done < /etc/passwd
 
-    if [ $probleme -eq 0 ]; then
+    if [ "$probleme" -eq 0 ]; then
         Azeez_AjouterLigne "[SYS-ACCOUNTS][CIS-5.4.2.7-SYS-SHELL] comptes système ont des shells non interactifs (OK)." 1
     else
         Azeez_AjouterLigne "[SYS-ACCOUNTS][CIS-5.4.2.7-SYS-SHELL] au moins un compte système avec shell interactif (NON conforme)." 0
@@ -483,13 +485,13 @@ Azeez_Test_LoggingSystem() {
     s=$?
 
     local count=0
-    [ $r -eq 0 ] && count=$((count+1))
-    [ $s -eq 0 ] && count=$((count+1))
+    [ "$r" -eq 0 ] && count=$((count+1))
+    [ "$s" -eq 0 ] && count=$((count+1))
 
     if [ "$count" -le 1 ]; then
-        Azeez_AjouterLigne "[LOGGING][CIS-6.1.1.4-LOGGING] au plus un système de logs (rsyslog=$([ $r -eq 0 ] && echo 1 || echo 0), syslog-ng=$([ $s -eq 0 ] && echo 1 || echo 0))." 1
+        Azeez_AjouterLigne "[LOGGING][CIS-6.1.1.4-LOGGING] au plus un système de logs (rsyslog=$([ "$r" -eq 0 ] && echo 1 || echo 0), syslog-ng=$([ "$s" -eq 0 ] && echo 1 || echo 0))." 1
     else
-        Azeez_AjouterLigne "[LOGGING][CIS-6.1.1.4-LOGGING] plusieurs systèmes de logs (rsyslog=$([ $r -eq 0 ] && echo 1 || echo 0), syslog-ng=$([ $s -eq 0 ] && echo 1 || echo 0))." 0
+        Azeez_AjouterLigne "[LOGGING][CIS-6.1.1.4-LOGGING] plusieurs systèmes de logs (rsyslog=$([ "$r" -eq 0 ] && echo 1 || echo 0), syslog-ng=$([ "$s" -eq 0 ] && echo 1 || echo 0))." 0
     fi
 }
 

@@ -1,4 +1,4 @@
-#######################################################################################
+﻿#######################################################################################
 # AzeezScriptWin.ps1
 # Nom : Bariu Azeez
 # But : Script de sécurisation Windows 11 basé sur un fichier XML.
@@ -10,7 +10,7 @@
 
 # Initaialisation de variiables
 
-$XmlFile       = $null 
+$XmlFile       = $null
 $ModeValidate  = $false
 $ModeCorrect   = $false
 $ModeQuiet     = $false
@@ -75,12 +75,13 @@ if (-not $ModeValidate -and -not $ModeCorrect) {
     $ModeValidate = $true
 }
 
-#  2. Gestion de la sortie (écran / fichier / -q) 
+#  2. Gestion de la sortie (écran / fichier / -q)
 # Dans cette partie, on décide où vont les messages :
 # seulement à l’écran, seulement dans un fichier, ou les deux.
 # On gère aussi le mode silencieux (-q) qui cache les messages “OK”.
 
-$Global:ResultLines = @()
+# Portée "script" (et non globale) : la liste disparaît à la fin du script
+$script:ResultLines = New-Object System.Collections.Generic.List[string]
 
 # La fonction Add-CheckLine sert à afficher les résultats des vérifications :
 # chaque ligne dit si une règle est respectée ou non.
@@ -93,7 +94,7 @@ function Add-CheckLine {
         [bool]$IsOk
     )
 
-    $Global:ResultLines += $Text
+    $script:ResultLines.Add($Text)
 
     $showOnScreen = $true
 
@@ -122,7 +123,7 @@ function Add-InfoLine {
         [string]$Text
     )
 
-    $Global:ResultLines += $Text
+    $script:ResultLines.Add($Text)
 
     $showOnScreen = $true
     if ($OutFilePath -and -not $ScreenAndFile) {
@@ -134,7 +135,7 @@ function Add-InfoLine {
     }
 }
 
-#  3. Lecture du fichier XML 
+#  3. Lecture du fichier XML
 # Ici on essaie de charger le contenu du fichier XML donné par -f.
 # Si la lecture échoue (mauvais chemin, fichier corrompu, etc.),
 # on affiche une erreur et on arrête tout, car le script dépend du XML.
@@ -158,7 +159,7 @@ if (-not $rules) {
 
 Add-InfoLine "=== Azeez - début du traitement pour '$XmlFile' ==="
 
-#  4. Fonctions utilitaires pour chaque type 
+#  4. Fonctions utilitaires pour chaque type
 # Dans cette grosse section, il y a plusieurs fonctions.
 # Chaque fonction gère un type de règle différent :
 # mot de passe, verrouillage, compte, service, firewall et audit.
@@ -172,7 +173,7 @@ Add-InfoLine "=== Azeez - début du traitement pour '$XmlFile' ==="
 # et compare avec les valeurs attendues dans le XML.
 # Si le mode correction est activé, elle change les réglages.
 
-function TestAndFix-PasswordRule {
+function Invoke-PasswordRule {
     param(
         $Rule
     )
@@ -275,7 +276,7 @@ function TestAndFix-PasswordRule {
 # combien de temps il reste verrouillé, etc.
 # En mode correction, elle ajuste ces paramètres avec "net accounts".
 
-function TestAndFix-LockoutRule {
+function Invoke-LockoutRule {
     param(
         $Rule
     )
@@ -336,7 +337,7 @@ function TestAndFix-LockoutRule {
 # Par exemple, elle peut vérifier si le compte invité (Guest) est désactivé
 # ou si les mots de passe vides sont interdits.
 
-function TestAndFix-AccountRule {
+function Invoke-AccountRule {
     param(
         $Rule
     )
@@ -383,14 +384,14 @@ function TestAndFix-AccountRule {
 # Si le service n’existe pas, on considère que c’est bon.
 # Sinon, on vérifie son type de démarrage et on le désactive si nécessaire.
 
-function TestAndFix-ServiceRule {
+function Invoke-ServiceRule {
     param(
         $Rule
     )
 
     $id       = $Rule.id
     $field    = $Rule.field   # ex: FTPSVC
-    $expected = [string]$Rule.expected
+    # Pas de $expected ici : la règle attendue est toujours "Disabled ou non installé"
 
     $svc = Get-Service -Name $field -ErrorAction SilentlyContinue
     if (-not $svc) {
@@ -405,7 +406,11 @@ function TestAndFix-ServiceRule {
     if (-not $isOk -and $ModeCorrect) {
         try {
             Stop-Service -Name $field -Force -ErrorAction SilentlyContinue
-        } catch {}
+        }
+        catch {
+            # Un service déjà arrêté ou bloqué ne doit pas empêcher la désactivation
+            Write-Verbose "Arrêt du service $field impossible : $_"
+        }
         Set-Service -Name $field -StartupType Disabled
         Add-CheckLine "[$id] Service $field désactivé par Azeez." $false
     }
@@ -415,7 +420,7 @@ function TestAndFix-ServiceRule {
 # Elle vérifie si le profil (Domaine, Privé, Public) est activé ou non.
 # En mode correction, elle active le firewall si ce n’est pas conforme.
 
-function TestAndFix-FirewallRule {
+function Invoke-FirewallRule {
     param(
         $Rule
     )
@@ -424,13 +429,14 @@ function TestAndFix-FirewallRule {
     $field    = $Rule.field      # Domain / Private / Public
     $expected = [string]$Rule.expected
 
-    $profile = Get-NetFirewallProfile -Name $field -ErrorAction SilentlyContinue
-    if (-not $profile) {
+    # $fwProfile et non $profile : $profile est une variable automatique de PowerShell
+    $fwProfile = Get-NetFirewallProfile -Name $field -ErrorAction SilentlyContinue
+    if (-not $fwProfile) {
         Add-CheckLine "[$id] Profil firewall '$field' introuvable." $false
         return
     }
 
-    $isOn = ($profile.Enabled -eq 'True' -or $profile.Enabled -eq 1)
+    $isOn = ($fwProfile.Enabled -eq 'True' -or $fwProfile.Enabled -eq 1)
     $expectedOn = ($expected -like 'On*')
     $isOk = ($isOn -eq $expectedOn)
 
@@ -448,7 +454,7 @@ function TestAndFix-FirewallRule {
 # par exemple : succès et/ou échecs d’authentification.
 # En mode correction, elle modifie la configuration d’audit.
 
-function TestAndFix-AuditRule {
+function Invoke-AuditRule {
     param(
         $Rule
     )
@@ -479,7 +485,7 @@ function TestAndFix-AuditRule {
     }
 }
 
-#  5. Boucle principale sur les règles 
+#  5. Boucle principale sur les règles
 # Maintenant qu’on a toutes les fonctions prêtes,
 # on parcourt chaque règle du XML ($rules) une par une.
 # Selon la catégorie (password, lockout, account, etc.),
@@ -489,12 +495,12 @@ foreach ($rule in $rules) {
     $cat = [string]$rule.category
 
     switch ($cat) {
-        'password' { TestAndFix-PasswordRule -Rule $rule }
-        'lockout'  { TestAndFix-LockoutRule  -Rule $rule }
-        'account'  { TestAndFix-AccountRule  -Rule $rule }
-        'service'  { TestAndFix-ServiceRule  -Rule $rule }
-        'firewall' { TestAndFix-FirewallRule -Rule $rule }
-        'audit'    { TestAndFix-AuditRule    -Rule $rule }
+        'password' { Invoke-PasswordRule -Rule $rule }
+        'lockout'  { Invoke-LockoutRule  -Rule $rule }
+        'account'  { Invoke-AccountRule  -Rule $rule }
+        'service'  { Invoke-ServiceRule  -Rule $rule }
+        'firewall' { Invoke-FirewallRule -Rule $rule }
+        'audit'    { Invoke-AuditRule    -Rule $rule }
         default {
             Add-CheckLine "[INCONNU] Catégorie inconnue '$cat' dans le XML, règle ignorée." $false
         }
@@ -503,7 +509,7 @@ foreach ($rule in $rules) {
 
 Add-InfoLine "=== Azeez - fin du traitement ==="
 
-#  6. Écriture éventuelle du fichier de sortie 
+#  6. Écriture éventuelle du fichier de sortie
 # À la fin, si l’utilisateur a donné l’option -s,
 # on enregistre toutes les lignes de résultats ($ResultLines)
 # dans un fichier texte (UTF-8).
@@ -511,7 +517,7 @@ Add-InfoLine "=== Azeez - fin du traitement ==="
 
 if ($OutFilePath) {
     try {
-        $Global:ResultLines | Set-Content -Path $OutFilePath -Encoding UTF8
+        $script:ResultLines | Set-Content -Path $OutFilePath -Encoding UTF8
     }
     catch {
         Write-Host "Erreur : impossible d'écrire dans le fichier '$OutFilePath' : $_"
