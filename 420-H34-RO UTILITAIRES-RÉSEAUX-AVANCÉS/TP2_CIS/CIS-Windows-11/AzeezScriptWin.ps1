@@ -80,7 +80,8 @@ if (-not $ModeValidate -and -not $ModeCorrect) {
 # seulement à l’écran, seulement dans un fichier, ou les deux.
 # On gère aussi le mode silencieux (-q) qui cache les messages “OK”.
 
-$Global:ResultLines = @()
+# Portée "script" (et non globale) : la liste disparaît à la fin du script
+$script:ResultLines = New-Object System.Collections.Generic.List[string]
 
 # La fonction Add-CheckLine sert à afficher les résultats des vérifications :
 # chaque ligne dit si une règle est respectée ou non.
@@ -93,7 +94,7 @@ function Add-CheckLine {
         [bool]$IsOk
     )
 
-    $Global:ResultLines += $Text
+    $script:ResultLines.Add($Text)
 
     $showOnScreen = $true
 
@@ -122,7 +123,7 @@ function Add-InfoLine {
         [string]$Text
     )
 
-    $Global:ResultLines += $Text
+    $script:ResultLines.Add($Text)
 
     $showOnScreen = $true
     if ($OutFilePath -and -not $ScreenAndFile) {
@@ -390,7 +391,7 @@ function Invoke-ServiceRule {
 
     $id       = $Rule.id
     $field    = $Rule.field   # ex: FTPSVC
-    $expected = [string]$Rule.expected
+    # Pas de $expected ici : la règle attendue est toujours "Disabled ou non installé"
 
     $svc = Get-Service -Name $field -ErrorAction SilentlyContinue
     if (-not $svc) {
@@ -405,7 +406,11 @@ function Invoke-ServiceRule {
     if (-not $isOk -and $ModeCorrect) {
         try {
             Stop-Service -Name $field -Force -ErrorAction SilentlyContinue
-        } catch {}
+        }
+        catch {
+            # Un service déjà arrêté ou bloqué ne doit pas empêcher la désactivation
+            Write-Verbose "Arrêt du service $field impossible : $_"
+        }
         Set-Service -Name $field -StartupType Disabled
         Add-CheckLine "[$id] Service $field désactivé par Azeez." $false
     }
@@ -424,13 +429,14 @@ function Invoke-FirewallRule {
     $field    = $Rule.field      # Domain / Private / Public
     $expected = [string]$Rule.expected
 
-    $profile = Get-NetFirewallProfile -Name $field -ErrorAction SilentlyContinue
-    if (-not $profile) {
+    # $fwProfile et non $profile : $profile est une variable automatique de PowerShell
+    $fwProfile = Get-NetFirewallProfile -Name $field -ErrorAction SilentlyContinue
+    if (-not $fwProfile) {
         Add-CheckLine "[$id] Profil firewall '$field' introuvable." $false
         return
     }
 
-    $isOn = ($profile.Enabled -eq 'True' -or $profile.Enabled -eq 1)
+    $isOn = ($fwProfile.Enabled -eq 'True' -or $fwProfile.Enabled -eq 1)
     $expectedOn = ($expected -like 'On*')
     $isOk = ($isOn -eq $expectedOn)
 
@@ -511,7 +517,7 @@ Add-InfoLine "=== Azeez - fin du traitement ==="
 
 if ($OutFilePath) {
     try {
-        $Global:ResultLines | Set-Content -Path $OutFilePath -Encoding UTF8
+        $script:ResultLines | Set-Content -Path $OutFilePath -Encoding UTF8
     }
     catch {
         Write-Host "Erreur : impossible d'écrire dans le fichier '$OutFilePath' : $_"
